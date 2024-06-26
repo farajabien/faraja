@@ -1,10 +1,25 @@
 import type { Metadata } from 'next'
 import { Annie_Use_Your_Telescope } from 'next/font/google'
 import './globals.css'
+import localFont from 'next/font/local'
+
+const myFont = localFont({
+	src: [
+		// {
+		// 	path: '../public/fonts/underlord/Underlord.ttf',
+		// 	weight: '400',
+		// },
+		{
+			path: '../public/fonts/ADELIA.otf',
+			weight: '400',
+		},
+	],
+})
 
 const annieUseYourTelescope = Annie_Use_Your_Telescope({
 	weight: ['400'],
 	subsets: ['latin'],
+	display: 'auto',
 })
 
 export const metadata: Metadata = {
@@ -19,7 +34,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={annieUseYourTelescope.className}>{children}</body>
+			<body className={myFont.className}>{children}</body>
 		</html>
 	)
 }
