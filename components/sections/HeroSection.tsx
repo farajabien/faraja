@@ -11,16 +11,17 @@ export default function HeroSection() {
 		<section className='bg-white hover:shadow-inner transition-all duration-500'>
 			<section className='text-center py-20 mx-auto max-4xl'>
 				<h1 className='text-5xl font-bold'>Web App Prototypes in 4 weeks!</h1>
+				<p className='text-xl mt-4'>Validate Your Idea, Save Time & Money </p>
+				<span className='text-4xl mt-4'>🫶🏾</span>
 
-				<p className='text-xl mt-4'>Validate Your Idea, Save Time & Money</p>
 				<Image
 					src='/images/myprofile.png'
 					width={400}
 					height={300}
 					alt='Hero Image'
-					className='mx-auto mt-8  m-2 transition-all	duration-500	rounded-full grayscale hover:grayscale-0		'
+					className='mx-auto transition-all	duration-500	rounded-full grayscale hover:grayscale-0'
 				/>
-				<p className='text-lg mt-4 max-w-prose mx-auto'>
+				<p className='text-lg max-w-prose mx-auto'>
 					Hi, I&apos;m Faraja Bien 🙃, a web developer specializing in building
 					prototypes for startups and entrepreneurs 😎. I can help you validate
 					your idea and save time and money by building a working prototype in 4

@@ -14,30 +14,32 @@ export default function ContactSection() {
 
 				{/* Social Media Links */}
 				<div className='mt-8 mx-auto'>
-					<div className='flex justify-center gap-5'>
+					<div className='flex justify-center gap-5 '>
 						<Link
 							href='https://x.com/farajabien?s=21'
 							target='_blank'
 							rel='noopener noreferrer'>
-							<X className='hover:filter-none filter grayscale' />
+							<X className='hover:filter-none text-orange-400 grayscale hover:grayscale-0 transition-all duration-500 filter ' />
 						</Link>
 						<Link
 							href='https://www.linkedin.com/in/bienvenufaraja/'
 							target='_blank'
 							rel='noopener noreferrer'>
-							<Linkedin className='hover:filter-none filter grayscale' />
+							<Linkedin className='hover:filter-none text-orange-400 grayscale hover:grayscale-0 transition-all duration-500 filter' />
 						</Link>
 						<Link
 							href='https://vm.tiktok.com/ZMrMhYEhW/'
 							target='_blank'
 							rel='noopener noreferrer'>
-							TikTok
+							<p className='text-orange-400 grayscale hover:grayscale-0 transition-all duration-300'>
+								TikTok
+							</p>
 						</Link>
 						<Link
 							href='https://www.instagram.com/faraja_bien?igsh=MTZnM2pxOTlmdW13bA%3D%3D&utm_source=qr'
 							target='_blank'
 							rel='noopener noreferrer'>
-							<Instagram className='hover:filter-none filter grayscale' />
+							<Instagram className='hover:filter-none text-orange-400 grayscale hover:grayscale-0 transition-all duration-500 filter' />
 						</Link>
 					</div>
 				</div>
