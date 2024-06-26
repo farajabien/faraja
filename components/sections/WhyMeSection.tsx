@@ -42,7 +42,7 @@ export default function WhyMeSection() {
 					Why Choose My One-Man Approach? 👨🏾
 				</h2>
 				{/* Reasons */}
-				<div className='mx-2 mt-10 grid grid-cols-2 md:grid-cols-3 gap-2'>
+				<div className='mx-2 mt-10 grid sm:grid-cols-2 md:grid-cols-3 gap-2'>
 					{/* Rapid Results */}
 					{whyMePoints.map((point: whyMePointsType, index: number) => (
 						<Card
