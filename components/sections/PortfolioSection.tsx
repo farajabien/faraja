@@ -64,7 +64,7 @@ export default function PortfolioSection() {
 							</CardTitle>
 							<p className='text-orange-500'>{project.subtitle}</p>
 							<p className='flex-grow'>{project.description}</p>{' '}
-							<Link href={project.link}>
+							<Link href={project.link} target='_blank'>
 								<Button
 									className='mt-4 transition-all duration-500 text-white   bg-gradient-to-r from-orange-500  to-orange-700 hover:from-orange-700 hover:to-orange-900
                   
