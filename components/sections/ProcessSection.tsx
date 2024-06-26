@@ -25,7 +25,7 @@ export default function ProcessSection() {
 					{/* Step 2 */}
 					<div className='bg-white rounded-lg shadow-lg p-8'>
 						<h3 className='text-3xl font-semibold mb-4  hover:text-orange-500 transition-all duration-500'>
-							2. Core User Flows
+							2. Core User Flows 🔀
 						</h3>
 						<p className='mb-2'>
 							<strong>Your Input:</strong> Feedback on the problem statement and
@@ -39,7 +39,7 @@ export default function ProcessSection() {
 					{/* Step 3 */}
 					<div className='bg-white rounded-lg shadow-lg p-8'>
 						<h3 className='text-3xl font-semibold mb-4  hover:text-orange-500 transition-all duration-500'>
-							3. Functional Prototype
+							3. Functional Prototype 🕹️
 						</h3>
 						<p className='mb-2'>
 							<strong>Your Input:</strong> Feedback on user flows and feature
@@ -53,7 +53,7 @@ export default function ProcessSection() {
 					{/* Step 4 */}
 					<div className='bg-white rounded-lg shadow-lg p-8'>
 						<h3 className='text-3xl font-semibold mb-4  hover:text-orange-500 transition-all duration-500'>
-							4. User Testing & Feedback
+							4. User Testing & Feedback 🧪
 						</h3>
 						<p className='mb-2'>
 							<strong>Your Input:</strong> Access to testers (if needed) and
@@ -67,7 +67,7 @@ export default function ProcessSection() {
 					{/* Step 5 */}
 					<div className='bg-white rounded-lg shadow-lg p-8'>
 						<h3 className='text-3xl font-semibold mb-4  hover:text-orange-500 transition-all duration-500'>
-							5. Handoff
+							5. Handoff 🤝
 						</h3>
 						<p className='mb-2'>
 							<strong>Kudos:</strong> Thumbs up
