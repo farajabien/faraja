@@ -5,7 +5,9 @@ import Link from 'next/link'
 import CalendlyComponent from '../custom/calendly'
 export default function ContactSection() {
 	return (
-		<section className='py-20 bg-gray-200 hover:shadow-inner transition-all duration-500'>
+		<section
+			id='contact'
+			className='py-20 bg-gray-200 hover:shadow-inner transition-all duration-500'>
 			<div className='mx-auto text-center'>
 				<h2 className='m-2 px-16 py-6 bg-black text-white text-2xl  border-black  hover:text-orange-500 transition-all duration-500'>
 					Book Free Consultation{' '}

@@ -39,7 +39,7 @@ export default function ProcessSection() {
 		},
 	]
 	return (
-		<section className='bg-gray-100 py-20'>
+		<section id='process' className='bg-gray-100 py-20 px-5'>
 			<div className='max-w-6xl mx-auto'>
 				<h2 className='text-5xl font-bold text-center mb-16  hover:text-orange-500 transition-all duration-500'>
 					My Proven 5-Step Process

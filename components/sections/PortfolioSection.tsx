@@ -39,7 +39,9 @@ export default function PortfolioSection() {
 		},
 	]
 	return (
-		<section className='py-20 bg-gray-200 hover:shadow-inner transition-all duration-500 container'>
+		<section
+			id='portfolio'
+			className='py-20 bg-gray-200 hover:shadow-inner transition-all duration-500 container'>
 			<div className='max-w-6xl mx-auto '>
 				<h2
 					className='text-4xl font-bold text-center
