@@ -26,9 +26,9 @@ const Navigation = () => {
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
 	return (
-		<div className='fixed top-0 md:left-1/2 md:transform md:-translate-x-1/2 z-50'>
+		<div className='fixed top-0 left-0 right-0 md:left-1/2 md:right-auto md:transform md:-translate-x-1/2 z-50'>
 			<nav className='bg-white shadow rounded-lg'>
-				<ul className='flex flex-wrap justify-center space-x-1'>
+				<ul className='flex flex-wrap justify-center space-x-1 md:space-x-4 p-2'>
 					{sections.map((section) => (
 						<li key={section}>
 							<Link
