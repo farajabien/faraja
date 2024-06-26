@@ -21,12 +21,14 @@ export default function HeroSection() {
 					alt='Hero Image'
 					className='mx-auto transition-all	duration-500	rounded-full grayscale hover:grayscale-0'
 				/>
-				<p className='text-lg max-w-prose mx-auto'>
-					Hi, I&apos;m Faraja Bien 🙃, a web developer specializing in building
-					prototypes for startups and entrepreneurs 😎. I can help you validate
-					your idea and save time and money by building a working prototype in 4
-					weeks or less 🙈.
-				</p>
+				<div className='mx-auto  max-w-prose'>
+					<p className='text-lg w-fit mx-2'>
+						Hi, I&apos;m Faraja Bien 🙃, a web developer specializing in
+						building prototypes for startups and entrepreneurs 😎. I can help
+						you validate your idea and save time and money by building a working
+						prototype in 4 weeks or less 🙈.
+					</p>
+				</div>
 				<Link
 					href='https://calendly.com/farajabien/30min'
 					target='_blank'

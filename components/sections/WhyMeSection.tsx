@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function WhyMeSection() {
 	return (
-		<section className='py-20 bg-gray-100 hover:shadow-inner transition-all duration-500'>
+		<section className='py-20 bg-gray-100 hover:shadow-inner transition-all duration-500 px-2'>
 			<div className='max-w-prose mx-auto'>
 				<h2 className='text-4xl font-bold text-center  hover:text-orange-500 transition-all duration-500'>
 					Why Choose My One-Man Approach? 👨🏾
