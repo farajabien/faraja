@@ -21,6 +21,7 @@ export default function HeroSection() {
 					width={400}
 					height={300}
 					alt='Hero Image'
+					loading='lazy'
 					className='mx-auto transition-all	duration-500	rounded-full grayscale hover:grayscale-0'
 				/>
 				<div className='mx-auto  max-w-prose'>

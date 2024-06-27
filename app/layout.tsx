@@ -5,12 +5,8 @@ import localFont from 'next/font/local'
 
 const myFont = localFont({
 	src: [
-		// {
-		// 	path: '../public/fonts/underlord/Underlord.ttf',
-		// 	weight: '400',
-		// },
 		{
-			path: '../public/fonts/ADELIA.otf',
+			path: '../public/fonts/underlord/Underlord.ttf',
 			weight: '400',
 		},
 	],

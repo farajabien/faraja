@@ -12,18 +12,10 @@ export default function Home() {
 	return (
 		<div className='font-sans bg-gray-100 text-gray-900 scroll-smooth'>
 			<Navigation />
-			{/* Hero Section */}
 			<HeroSection />
-
 			<ProcessSection />
-
-			{/* Portfolio Highlights */}
-			<PortfolioSection />
-
-			{/* Why Choose My One-Man Approach? */}
 			<WhyMeSection />
-
-			{/* Contact */}
+			<PortfolioSection />
 			<ContactSection />
 		</div>
 	)

@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
-const sections = ['#process', '#portfolio', '#whyme', '#contact']
+const sections = ['#process', '#whyme', '#portfolio', '#contact']
 
 const Navigation = () => {
 	const [activeSection, setActiveSection] = useState('')
