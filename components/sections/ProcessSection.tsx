@@ -39,7 +39,7 @@ export default function ProcessSection() {
 		<section id='process' className='bg-gray-100 py-20 px-5'>
 			<div className='max-w-prose mx-auto'>
 				<div className='text-center'>
-					<h2 className='text-4xl font-bold  hover:text-orange-500 transition-all duration-500'>
+					<h2 className='text-3xl text-5xl font-bold  hover:text-orange-500 transition-all duration-500'>
 						The Traditional SDLC is Failing Startups
 					</h2>
 					<Image
@@ -50,7 +50,7 @@ export default function ProcessSection() {
 						loading='lazy'
 						className='rounded-lg grayscale hover:grayscale-0 transition-all duration-500 w-full h-auto'
 					/>
-					<h2 className='text-3xl font-bold  mt-5 hover:text-orange-500 transition-all duration-500'>
+					<h2 className='text-2xl md:text-3xl font-bold  mt-5 hover:text-orange-500 transition-all duration-500'>
 						Why Traditional SDLC May Not Suit Startups
 					</h2>
 					<p className='text-gray-600 mb-2 text-lg p-10 pb-0'>
@@ -89,7 +89,7 @@ export default function ProcessSection() {
 						</li>
 					</ul>
 				</div>
-				<h2 className='text-5xl font-bold text-center my-16  hover:text-orange-500 transition-all duration-500'>
+				<h2 className='text-3xl md:text-5xl font-bold text-center my-16  hover:text-orange-500 transition-all duration-500'>
 					The Fail Fast Solution: Your Shortcut to Success
 				</h2>
 				<p className='text-xl text-center mb-16 text-gray-600 m-2 mx-auto max-w-prose'>

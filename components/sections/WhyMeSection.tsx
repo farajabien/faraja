@@ -29,8 +29,8 @@ export default function WhyMeSection() {
 			id='whyme'
 			className='py-20 bg-gray-100 hover:shadow-inner transition-all duration-500 px-5'>
 			<div className='max-w-prose md:max-w-4xl mx-auto'>
-				<h2 className='text-4xl font-bold text-center  hover:text-orange-500 transition-all duration-500'>
-					Why Fail Fast Works 👨🏾
+				<h2 className='text-3xl md:text-5xl font-bold text-center  hover:text-orange-500 transition-all duration-500'>
+					Why Fail Fast Works
 				</h2>
 				{/* Reasons */}
 				<div className='mx-2 mt-10 grid grid-cols-2 md:grid-cols-4 gap-2'>
