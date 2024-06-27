@@ -10,7 +10,7 @@ export default function HeroSection() {
 	return (
 		<section
 			id='hero'
-			className='bg-white hover:shadow-inner transition-all duration-500'>
+			className='bg-white hover:shadow-inner transition-all duration-500 mt-5'>
 			<section className='text-center py-20 mx-auto max-4xl'>
 				<h1 className='text-5xl font-bold'>Web App Prototypes in 4 weeks!</h1>
 				<p className='text-xl mt-4'>Validate Your Idea, Save Time & Money </p>
