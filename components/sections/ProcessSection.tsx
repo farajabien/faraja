@@ -75,17 +75,17 @@ export default function ProcessSection() {
 						<li className='transition-all duration-500 hover:bg-gray-50 p-2 rounded-lg'>
 							<strong className='text-gray-900'>High Costs:</strong> The SDLC
 							requires a large investment in design, development, and project
-							management, quickly draining a startup's limited budget.
+							management, quickly draining a startup&apos;s limited budget.
 						</li>
 						<li className='transition-all duration-500 hover:bg-gray-50 p-2 rounded-lg'>
 							<strong className='text-gray-900'>Inflexibility:</strong> Once
-							you've committed to a design, it's difficult and expensive to
+							you&apos;ve committed to a design, its difficult and expensive to
 							change course, even if user feedback suggests otherwise.
 						</li>
 						<li className='transition-all duration-500 hover:bg-gray-50 p-2 rounded-lg'>
 							<strong className='text-gray-900'>High Risk:</strong> Without
-							early validation, you risk building a product that doesn't solve a
-							real problem or meet the needs of your target audience.
+							early validation, you risk building a product that doesn&apos;t
+							solve a real problem or meet the needs of your target audience.
 						</li>
 					</ul>
 				</div>
@@ -93,9 +93,9 @@ export default function ProcessSection() {
 					The Fail Fast Solution: Your Shortcut to Success
 				</h2>
 				<p className='text-xl text-center mb-16 text-gray-600 m-2 mx-auto max-w-prose'>
-					The Fail Fast approach is a game-changer. It's a lean, user-centered
-					process that gets your product in front of real users quickly, so you
-					can learn and adapt.
+					The Fail Fast approach is a game-changer. It&apos;s a lean,
+					user-centered process that gets your product in front of real users
+					quickly, so you can learn and adapt.
 				</p>
 
 				<div
