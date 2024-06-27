@@ -1,5 +1,7 @@
 import React from 'react'
 import { Card } from '../ui/card'
+import Link from 'next/link'
+import { Button } from '../ui/button'
 
 export default function Pricing() {
 	return (
@@ -33,15 +35,27 @@ function RatesSection() {
 						<strong className='  text-orange-500  underline '>
 							Fixed Fee:
 						</strong>{' '}
-						Clear, upfront cost for a 4-week prototype delivery. No surprises.
+						Transparent, upfront pricing for a 4-week prototype. No hidden fees.{' '}
 					</li>
 					<li className='bg-gray-900 text-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow duration-300'>
 						<strong className='  text-orange-500  underline '>
 							Flexible Options:
 						</strong>{' '}
-						Open to equity arrangements or hybrid models for tight budgets.
+						Let&apos;s collaborate! Flexible payment options available,
+						including equity-based or hybrid models.{' '}
 					</li>
 				</ul>
+
+				<Link
+					href='https://calendly.com/farajabien/30min'
+					target='_blank'
+					rel='noopener noreferrer'>
+					<Button
+						className='m-2 w-fit py-10 bg-black text-white text-2xl rounded-full
+    hover:bg-gray-300 hover:text-black border-black transition-all duration-500'>
+						Book a Free Consultation
+					</Button>
+				</Link>
 			</div>
 			<div className='text-center mt-5'>
 				<p className='text-gray-600 text-lg'>
