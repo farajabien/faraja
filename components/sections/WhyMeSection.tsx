@@ -32,9 +32,12 @@ export default function WhyMeSection() {
 				<h2 className='text-3xl md:text-5xl font-bold text-center  hover:text-orange-500 transition-all duration-500'>
 					Why Fail Fast Works
 				</h2>
-				{/* Reasons */}
+				<div className='text-center'>
+					<p className='text-gray-600 text-lg mt-2'>
+						Building a prototype in 4 weeks or less can help you:
+					</p>
+				</div>
 				<div className='mx-2 mt-10 grid grid-cols-2 md:grid-cols-4 gap-2'>
-					{/* Rapid Results */}
 					{whyMePoints.map((point: whyMePointsType, index: number) => (
 						<Card
 							key={index}
