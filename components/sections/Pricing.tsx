@@ -19,7 +19,7 @@ export default function Pricing() {
 function RatesSection() {
 	return (
 		<section id='rates'>
-			<h2 className='text-2xl md:text-5xl font-bold text-center mb-5 hover:text-orange-500 transition-all duration-500'>
+			<h2 className='text-3xl md:text-5xl font-bold text-center mb-5 hover:text-orange-500 transition-all duration-500'>
 				What&apos;s the Investment? (Your Budget, Your Terms)
 			</h2>
 			<div className='text-center'>
