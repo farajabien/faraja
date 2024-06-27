@@ -51,7 +51,7 @@ function RatesSection() {
 					target='_blank'
 					rel='noopener noreferrer'>
 					<Button
-						className='m-2 w-fit py-10 mt-2 bg-gray-900 text-white text-2xl rounded-full
+						className='m-2 w-fit py-10 mt-2 bg-gray-900 text-white text-2xl rounded-full mx-auto
     hover:bg-gray-300 hover:text-black border-black transition-all duration-500'>
 						Let&apos;s Discuss Your Budget
 					</Button>
