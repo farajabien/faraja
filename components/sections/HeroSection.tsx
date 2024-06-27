@@ -37,7 +37,7 @@ export default function HeroSection() {
 					target='_blank'
 					rel='noopener noreferrer'>
 					<Button
-						className='m-2 w-fit py-10 bg-black text-white text-2xl rounded-full
+						className='m-2 w-fit py-10 bg-gray-900 text-white text-2xl rounded-full
     hover:bg-gray-300 hover:text-black border-black transition-all duration-500'>
 						Book a Free Consultation
 						<CalendarDays className='ml-2 text-orange-400' size={32} />
