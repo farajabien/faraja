@@ -45,20 +45,20 @@ function RatesSection() {
 						including equity-based or hybrid models.{' '}
 					</li>
 				</ul>
-
+			</div>
+			<div className='flex justify-center'>
 				<Link
 					href='https://calendly.com/farajabien/30min'
 					target='_blank'
-					rel='noopener noreferrer'>
-					<Button
-						className='m-2 w-fit py-10 mt-2 bg-gray-900 text-white text-2xl rounded-full mx-auto
-    hover:bg-gray-300 hover:text-black border-black transition-all duration-500'>
+					rel='noopener noreferrer'
+					className='inline-block'>
+					<Button className='m-2 w-fit py-2 mt-2 bg-gray-900 text-white text-xl rounded-full hover:bg-gray-300 hover:text-gray-900 border-gray-900 transition-all duration-500'>
 						Let&apos;s Discuss Your Budget
 					</Button>
 				</Link>
 			</div>
 			<div className='text-center mt-5'>
-				<p className='text-gray-600 text-lg'>
+				<p className='text-gray-600 text-xl'>
 					Your success is my success. Let&apos;s find a way to make this work!
 				</p>
 			</div>

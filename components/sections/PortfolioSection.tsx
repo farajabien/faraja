@@ -60,7 +60,7 @@ export default function PortfolioSection() {
 									width={300}
 									height={200}
 									alt={project.title}
-									className='rounded-lg border-2 border-black mx-auto'
+									className='rounded-lg border-2 border-gray-900 mx-auto'
 								/>
 								<h2 className='m-2'>{project.title}</h2>
 							</CardTitle>

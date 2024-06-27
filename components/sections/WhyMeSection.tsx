@@ -41,7 +41,7 @@ export default function WhyMeSection() {
 					{whyMePoints.map((point: whyMePointsType, index: number) => (
 						<Card
 							key={index}
-							className='bg-white rounded-2xl shadow-lg text-center p-5 border-black grayscale hover:grayscale-0 transition-all duration-500'>
+							className='bg-white rounded-2xl shadow-lg text-center p-5 border-gray-900 grayscale hover:grayscale-0 transition-all duration-500'>
 							<h3 className='text-2xl font-semibold  hover:text-orange-500 transition-all duration-500'>
 								{point.title}
 							</h3>

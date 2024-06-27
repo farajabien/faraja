@@ -105,7 +105,7 @@ export default function ProcessSection() {
 					{processSteps.map((process: ProcessType, index: number) => (
 						<div
 							key={index}
-							className=' text-center p-5 grayscale hover:grayscale-0 transition-all duration-500 shadow-lg bg-white rounded-2xl border-black mb-4 hover:shadow-xl'>
+							className=' text-center p-5 grayscale hover:grayscale-0 transition-all duration-500 shadow-lg bg-white rounded-2xl border-gray-900 mb-4 hover:shadow-xl'>
 							<h3 className='text-3xl font-semibold mb-4 text-orange-500 '>
 								{index + 1}. {process.title}
 							</h3>
