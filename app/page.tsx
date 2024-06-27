@@ -3,6 +3,7 @@ import ContactSection from '@/components/sections/ContactSection'
 import HeroSection from '@/components/sections/HeroSection'
 import Navigation from '@/components/sections/Navigation'
 import PortfolioSection from '@/components/sections/PortfolioSection'
+import Pricing from '@/components/sections/Pricing'
 import ProcessSection from '@/components/sections/ProcessSection'
 import WhyMeSection from '@/components/sections/WhyMeSection'
 
@@ -16,6 +17,7 @@ export default function Home() {
 			<ProcessSection />
 			<WhyMeSection />
 			<PortfolioSection />
+			<Pricing />
 			<ContactSection />
 		</div>
 	)
