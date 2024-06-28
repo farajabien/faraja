@@ -12,8 +12,12 @@ export default function HeroSection() {
 			id='hero'
 			className='bg-white hover:shadow-inner transition-all duration-500 mt-5'>
 			<section className='text-center py-20 mx-auto max-4xl'>
-				<h1 className='text-5xl font-bold'>Web App Prototypes in 4 weeks!</h1>
-				<p className='text-xl mt-4'>Validate Your Idea, Save Time & Money </p>
+				<h1 className='text-5xl font-bold'>Launch Your Web App in 4 Weeks</h1>
+				<p className='text-xl mt-4'>
+					The Fastest, Most Affordable Way for Startups to Validate Their App
+					Ideas{' '}
+				</p>
+
 				<span className='text-4xl mt-4'>🫶🏾</span>
 
 				<Image
@@ -27,9 +31,9 @@ export default function HeroSection() {
 				<div className='mx-auto  max-w-prose'>
 					<p className='text-lg w-fit mx-2'>
 						Hi, I&apos;m Faraja Bien 🙃, a web developer specializing in
-						building prototypes for startups and entrepreneurs 😎. I can help
-						you validate your idea and save time and money by building a working
-						prototype in 4 weeks or less 🙈.
+						building MVPs for startups and entrepreneurs 😎. I can help you
+						validate your idea and save time and money by building a working MVP
+						in 4 weeks or less 🙈.
 					</p>
 				</div>
 				<Link

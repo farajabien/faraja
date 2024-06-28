@@ -20,7 +20,7 @@ export default function ProcessSection() {
 				'Map out the essential actions users need to take. Prioritize functionality over fancy features.',
 		},
 		{
-			title: 'Functional Prototype',
+			title: 'MVP Development',
 			description:
 				"Build a basic version of your app that works, even if it's not pretty.",
 		},
@@ -30,7 +30,7 @@ export default function ProcessSection() {
 				'Get feedback from real users. Be open to criticism and willing to pivot.',
 		},
 		{
-			title: 'Iterate Quickly',
+			title: 'Iterate & Learn',
 			description:
 				'Refine your prototype based on feedback and repeat the process.',
 		},
