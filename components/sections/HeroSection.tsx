@@ -5,6 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from '../ui/button'
 import { CalendarDays } from 'lucide-react'
+import Logo from '../custom/Logo'
 
 export default function HeroSection() {
 	return (
@@ -28,12 +29,12 @@ export default function HeroSection() {
 					loading='lazy'
 					className='mx-auto transition-all	duration-500	rounded-full grayscale hover:grayscale-0'
 				/>
-				<div className='mx-auto  max-w-prose'>
-					<p className='text-lg w-fit mx-2'>
-						Hi, I&apos;m Faraja Bien 🙃, a web developer specializing in
-						building MVPs for startups and entrepreneurs 😎. I can help you
-						validate your idea and save time and money by building a working MVP
-						in 4 weeks or less 🙈.
+				<div className='mx-auto max-w-prose'>
+					<p className='text-lg mx-2'>
+						Welcome to <Logo />
+						—your MVP development ally. We specialize in transforming ideas into
+						reality, empowering startups and entrepreneurs. Ready to launch your
+						project in 4 weeks? Let&apos;s make it happen!
 					</p>
 				</div>
 				<Link

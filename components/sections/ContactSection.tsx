@@ -53,11 +53,7 @@ export default function ContactSection() {
 				</div>
 			</div>
 
-			<footer className='mt-8 text-center text-gray-500'>
-				<p>
-					&copy; {new Date().getFullYear()} Faraja Bien. All rights reserved.
-				</p>
-			</footer>
+		
 		</section>
 	)
 }
