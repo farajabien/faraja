@@ -10,10 +10,10 @@ export default function HeroSection() {
 	return (
 		<section
 			id='hero'
-			className='bg-white hover:shadow-inner transition-all duration-500 mt-5'>
-			<section className='text-center py-20 mx-auto max-4xl'>
+			className='bg-white hover:shadow-inner transition-all duration-500 mt-10'>
+			<section className='text-center py-20 mx-auto max-w-4xl px-2'>
 				<h1 className='text-5xl font-bold'>Launch Your Web App in 4 Weeks</h1>
-				<p className='text-xl mt-4'>
+				<p className='text-xl mt-4 '>
 					The Fastest, Most Affordable Way for Startups to Validate Their App
 					Ideas{' '}
 				</p>
