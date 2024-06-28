@@ -19,7 +19,7 @@ const annieUseYourTelescope = Annie_Use_Your_Telescope({
 })
 
 export const metadata: Metadata = {
-	title: 'Get Your Web App MVP in 4 Weeks – No Designers or Developers Needed',
+	title: 'Get Your Web App MVP in 4 Weeks – No Designers or Devs Needed',
 	description:
 		'I build functional prototypes fast and affordable, so you can validate your startup idea and move forward with confidence.',
 }
