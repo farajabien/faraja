@@ -19,8 +19,9 @@ const annieUseYourTelescope = Annie_Use_Your_Telescope({
 })
 
 export const metadata: Metadata = {
-	title: 'Web App Prototypes in 4 Weeks ',
-	description: 'Validate Your Idea, Save Time & Money!',
+	title: 'Stop Wasting Time & Money on App Development',
+	description:
+		'Validate your idea with a functional prototype in 4 weeks. Save time, reduce risk, and build a product people actually want.',
 }
 
 export default function RootLayout({
