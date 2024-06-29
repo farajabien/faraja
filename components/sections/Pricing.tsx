@@ -18,46 +18,44 @@ export default function Pricing() {
 
 function RatesSection() {
 	return (
-		<section id='rates'>
-			<h2 className='text-3xl md:text-5xl font-bold text-center mb-5 hover:text-orange-500 transition-all duration-500'>
+		<section id='rates' className='py-10'>
+			<h2 className='text-3xl md:text-5xl font-bold text-center mb-10 hover:text-orange-500 transition-all duration-300'>
 				What&apos;s the Investment? (Your Budget, Your Terms)
 			</h2>
-			<div className='text-center'>
-				<p className='text-gray-600 text-lg mt-2'>
+			<div className='text-center mb-8'>
+				<p className='text-gray-600 text-lg'>
 					I get it. Startups run lean. That&apos;s why I&apos;m committed to
-					working within your budget. We can explore several options to find the
+					working within your budget. Let&apos;s explore options to find the
 					right fit:
 				</p>
 			</div>
-			<div className='mx-2 mt-5'>
-				<ul className='text-gray-600 text-lg grid md:grid-cols-2 gap-4'>
-					<li className='bg-gray-900 text-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow duration-300'>
-						<strong className='  text-orange-500  underline '>
-							Fixed Fee:
-						</strong>{' '}
-						Transparent, upfront pricing for a 4-week prototype. No hidden fees.{' '}
+			<div className='mx-4 mt-8'>
+				<ul className='text-gray-600 text-lg grid md:grid-cols-2 gap-8'>
+					<li className='bg-gray-900 text-gray-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300'>
+						<strong className='text-orange-500 underline'>Fixed Fee:</strong>{' '}
+						Transparent, upfront pricing for a 4-week prototype. No hidden fees.
 					</li>
-					<li className='bg-gray-900 text-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow duration-300'>
-						<strong className='  text-orange-500  underline '>
+					<li className='bg-gray-900 text-gray-100 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300'>
+						<strong className='text-orange-500 underline'>
 							Flexible Options:
 						</strong>{' '}
 						Let&apos;s collaborate! Flexible payment options available,
-						including equity-based or hybrid models.{' '}
+						including equity-based or hybrid models.
 					</li>
 				</ul>
 			</div>
-			<div className='flex justify-center'>
+			<div className='flex justify-center mt-10'>
 				<Link
 					href='https://calendly.com/farajabien/30min'
 					target='_blank'
 					rel='noopener noreferrer'
 					className='inline-block'>
-					<Button className='m-2 w-fit py-2 mt-2 bg-gray-900 text-white text-xl rounded-full hover:bg-gray-300 hover:text-gray-900 border-gray-900 transition-all duration-500'>
+					<Button className='m-2 w-fit py-3 px-6 mt-4 bg-gray-900 text-white text-xl rounded-full hover:bg-gray-700 transition-all duration-300'>
 						Let&apos;s Discuss Your Budget
 					</Button>
 				</Link>
 			</div>
-			<div className='text-center mt-5'>
+			<div className='text-center mt-10'>
 				<p className='text-gray-600 text-xl'>
 					Your success is my success. Let&apos;s find a way to make this work!
 				</p>
