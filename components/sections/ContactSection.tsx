@@ -36,14 +36,14 @@ export default function ContactSection() {
 							rel='noopener noreferrer'>
 							<Linkedin className='hover:filter-none text-orange-400 grayscale hover:grayscale-0 transition-all duration-500 filter' />
 						</Link>
-						<Link
+						{/* <Link
 							href='https://vm.tiktok.com/ZMrMhYEhW/'
 							target='_blank'
 							rel='noopener noreferrer'>
 							<p className='text-orange-400 grayscale hover:grayscale-0 transition-all duration-300'>
 								TikTok
 							</p>
-						</Link>
+						</Link> */}
 						<Link
 							href='https://www.instagram.com/faraja_bien?igsh=MTZnM2pxOTlmdW13bA%3D%3D&utm_source=qr'
 							target='_blank'
