@@ -31,10 +31,10 @@ export default function HeroSection() {
 				/>
 				<div className='mx-auto max-w-prose'>
 					<p className='text-lg mx-2'>
-						Welcome to <Logo />
-						—your MVP development ally. We specialize in transforming ideas into
-						reality, empowering startups and entrepreneurs. Ready to launch your
-						project in 4 weeks? Let&apos;s make it happen!
+						Welcome to <Logo />– your one-stop shop for rapid prototyping.
+						I&lsquo;m a full-stack developer who can help you validate your app
+						idea and save time & money. Ready to build your MVP in 4 weeks?
+						Let&lsquo;s talk!
 					</p>
 				</div>
 				<Link
