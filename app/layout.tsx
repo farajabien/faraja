@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Annie_Use_Your_Telescope } from 'next/font/google'
+import { Comic_Neue } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
 
@@ -12,7 +12,7 @@ const myFont = localFont({
 	],
 })
 
-const annieUseYourTelescope = Annie_Use_Your_Telescope({
+const comic = Comic_Neue({
 	weight: ['400'],
 	subsets: ['latin'],
 	display: 'auto',
@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={myFont.className}>{children}</body>
+			<body className={comic.className}>{children}</body>
 		</html>
 	)
 }

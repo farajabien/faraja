@@ -22,6 +22,7 @@ export default function ContactSection() {
 
 				{/* Social Media Links */}
 				<div className='mt-8 mx-auto'>
+					<h3 className='text-3xl font-bold my-2'>Connect with me</h3>
 					<div className='flex justify-center gap-5 '>
 						<Link
 							href='https://x.com/farajabien?s=21'
@@ -52,8 +53,6 @@ export default function ContactSection() {
 					</div>
 				</div>
 			</div>
-
-		
 		</section>
 	)
 }
@@ -61,7 +60,7 @@ export default function ContactSection() {
 function FAQSection() {
 	return (
 		<section className='max-w-prose mx-auto'>
-			<h2 className='text-3xl md:text-5xl font-bold text-center hover:text-orange-500 transition-all duration-500'>
+			<h2 className='text-3xl md:text-5xl font-bold mt-10 text-center hover:text-orange-500 transition-all duration-500'>
 				FAQ
 			</h2>
 			<div className='text-center space-y-2 my-2'>
