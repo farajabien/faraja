@@ -22,7 +22,7 @@ A clean, modern, and responsive portfolio website built with Next.js, Tailwind C
 2. Install dependencies:
 
    ```
-   cd nextjs-portfolio
+   cd faraja
    npm install
    ```
 
@@ -39,7 +39,7 @@ A clean, modern, and responsive portfolio website built with Next.js, Tailwind C
 1. Update the `projects` array in `app/page.tsx` with your own projects.
 2. Modify the tech stack list in the `Section` component.
 3. Replace the social links and email address with your own.
-4. Adjust the colors and styles in your Tailwind CSS configuration file.
+4. Adjust the colors and styles in the Tailwind CSS configuration file (`tailwind.config.ts`).
 
 ## Dependencies
 
@@ -60,3 +60,7 @@ This project is open source and available under the [MIT License](LICENSE).
 - UI components from [shadcn/ui](https://ui.shadcn.com/)
 
 Feel free to use this portfolio template for your own projects. If you do, I'd appreciate a link back to this repository. Happy coding!
+
+---
+
+Created by [@farajabien](https://github.com/farajabien)
