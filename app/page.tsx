@@ -1,8 +1,23 @@
 // app/page.tsx
 import Link from 'next/link'
-import { Github, Twitter, ExternalLink, Mail } from 'lucide-react'
+import {
+	Github,
+	Twitter,
+	ExternalLink,
+	Mail,
+	Award,
+	Code,
+	Users,
+	Briefcase,
+	FileText,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { projects, techStack, socialLinks } from '@/lib/utils'
+import {
+	projects,
+	kwetunovaProjects,
+	techStack,
+	socialLinks,
+} from '@/lib/utils'
 import SocialLink from '@/components/SocialLink'
 import Section from '@/components/Section'
 import { Card } from '@/components/ui/card'
@@ -19,7 +34,7 @@ export default function Home() {
 					<p className='text-xl mb-8 text-muted-foreground'>
 						Next.js Developer | Startup Enthusiast
 					</p>
-					<div className='flex justify-center space-x-6'>
+					<div className='flex justify-center space-x-6 mb-8'>
 						{socialLinks.map((link) => (
 							<SocialLink
 								key={link.label}
@@ -29,6 +44,15 @@ export default function Home() {
 							/>
 						))}
 					</div>
+					<Button asChild variant='outline' size='lg'>
+						<Link
+							href='/files/farajabien_resume_2024.pdf'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='inline-flex items-center'>
+							<FileText className='mr-2 h-4 w-4' /> View Resume
+						</Link>
+					</Button>
 				</div>
 
 				{/* Tech Stack Section */}
@@ -44,6 +68,20 @@ export default function Home() {
 					</div>
 				</Section>
 
+				{/* Key Metrics Section */}
+				<Section title='Key Metrics'>
+					<div className='grid grid-cols-2 md:grid-cols-4 gap-8 text-center'>
+						<MetricCard icon={Code} value='5+' label='Years of Experience' />
+						<MetricCard
+							icon={Briefcase}
+							value='10+'
+							label='Projects Completed'
+						/>
+						<MetricCard icon={Users} value='5+' label='Happy Clients' />
+						<MetricCard icon={Award} value='2' label='Startups Founded' />
+					</div>
+				</Section>
+
 				{/* Recent Projects Section */}
 				<Section title='Recent Projects'>
 					<div className='grid md:grid-cols-2 gap-8'>
@@ -56,13 +94,49 @@ export default function Home() {
 									{project.subtitle}
 								</p>
 								<p className='mb-4'>{project.description}</p>
-								<Button asChild variant='outline'>
-									<Link
-										href={project.link}
-										className='inline-flex items-center'>
-										Visit site <ExternalLink className='ml-2 w-4 h-4' />
-									</Link>
-								</Button>
+								{project.link ? (
+									<Button asChild variant='outline'>
+										<Link
+											href={project.link}
+											className='inline-flex items-center'>
+											Visit site <ExternalLink className='ml-2 w-4 h-4' />
+										</Link>
+									</Button>
+								) : (
+									<p className='text-sm text-muted-foreground'>
+										Internal project
+									</p>
+								)}
+							</Card>
+						))}
+					</div>
+				</Section>
+
+				{/* Kwetunova Web Agency Projects Section */}
+				<Section title='Kwetunova Web Agency Projects'>
+					<div className='grid md:grid-cols-2 gap-8'>
+						{kwetunovaProjects.map((project) => (
+							<Card
+								key={project.title}
+								className='p-6 hover:shadow-lg transition-shadow'>
+								<h3 className='text-2xl font-semibold mb-2'>{project.title}</h3>
+								<p className='text-sm text-muted-foreground mb-4'>
+									{project.subtitle}
+								</p>
+								<p className='mb-4'>{project.description}</p>
+								{project.link ? (
+									<Button asChild variant='outline'>
+										<Link
+											href={project.link}
+											className='inline-flex items-center'>
+											Visit site <ExternalLink className='ml-2 w-4 h-4' />
+										</Link>
+									</Button>
+								) : (
+									<p className='text-sm text-muted-foreground'>
+										Internal project
+									</p>
+								)}
 							</Card>
 						))}
 					</div>
@@ -92,6 +166,25 @@ export default function Home() {
 					Open to exciting startup opportunities and collaborations
 				</p>
 			</footer>
+		</div>
+	)
+}
+
+// Add this component at the end of the file
+function MetricCard({
+	icon: Icon,
+	value,
+	label,
+}: {
+	icon: React.ComponentType<{ className?: string }>
+	value: string
+	label: string
+}) {
+	return (
+		<div className='flex flex-col items-center p-4 bg-secondary rounded-lg'>
+			<Icon className='w-8 h-8 mb-2 text-primary' />
+			<span className='text-3xl font-bold mb-1'>{value}</span>
+			<span className='text-sm text-muted-foreground'>{label}</span>
 		</div>
 	)
 }
