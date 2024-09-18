@@ -8,7 +8,7 @@ export interface Project {
 	title: string
 	subtitle: string
 	description: string
-	link: string
+	link?: string
 }
 
 export interface SocialLinkData {
@@ -27,19 +27,64 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Sample Projects
+// Sample Projects
 export const projects: Project[] = [
 	{
 		title: 'BingBang',
 		subtitle: 'Social gaming platform',
 		description:
-			'A platform where luck and friendship create unforgettable moments.',
+			'An innovative online betting platform with secure transactions and multiple payment gateways.',
 		link: 'https://bingbang.bet',
 	},
 	{
 		title: 'PropManage',
 		subtitle: 'Property management webapp',
-		description: 'Streamline property management tasks with ease.',
+		description:
+			'Scalable platform for efficient management of multiple properties, integrated with Supabase and Paystack.',
 		link: 'https://propmanage.kwetunova.com',
+	},
+	{
+		title: 'ESG Score Visualization',
+		subtitle: 'Frontend development at Minklist Digital',
+		description:
+			'Implemented user-friendly charts and graphs for complex ESG data using Next.js and React for in-house.com project.',
+		link: 'https://in-house.com',
+	},
+	{
+		title: 'Linha Verde Project',
+		subtitle: 'World Food Programme',
+		description:
+			'Developed custom project management tools, improving operational efficiency for WFP. Internal tool, not publicly accessible.',
+	},
+]
+// Kwetunova Web Agency Projects
+export const kwetunovaProjects: Project[] = [
+	{
+		title: 'Academic Now',
+		subtitle: 'Educational platform',
+		description:
+			'Guided and mentored intern Fathi Hassan in building this educational platform. Provided project planning, code review, and development oversight.',
+		link: 'https://academic-now.vercel.app/',
+	},
+	{
+		title: 'SugarDaddy',
+		subtitle: 'Sugar cane juice parlour in Nairobi',
+		description:
+			'Supervised intern Fathi Hassan in developing a website for this local Nairobi business. Offered guidance on design and implementation.',
+		link: '#', // Replace with actual link if available
+	},
+	{
+		title: 'VR Space',
+		subtitle: 'Virtual Reality Solutions',
+		description:
+			'Led development of the VR Space website, offering immersive VR experiences for industries like real estate and education. Guided the team, fixed critical bugs, and optimized SEO, achieving #1 Google ranking for "VR gaming Nairobi".',
+		link: 'http://vrspace.co.ke/',
+	},
+	{
+		title: 'Kwetunova',
+		subtitle: 'Web agency website',
+		description: 'Official website for Kwetunova web agency.',
+		link: 'https://kwetunova.com',
 	},
 ]
 
