@@ -66,12 +66,13 @@ export default function Home() {
 							<h3 className='text-2xl font-semibold'>Faraja Bien</h3>
 						</div>
 						<p className='text-muted-foreground'>
-							I&apos;m a passionate Next.js developer with a keen interest in
-							building scalable web applications. With experience in both
-							startup environments and established companies, I bring a unique
-							perspective to every project. My goal is to create intuitive,
-							efficient, and impactful digital solutions that solve real-world
-							problems.
+							I&apos;m a passionate full-stack developer and tech entrepreneur
+							specializing in creating innovative solutions for the African
+							market. With expertise in Next.js, Supabase, and various modern
+							technologies, I bring a unique perspective to every project. My
+							goal is to create intuitive, efficient, and impactful digital
+							solutions that solve real-world problems, particularly in startup
+							environments and established companies.
 						</p>
 					</Card>
 				</Section>
@@ -146,10 +147,16 @@ export default function Home() {
 								</p>
 								<p className='mb-4'>{project.description}</p>
 								{project.link ? (
-									<Button asChild variant='outline'>
+									<Button
+										asChild
+										variant='outline'
+										size='sm'
+										className='mt-4  '>
 										<Link
 											href={project.link}
-											className='inline-flex items-center'>
+											target='_blank'
+											rel='noopener noreferrer'
+											className='inline-flex items-center text-primary'>
 											Visit site <ExternalLink className='ml-2 w-4 h-4' />
 										</Link>
 									</Button>
@@ -188,6 +195,9 @@ export default function Home() {
 			<footer className='text-center py-6 text-muted-foreground bg-secondary'>
 				<p className='text-sm'>
 					Open to exciting startup opportunities and collaborations
+				</p>
+				<p className='text-sm mt-2'>
+					© {new Date().getFullYear()} Bienvenu Faraja. All Rights Reserved.
 				</p>
 			</footer>
 		</div>
