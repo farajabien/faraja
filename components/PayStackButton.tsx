@@ -1,40 +1,59 @@
 // components/PayStackButton.tsx
 'use client'
 
-import { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { useRouter } from 'next/navigation'
+import { PaystackButton as ReactPaystackButton } from 'react-paystack'
 import { Button } from '@/components/ui/button'
+
 interface PayStackButtonProps {
 	slug: string
 }
 
 const PayStackButton: React.FC<PayStackButtonProps> = ({ slug }) => {
-	const [loading, setLoading] = useState(false)
 	const router = useRouter()
 
-	const handlePayment = async () => {
-		setLoading(true)
-		try {
-			// Initialize PayStack payment
-			const response = await axios.post('/api/payment/initiate', { slug })
-			const { authorizationUrl } = response.data
+	const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
 
-			// Redirect to PayStack payment
-			window.location.href = authorizationUrl
+	const handlePaymentSuccess = async (reference: any) => {
+		try {
+			const response = await fetch('/api/payment/verify', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					reference: reference.reference,
+					slug,
+				}),
+			})
+
+			const data = await response.json()
+
+			if (response.ok) {
+				alert('Payment successful. Access granted.')
+				router.push(`/business/${slug}`)
+			} else {
+				alert(`Payment verification failed: ${data.error}`)
+			}
 		} catch (error) {
-			console.error('Payment initiation error:', error)
-			alert('Failed to initiate payment. Please try again.')
-		} finally {
-			setLoading(false)
+			console.error('Payment verification error:', error)
+			alert('Failed to verify payment. Please contact support.')
 		}
 	}
 
-	return (
-		<Button onClick={handlePayment} disabled={loading}>
-			{loading ? 'Processing...' : 'Pay $10 to Access'}
-		</Button>
-	)
+	const componentProps = {
+		email: 'user@example.com', // Replace with the user's email from your auth system
+		amount: 1000, // Amount in kobo ($10)
+		publicKey,
+		text: 'Pay $10 to Access',
+		onSuccess: handlePaymentSuccess,
+		onClose: () => {
+			console.log('Payment dialog closed')
+		},
+	}
+
+	return <ReactPaystackButton {...componentProps} />
 }
 
 export default PayStackButton

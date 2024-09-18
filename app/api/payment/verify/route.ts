@@ -1,4 +1,4 @@
-// app/api/payment/verify.ts
+// app/api/payment/verify/route.ts
 import { NextResponse } from 'next/server'
 import axios from 'axios'
 import { updateBusiness } from '@/lib/serverUtils'
@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 	try {
 		const { reference, slug } = await request.json()
 
-		// Verify payment with PayStack
+		// Verify payment with Paystack
 		const paystackResponse = await axios.get(
 			`https://api.paystack.co/transaction/verify/${reference}`,
 			{

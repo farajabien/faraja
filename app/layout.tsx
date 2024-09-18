@@ -19,9 +19,9 @@ const comic = Comic_Neue({
 })
 
 export const metadata: Metadata = {
-	title: 'Get Your Web App MVP in 4 Weeks – No Designers or Devs Needed',
+	title: 'farajabien - NextJs Developer',
 	description:
-		'I build functional prototypes fast and affordable, so you can validate your startup idea and move forward with confidence.',
+		'farajabien - NextJs, React, TailwindCSS, MongoDB, NextAuth, Paystack',
 }
 
 export default function RootLayout({
