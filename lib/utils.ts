@@ -41,7 +41,7 @@ export const projects: Project[] = [
 		subtitle: 'Property management webapp',
 		description:
 			'Scalable platform for efficient management of multiple properties, integrated with Supabase and Paystack.',
-		link: 'https://propmanage.kwetunova.com',
+		link: 'https://propmanage-farajabiens-projects.vercel.app',
 	},
 	{
 		title: 'ESG Score Visualization',

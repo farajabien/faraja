@@ -10,6 +10,7 @@ import {
 	Users,
 	Briefcase,
 	FileText,
+	User,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -21,6 +22,8 @@ import {
 import SocialLink from '@/components/SocialLink'
 import Section from '@/components/Section'
 import { Card } from '@/components/ui/card'
+import { PopupButton } from 'react-calendly'
+import BookCalendly from '@/components/BookCalendly'
 
 export default function Home() {
 	return (
@@ -54,6 +57,24 @@ export default function Home() {
 						</Link>
 					</Button>
 				</div>
+
+				{/* About Me Section */}
+				<Section title='About Me'>
+					<Card className='p-6'>
+						<div className='flex items-center mb-4'>
+							<User className='w-12 h-12 text-primary mr-4' />
+							<h3 className='text-2xl font-semibold'>Faraja Bien</h3>
+						</div>
+						<p className='text-muted-foreground'>
+							I&apos;m a passionate Next.js developer with a keen interest in
+							building scalable web applications. With experience in both
+							startup environments and established companies, I bring a unique
+							perspective to every project. My goal is to create intuitive,
+							efficient, and impactful digital solutions that solve real-world
+							problems.
+						</p>
+					</Card>
+				</Section>
 
 				{/* Tech Stack Section */}
 				<Section title='Tech Stack'>
@@ -147,15 +168,18 @@ export default function Home() {
 					<div className='text-center'>
 						<p className='mb-6 text-lg'>
 							Interested in collaborating or discussing opportunities? Get in
-							touch!
+							touch or schedule a call!
 						</p>
-						<Button asChild size='lg'>
-							<Link
-								href='mailto:faraja.bien@gmail.com'
-								className='inline-flex items-center'>
-								<Mail className='mr-2 w-5 h-5' /> Contact Me
-							</Link>
-						</Button>
+						<div className='flex justify-center space-x-4'>
+							<Button asChild size='lg'>
+								<Link
+									href='mailto:faraja.bien@gmail.com'
+									className='inline-flex items-center'>
+									<Mail className='mr-2 w-5 h-5' /> Email Me
+								</Link>
+							</Button>
+							<BookCalendly />
+						</div>
 					</div>
 				</Section>
 			</main>
