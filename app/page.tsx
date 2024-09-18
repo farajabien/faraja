@@ -146,10 +146,16 @@ export default function Home() {
 								</p>
 								<p className='mb-4'>{project.description}</p>
 								{project.link ? (
-									<Button asChild variant='outline'>
+									<Button
+										asChild
+										variant='outline'
+										size='sm'
+										className='mt-4  '>
 										<Link
 											href={project.link}
-											className='inline-flex items-center'>
+											target='_blank'
+											rel='noopener noreferrer'
+											className='inline-flex items-center text-primary'>
 											Visit site <ExternalLink className='ml-2 w-4 h-4' />
 										</Link>
 									</Button>

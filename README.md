@@ -1,55 +1,97 @@
-# FarajaBien: Your All-in-One Digital Presence Solution
+# Bienvenu Faraja - Digital Innovator & Entrepreneur
 
-## About Us
+## Welcome to My Portfolio
 
-FarajaBien is a revolutionary web platform designed specifically for African digital marketing firms and service providers. We offer a seamless, user-friendly solution that combines professional web templates with integrated local payment systems, addressing the unique needs of businesses in the African digital landscape.
+I'm Bienvenu Faraja, a tech entrepreneur and innovator passionate about leveraging technology to solve African business challenges. This portfolio showcases my projects, skills, and the resources I've created to help other entrepreneurs and developers.
 
-## Our Mission
+## About Me
 
-To empower African digital businesses with an effortless, locally optimized web presence that drives growth and facilitates seamless transactions in local currencies.
+As a full-stack developer and tech entrepreneur, I specialize in creating innovative solutions for the African market. With expertise in Next.js, Supabase, and various other modern technologies, I've successfully launched and managed multiple projects that address unique challenges in our region.
 
-## What Sets Us Apart
+## Projects
 
-1. **Africa-Centric Platform**: Built from the ground up with African digital businesses in mind, focusing on simplicity, effectiveness, and local market needs.
+### Personal Projects
 
-2. **Hassle-Free Setup**: Launch your professional website in minutes, not days. No coding or technical skills required.
+1. **BingBang** - Social gaming platform
 
-3. **Integrated Local Payments**: Seamlessly accept payments in various African currencies with our PayStack integration.
+   - An innovative online betting platform with secure transactions and multiple payment gateways.
+   - [Visit BingBang](https://bingbang.bet)
 
-4. **All-Inclusive Solution**: Get everything you need in one place - hosting, domain management, design, and payment processing.
+2. **PropManage** - Property management webapp
 
-5. **Continuous Updates**: Benefit from ongoing platform improvements and new features at no extra cost.
+   - Scalable platform for efficient management of multiple properties, integrated with Supabase and Paystack.
+   - [Visit PropManage](https://propmanage-farajabiens-projects.vercel.app)
 
-## Our Offering
+3. **ESG Score Visualization** - Frontend development at Minklist Digital
 
-- **Professional Templates**: Make a striking first impression with our carefully designed, industry-specific templates.
-- **Custom Domain Support**: Use your own domain name for a professional brand image.
-- **Service Showcases**: Highlight your offerings with dedicated service and premium service pages.
-- **Blog Integration**: Boost your SEO and engage your audience with built-in blog functionality.
-- **Seamless Payments**: Accept payments in local currencies directly on your site.
-- **Premium Content Gating**: Easily set up paid access to your high-value content and resources.
-- **User-Friendly Dashboard**: Manage your entire web presence from a single, intuitive interface.
+   - Implemented user-friendly charts and graphs for complex ESG data using Next.js and React for in-house.com project.
+   - [Visit In-House](https://in-house.com)
 
-## Why Choose FarajaBien?
+4. **Linha Verde Project** - World Food Programme
+   - Developed custom project management tools, improving operational efficiency for WFP. Internal tool, not publicly accessible.
 
-1. **Local Market Understanding**: We know the challenges and opportunities in the African digital market because we're part of it.
-2. **Cost-Effective**: Get a complete web solution without the high costs of custom development or multiple service providers.
-3. **Time-Saving**: Focus on your core business while we handle the technical details of your web presence.
-4. **Growth-Oriented**: Our platform scales with your business, from startup to established firm.
-5. **Reliable Support**: Benefit from our responsive, local support team who understands your needs.
+### Kwetunova Web Agency Projects
 
-## How It Works
+1. **Academic Now** - Educational platform
 
-1. Sign up for a FarajaBien account
-2. Choose your template and customize it to match your brand
-3. Add your content and services
-4. Set up your payment options
-5. Launch your site with a click
+   - Guided and mentored intern Fathi Hassan in building this educational platform. Provided project planning, code review, and development oversight.
+   - [Visit Academic Now](https://academic-now.vercel.app/)
 
-It's that simple. No coding, no complex setups, no multiple service providers. Just you and your professional web presence, ready to take on the African digital market.
+2. **SugarDaddy** - Sugar cane juice parlour in Nairobi
 
-## Join the FarajaBien Community
+   - Supervised intern Fathi Hassan in developing a website for this local Nairobi business. Offered guidance on design and implementation.
 
-Whether you're a startup digital marketing firm or an established service provider, FarajaBien provides the all-in-one platform you need to establish a powerful online presence and grow your business in the African market. Join us in shaping the future of digital business in Africa.
+3. **VR Space** - Virtual Reality Solutions
 
-_FarajaBien - Your Digital Success, Simplified_
+   - Led development of the VR Space website, offering immersive VR experiences for industries like real estate and education. Guided the team, fixed critical bugs, and optimized SEO, achieving #1 Google ranking for "VR gaming Nairobi".
+   - [Visit VR Space](http://vrspace.co.ke/)
+
+4. **Kwetunova** - Web agency website
+   - Official website for Kwetunova web agency.
+   - [Visit Kwetunova](https://kwetunova-3.vercel.app)
+
+## Skills
+
+### Technology Stack
+
+- Next.js
+- Supabase
+- Tailwind CSS
+- shadcn/ui
+- Resend
+- PayStack
+- Vercel
+
+## Resources
+
+I've created various resources to help fellow entrepreneurs and developers. Some are freely available, while others require a small fee to access.
+
+### Templates
+
+1. **Portfolio with Paywall and Pay Buttons**
+   - Description: A customizable template for creating a professional portfolio website with integrated paywalls and payment buttons.
+   - Features:
+     - Responsive design
+     - Easy content management
+     - Integrated paywall system
+     - Multiple payment gateway options
+   - [Learn More / Purchase]
+
+### Guides and E-books
+
+[Coming soon]
+
+### Tools
+
+[Coming soon]
+
+## Contact
+
+- GitHub: [farajabien](https://github.com/farajabien)
+- Twitter: [@farajabien](https://twitter.com/farajabien)
+- Email: [farajabien@gmail.com](mailto:farajabien@gmail.com)
+- LinkedIn: [Bienvenu Faraja](https://www.linkedin.com/in/bienvenufaraja/)
+
+---
+
+© 2024 Bienvenu Faraja. All Rights Reserved.
