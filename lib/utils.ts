@@ -84,7 +84,7 @@ export const kwetunovaProjects: Project[] = [
 		title: 'Kwetunova',
 		subtitle: 'Web agency website',
 		description: 'Official website for Kwetunova web agency.',
-		link: 'https://kwetunova.com',
+		link: 'https://kwetunova-3.vercel.app',
 	},
 ]
 
