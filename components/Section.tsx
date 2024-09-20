@@ -1,24 +1,19 @@
-import React from 'react'
-import { LucideIcon } from 'lucide-react'
+import React, { ReactNode } from 'react'
 
 interface SectionProps {
 	title: string
-	children: React.ReactNode
-	icon?: LucideIcon
+	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+	children?: ReactNode
 }
 
-function Section({ title, children, icon: Icon }: SectionProps) {
+const Section: React.FC<SectionProps> = ({ title, icon: Icon, children }) => {
 	return (
-		<section className='py-16'>
-			<div className='container mx-auto px-4 max-w-4xl'>
-				<h2 className='text-3xl font-bold mb-8 text-center flex items-center justify-center'>
-					{Icon && <Icon className='w-8 h-8 mr-3 text-primary' />}
-					{title}
-				</h2>
-				<div className='bg-card dark:bg-card-dark rounded-lg shadow-md p-6'>
-					{children}
-				</div>
+		<section className='bg-card text-card-foreground p-4 m-4 rounded-lg shadow-md'>
+			<div className='flex items-center space-x-2 mb-4'>
+				<Icon className='h-6 w-6 text-primary' aria-hidden='true' />
+				<h2 className='text-xl font-bold'>{title}</h2>
 			</div>
+			<div className='section-content'>{children}</div>
 		</section>
 	)
 }

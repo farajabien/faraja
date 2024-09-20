@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button'
 import Section from '@/components/Section'
 import { Card } from '@/components/ui/card'
+import { Metadata } from 'next'
 
 // Types
 type Resource = {
@@ -20,16 +21,19 @@ type Resource = {
 	link: string
 	price: string
 	action?: {
-		icon: React.ElementType
+		icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 		label: string
 	}
 	features?: string[]
-	techStack?: { name: string; icon: React.ElementType }[]
+	techStack?: {
+		name: string
+		icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+	}[]
 }
 
 type Category = {
 	category: string
-	icon: React.ElementType
+	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 	items: Resource[]
 }
 
@@ -40,25 +44,26 @@ const resources: Category[] = [
 		icon: Code,
 		items: [
 			{
-				title: 'This Portfolio Template',
+				title: 'Enhanced Portfolio Template',
 				description:
-					"The very portfolio you're looking at! A customizable template for creating a professional portfolio website with integrated paywalls and payment buttons. Don't forget to star the repo if you find it useful!",
-				link: 'https://github.com/farajabien/faraja',
+					"Explore the enhanced version of the portfolio you're currently viewing! This template is designed for professionals looking to showcase their work with advanced features like integrated paywalls and dynamic content sections. Make sure to star the repo to support our work!",
+				link: 'https://github.com/farajabien/enhanced-portfolio',
 				price: 'Free',
 				action: {
 					icon: Star,
 					label: 'Star on GitHub',
 				},
 				features: [
-					'Responsive design',
-					'Dark mode support',
-					'Integrated paywall system',
-					'Customizable sections',
-					'SEO optimized',
+					'Advanced responsive design',
+					'Dark and light mode support',
+					'Robust paywall integration',
+					'Highly customizable sections',
+					'Advanced SEO features',
 				],
 				techStack: [
 					{ name: 'Next.js', icon: Code },
 					{ name: 'Tailwind CSS', icon: Code },
+					{ name: 'React Query', icon: Code },
 				],
 			},
 		],
@@ -160,7 +165,7 @@ function ResourceCard({
 
 function CategorySection({ category }: { category: Category }) {
 	return (
-		<Section title={category.category}>
+		<Section title={category.category} icon={category.icon}>
 			<div className='grid md:grid-cols-2 gap-8'>
 				{category.items.map((item) => (
 					<ResourceCard key={item.title} item={item} icon={category.icon} />
@@ -168,6 +173,12 @@ function CategorySection({ category }: { category: Category }) {
 			</div>
 		</Section>
 	)
+}
+
+export const metadata: Metadata = {
+	title: 'Resources by Bienvenu Faraja - Tools & Templates',
+	description:
+		'Explore a curated list of resources including tools, templates, and guides designed by Bienvenu Faraja to empower developers and entrepreneurs in their digital journey.',
 }
 
 // Main component
