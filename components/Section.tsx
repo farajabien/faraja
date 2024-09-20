@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-function Section({
-	title,
-	children,
-}: {
+interface SectionProps {
 	title: string
-	children: React.ReactNode
-}) {
+	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+	children?: ReactNode
+}
+
+const Section: React.FC<SectionProps> = ({ title, icon: Icon, children }) => {
 	return (
-		<section className='py-16'>
-			<h2 className='text-3xl font-bold mb-8 text-center'>{title}</h2>
-			<div className='container mx-auto px-4 max-w-4xl'>{children}</div>
+		<section className='bg-card text-card-foreground p-4 m-4 rounded-lg shadow-md'>
+			<div className='flex items-center space-x-2 mb-4'>
+				<Icon className='h-6 w-6 text-primary' aria-hidden='true' />
+				<h2 className='text-xl font-bold'>{title}</h2>
+			</div>
+			<div className='section-content'>{children}</div>
 		</section>
 	)
 }

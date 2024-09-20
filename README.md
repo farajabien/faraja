@@ -55,35 +55,30 @@ As a full-stack developer and tech entrepreneur, I specialize in creating innova
 ### Technology Stack
 
 - Next.js
-- Supabase
+- React
 - Tailwind CSS
 - shadcn/ui
-- Resend
-- PayStack
 - Vercel
 
 ## Resources
 
-I've created various resources to help fellow entrepreneurs and developers. Some are freely available, while others require a small fee to access.
+I've created various resources to help fellow entrepreneurs and developers. Currently, I'm offering a free template based on this portfolio.
 
 ### Templates
 
-1. **Portfolio with Paywall and Pay Buttons**
-   - Description: A customizable template for creating a professional portfolio website with integrated paywalls and payment buttons.
+1. **This Portfolio Template**
+   - Description: The very portfolio you're looking at! A customizable template for creating a professional portfolio website with integrated paywalls and payment buttons.
    - Features:
      - Responsive design
-     - Easy content management
+     - Dark mode support
      - Integrated paywall system
-     - Multiple payment gateway options
-   - [Learn More / Purchase]
-
-### Guides and E-books
-
-[Coming soon]
-
-### Tools
-
-[Coming soon]
+     - Customizable sections
+     - SEO optimized
+   - Tech Stack:
+     - Next.js
+     - Tailwind CSS
+   - Price: Free
+   - [View on GitHub](https://github.com/farajabien/faraja)
 
 ## Contact
 
