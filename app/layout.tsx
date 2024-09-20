@@ -3,6 +3,7 @@ import './globals.css'
 import localFont from 'next/font/local'
 import NextTopLoader from 'nextjs-toploader'
 import ThemeToggle from '@/components/ThemeToggle'
+import { Providers } from './providers'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -30,9 +31,11 @@ export default function RootLayout({
 		<html lang='en'>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground px-8 sm:px-20`}>
-				<ThemeToggle />
-				<NextTopLoader />
-				{children}
+				<Providers>
+					<ThemeToggle />
+					<NextTopLoader />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	)
