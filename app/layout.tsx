@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Comic_Neue } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
+import NextTopLoader from 'nextjs-toploader'
+import ThemeToggle from '@/components/ThemeToggle'
 
 const myFont = localFont({
 	src: [
@@ -31,7 +33,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={comic.className}>{children}</body>
+			<body className={comic.className}>
+				<ThemeToggle />
+				<NextTopLoader />
+				{children}
+			</body>
 		</html>
 	)
 }
