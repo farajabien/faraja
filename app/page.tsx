@@ -32,37 +32,91 @@ import { Metadata } from 'next'
 function Announcement() {
 	return (
 		<Alert variant='success' className='mb-8'>
-		<AlertCircle className='h-4 w-4' />
-		<AlertTitle>Struggling to Monetize Your Digital Assets?</AlertTitle>
-		<AlertDescription>
-			Solve that today with{' '}
-			<a
-				href='https://digitalassetmonetizer.com'
-				className='font-medium underline hover:text-primary'>
-				Digital Asset Monetizer
-			</a>
-			— the all-in-one platform designed to streamline and boost your digital sales effortlessly.
-		</AlertDescription>
-	</Alert>
-	
+			<AlertCircle className='h-4 w-4' />
+			<AlertTitle>Struggling to Monetize Your Digital Assets?</AlertTitle>
+			<AlertDescription>
+				Solve that today with{' '}
+				<a
+					href='https://digitalassetmonetizer.com'
+					className='font-medium underline hover:text-primary'>
+					Digital Asset Monetizer
+				</a>
+				— the all-in-one platform designed to streamline and boost your digital
+				sales effortlessly.
+			</AlertDescription>
+		</Alert>
 	)
 }
 
 export const metadata: Metadata = {
-	title: 'Bienvenu Faraja - Digital Innovator & Entrepreneur',
+	title: 'Bienvenu Faraja - NextJ',
 	description:
 		"Discover Bienvenu Faraja's innovative projects and entrepreneurial journey in digital technology, specializing in Next.js and modern web technologies.",
 }
+
+const ProjectCard = ({
+	project,
+	index,
+}: {
+	project: {
+		title: string
+		subtitle: string
+		description: string
+		technologies?: string[]
+		link?: string
+	}
+	index: number
+}) => (
+	<Card className='p-6 hover:shadow-lg transition-shadow'>
+		{index === 0 && <Star className='absolute top-2 right-2 text-primary' />}
+		<h3 className='text-2xl font-semibold mb-2'>{project.title}</h3>
+		<p className='text-sm text-muted-foreground mb-4'>{project.subtitle}</p>
+		<p className='mb-4'>{project.description}</p>
+		<div className='flex justify-between items-center'>
+			<span className='bg-primary text-white px-2 py-1 rounded-full text-xs'>
+				Tech Used: {project.technologies?.join(', ')}
+			</span>
+			{project.link && (
+				<Button asChild variant='outline' size='sm'>
+					<Link
+						href={project.link}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='inline-flex items-center'>
+						Visit site <ExternalLink className='ml-2 w-4 h-4' />
+					</Link>
+				</Button>
+			)}
+		</div>
+	</Card>
+)
 
 export default function Home() {
 	return (
 		<div className='min-h-screen bg-background text-foreground flex flex-col'>
 			<Head>
-				<title>Bienvenu Faraja - Digital Innovator & Entrepreneur</title>
+				<title>Bienvenu Faraja - NextJ</title>
 				<meta
 					name='description'
 					content="Bienvenu Faraja's personal portfolio showcasing projects, skills, and achievements as a Digital Innovator and Entrepreneur specializing in Next.js development."
 				/>
+				<meta property='og:title' content='Bienvenu Faraja - NextJ' />
+				<meta
+					property='og:description'
+					content='Discover my projects and journey as a Next.js developer and tech entrepreneur.'
+				/>
+				<meta property='og:url' content='https://yourwebsite.com' />
+				<meta property='og:image' content='/path/to/image.jpg' />
+				<meta name='twitter:card' content='summary_large_image' />
+				<meta
+					name='twitter:title'
+					content='Bienvenu Faraja - NextJs Developer | Startup Enthusiast'
+				/>
+				<meta
+					name='twitter:description'
+					content='Discover my innovative projects in Next.js and modern web technologies.'
+				/>
+				<meta name='twitter:image' content='/path/to/image.jpg' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className='container mx-auto px-4 pt-2 max-w-4xl flex-grow'>
@@ -70,11 +124,10 @@ export default function Home() {
 
 				<div className='text-center mb-16'>
 					<h1 className='text-5xl font-bold mb-4 animate-fade-in'>
-						Bienvenu <span className='text-primary'>Faraja</span>
+						Faraja<span className='text-primary'>Bien</span>
 					</h1>
 					<p className='text-xl mb-8 text-muted-foreground'>
-						Digital Innovator & Entrepreneur | Next.js Developer | Startup
-						Enthusiast
+						Next.js Developer | Startup Enthusiast
 					</p>
 					<div className='flex justify-center space-x-6 mb-8'>
 						{socialLinks.map((link) => (
@@ -133,34 +186,11 @@ export default function Home() {
 					</div>
 					<div className='grid md:grid-cols-2 gap-8'>
 						{projects.map((project, index) => (
-							<Card
+							<ProjectCard
 								key={project.title}
-								className='p-6 hover:shadow-lg transition-shadow relative'>
-								{index === 0 && (
-									<Star className='absolute top-2 right-2 text-primary' />
-								)}
-								<h3 className='text-2xl font-semibold mb-2'>{project.title}</h3>
-								<p className='text-sm text-muted-foreground mb-4'>
-									{project.subtitle}
-								</p>
-								<p className='mb-4'>{project.description}</p>
-								<div className='flex justify-between items-center'>
-									<span className='bg-primary text-white px-2 py-1 rounded-full text-xs'>
-										Tech Used: {project.technologies?.join(', ')}
-									</span>
-									{project.link && (
-										<Button asChild variant='outline' size='sm'>
-											<Link
-												href={project.link}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex items-center'>
-												Visit site <ExternalLink className='ml-2 w-4 h-4' />
-											</Link>
-										</Button>
-									)}
-								</div>
-							</Card>
+								project={project}
+								index={index}
+							/>
 						))}
 					</div>
 				</Section>
@@ -170,32 +200,12 @@ export default function Home() {
 						Total Projects: {kwetunovaProjects.length}
 					</div>
 					<div className='grid md:grid-cols-2 gap-8'>
-						{kwetunovaProjects.map((project) => (
-							<Card
+						{kwetunovaProjects.map((project, index) => (
+							<ProjectCard
 								key={project.title}
-								className='p-6 hover:shadow-lg transition-shadow'>
-								<h3 className='text-2xl font-semibold mb-2'>{project.title}</h3>
-								<p className='text-sm text-muted-foreground mb-4'>
-									{project.subtitle}
-								</p>
-								<p className='mb-4'>{project.description}</p>
-								<div className='flex justify-between items-center'>
-									<span className='bg-primary text-white px-2 py-1 rounded-full text-xs'>
-										Tech Used: {project.technologies?.join(', ')}
-									</span>
-									{project.link && (
-										<Button asChild variant='outline' size='sm'>
-											<Link
-												href={project.link}
-												target='_blank'
-												rel='noopener noreferrer'
-												className='inline-flex items-center'>
-												Visit site <ExternalLink className='ml-2 w-4 h-4' />
-											</Link>
-										</Button>
-									)}
-								</div>
-							</Card>
+								project={project}
+								index={index}
+							/>
 						))}
 					</div>
 				</Section>
@@ -266,7 +276,7 @@ export default function Home() {
 							touch or schedule a call!
 						</p>
 						<div className='flex justify-center space-x-4'>
-							<Button asChild size='lg'>
+							<Button asChild size='lg' aria-label='Send email to Bienvenu'>
 								<Link
 									href='mailto:farajabien@gmail.com'
 									className='inline-flex items-center'>
