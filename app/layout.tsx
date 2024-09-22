@@ -1,23 +1,19 @@
 import type { Metadata } from 'next'
-import { Comic_Neue } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
 import NextTopLoader from 'nextjs-toploader'
 import ThemeToggle from '@/components/ThemeToggle'
+import { Providers } from './providers'
 
-const myFont = localFont({
-	src: [
-		{
-			path: '../public/fonts/underlord/Underlord.ttf',
-			weight: '400',
-		},
-	],
+const geistSans = localFont({
+	src: './fonts/GeistVF.woff',
+	variable: '--font-geist-sans',
+	weight: '100 900',
 })
-
-const comic = Comic_Neue({
-	weight: ['400'],
-	subsets: ['latin'],
-	display: 'auto',
+const geistMono = localFont({
+	src: './fonts/GeistMonoVF.woff',
+	variable: '--font-geist-mono',
+	weight: '100 900',
 })
 
 export const metadata: Metadata = {
@@ -33,10 +29,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={comic.className}>
-				<ThemeToggle />
-				<NextTopLoader />
-				{children}
+			<body
+				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground px-8 sm:px-20`}>
+				<Providers>
+					<ThemeToggle />
+					<NextTopLoader />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	)
