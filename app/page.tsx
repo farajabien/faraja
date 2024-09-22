@@ -29,32 +29,7 @@ import Section from '@/components/Section'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 
-function Announcement() {
-	return (
-		<Alert variant='success' className='mb-8'>
-			<AlertCircle className='h-4 w-4' />
-			<AlertTitle>Struggling to Monetize Your Digital Assets?</AlertTitle>
-			<AlertDescription>
-				Solve that today with{' '}
-				<a
-					href='https://digitalassetmonetizer.com'
-					className='font-medium underline hover:text-primary'>
-					Digital Asset Monetizer
-				</a>
-				— the all-in-one platform designed to streamline and boost your digital
-				sales effortlessly.
-			</AlertDescription>
-		</Alert>
-	)
-}
-
-function ProjectCard({
-	project,
-	index,
-}: {
-	project: Project
-	index: number
-}) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
 	return (
 		<Card className='p-6 hover:shadow-lg transition-shadow relative'>
 			{index === 0 && <Star className='absolute top-2 right-2 text-primary' />}
@@ -91,8 +66,6 @@ export default function Home() {
 	return (
 		<div className='min-h-screen bg-background text-foreground flex flex-col'>
 			<main className='container mx-auto px-4 pt-2 max-w-4xl flex-grow'>
-				<Announcement />
-
 				<div className='text-center mb-16'>
 					<h1 className='text-5xl font-bold mb-4 animate-fade-in'>
 						Faraja<span className='text-primary'>Bien</span>
@@ -132,9 +105,9 @@ export default function Home() {
 					<p className='mb-4'>
 						As a full-stack developer and tech entrepreneur, I specialize in
 						creating innovative solutions for the African market. With expertise
-						in Next.js, Supabase, and various other modern technologies, I&apos;ve
-						successfully launched and managed multiple projects that address
-						unique challenges in our region.
+						in Next.js, Supabase, and various other modern technologies,
+						I&apos;ve successfully launched and managed multiple projects that
+						address unique challenges in our region.
 					</p>
 				</Section>
 
@@ -210,8 +183,8 @@ export default function Home() {
 				<Section title='Resources' icon={Book}>
 					<p className='mb-4'>
 						I&apos;ve created various resources to help fellow entrepreneurs and
-						developers. Currently, I&apos;m offering a free template based on this
-						portfolio.
+						developers. Currently, I&apos;m offering a free template based on
+						this portfolio.
 					</p>
 					<Card className='p-6 hover:shadow-lg transition-shadow'>
 						<h3 className='text-2xl font-semibold mb-2'>

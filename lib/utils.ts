@@ -31,14 +31,6 @@ export function cn(...inputs: ClassValue[]) {
 // Sample Projects
 export const projects: Project[] = [
 	{
-		title: 'Digital Asset Monetizer',
-		subtitle: 'All-in-One SaaS for Digital Asset Sales',
-		description:
-			'A powerful platform built on Next.js and Supabase, enabling users to easily monetize digital assets with flexible payment options and comprehensive analytics.',
-		link: 'https://digital-asset-monetizer.vercel.app',
-		technologies: ['Next.js', 'Supabase', 'Paystack', 'Uploadthing'],
-	},
-	{
 		title: 'BingBang',
 		subtitle: 'Social gaming platform',
 		description:
