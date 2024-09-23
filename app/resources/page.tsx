@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ResourcesPage() {
 	return (
 		<div className='min-h-screen bg-background dark:bg-background-dark text-foreground dark:text-foreground-dark flex flex-col'>
-			<main className='container mx-auto px-4 py-16 max-w-4xl flex-grow'>
+			<main className='container mx-auto px-4 py-8 md:py-16 max-w-4xl flex-grow'>
 				<MyBreadcrumb
 					items={[
 						{
@@ -29,9 +29,11 @@ export default function ResourcesPage() {
 						},
 					]}
 				/>
-				<h1 className='text-4xl font-bold mb-8 text-center'>Resources</h1>
+				<h1 className='text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center'>
+					Resources
+				</h1>
 
-				<div className='flex justify-center space-x-8 mb-12'>
+				<div className='flex flex-wrap justify-center gap-4 md:gap-8 mb-8 md:mb-12'>
 					{resources.map((category: Category) => (
 						<CategoryBubble
 							key={category.category}
@@ -48,7 +50,7 @@ export default function ResourcesPage() {
 			</main>
 
 			<footer className='text-center py-6 text-muted-foreground bg-secondary dark:bg-secondary-dark'>
-				<p className='text-sm'>
+				<p className='text-sm px-4'>
 					© {new Date().getFullYear()} Bienvenu Faraja. All Rights Reserved.
 				</p>
 			</footer>
