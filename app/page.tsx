@@ -65,15 +65,15 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Home() {
 	return (
 		<div className='min-h-screen bg-background text-foreground flex flex-col'>
-			<main className='container mx-auto px-4 pt-2 max-w-4xl flex-grow'>
-				<div className='text-center mb-16'>
-					<h1 className='text-5xl font-bold mb-4 animate-fade-in'>
+			<main className='md:container mx-auto px-4 pt-4 md:pt-8 max-w-4xl flex-grow'>
+				<div className='text-center mb-12 md:mb-16'>
+					<h1 className='text-4xl md:text-5xl font-bold mb-4 animate-fade-in'>
 						Faraja<span className='text-primary'>Bien</span>
 					</h1>
-					<p className='text-xl mb-8 text-muted-foreground'>
+					<p className='text-lg md:text-xl mb-6 md:mb-8 text-muted-foreground'>
 						Next.js Developer | Startup Enthusiast
 					</p>
-					<div className='flex justify-center space-x-6 mb-8'>
+					<div className='flex flex-wrap justify-center gap-4 mb-6 md:mb-8'>
 						{socialLinks.map((link) => (
 							<SocialLink
 								key={link.label}
@@ -83,7 +83,7 @@ export default function Home() {
 							/>
 						))}
 					</div>
-					<div className='flex justify-center space-x-4 mb-8'>
+					<div className='flex flex-col sm:flex-row justify-center gap-4 mb-8'>
 						<Button asChild variant='outline' size='lg'>
 							<Link
 								href='/files/farajabien_resume_2024.pdf'
@@ -219,7 +219,7 @@ export default function Home() {
 							Interested in collaborating or discussing opportunities? Get in
 							touch or schedule a call!
 						</p>
-						<div className='flex justify-center space-x-4'>
+						<div className='flex flex-col sm:flex-row justify-center gap-4'>
 							<Button asChild size='lg' aria-label='Send email to Bienvenu'>
 								<Link
 									href='mailto:farajabien@gmail.com'
@@ -234,7 +234,7 @@ export default function Home() {
 			</main>
 
 			<footer className='text-center py-6 text-muted-foreground bg-secondary'>
-				<p className='text-sm'>
+				<p className='text-sm px-4'>
 					Open to exciting startup opportunities and collaborations
 				</p>
 				<p className='text-sm mt-2'>
