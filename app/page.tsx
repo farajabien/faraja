@@ -65,7 +65,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 export default function Home() {
 	return (
 		<div className='min-h-screen bg-background text-foreground flex flex-col'>
-			<main className='md:container mx-auto px-4 pt-4 md:pt-8 max-w-4xl flex-grow'>
+			<main className='container mx-auto px-2 md:px-4 pt-4 md:pt-8 max-w-4xl flex-grow'>
 				<div className='text-center mb-12 md:mb-16'>
 					<h1 className='text-4xl md:text-5xl font-bold mb-4 animate-fade-in'>
 						Faraja<span className='text-primary'>Bien</span>
