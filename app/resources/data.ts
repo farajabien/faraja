@@ -10,7 +10,7 @@ export const resources: Category[] = [
 				title: 'Enhanced Portfolio Template',
 				description:
 					"Explore the enhanced version of the portfolio you're currently viewing! This template is designed for professionals looking to showcase their work. Make sure to star the repo to support our work!",
-				link: 'https://github.com/farajabien/enhanced-portfolio',
+				link: 'https://github.com/farajabien/faraja',
 				price: 'Free',
 				action: {
 					icon: Star,
