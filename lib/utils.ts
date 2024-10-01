@@ -34,9 +34,9 @@ export const projects: Project[] = [
 		title: 'BingBang',
 		subtitle: 'Social gaming platform',
 		description:
-			'An innovative online betting platform with secure transactions and multiple payment gateways, built using React, Node.js, and MongoDB.',
+			'Social gaming platform that connects gamers worldwide. Integrated with Random.ORG for fair game results and Supabase for user authentication and data storage.',
 		link: 'https://bingbang.bet',
-		technologies: ['React', 'Node.js', 'MongoDB'],
+		technologies: ['NextJs', 'Random.ORG', 'Supabase'],
 	},
 	{
 		title: 'PropManage',
