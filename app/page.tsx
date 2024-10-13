@@ -1,5 +1,4 @@
-import { AlertCircle, Star } from 'lucide-react'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Star } from 'lucide-react'
 import Link from 'next/link'
 import {
 	Github,
@@ -31,7 +30,7 @@ import BookCalendly from '@/components/BookCalendly'
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
 	return (
-		<Card className='p-6 hover:shadow-lg transition-shadow relative'>
+		<Card className='p-6 hover:shadow-xl transition-shadow relative group'>
 			{index === 0 && <Star className='absolute top-2 right-2 text-primary' />}
 			<h3 className='text-2xl font-semibold mb-2'>{project.title}</h3>
 			<p className='text-sm text-muted-foreground mb-4'>{project.subtitle}</p>
@@ -40,7 +39,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 				{project.technologies.map((tech) => (
 					<span
 						key={tech}
-						className='inline-block bg-primary/10 text-primary text-xs px-2 py-1 rounded-full transition-colors hover:bg-primary/20'>
+						className='inline-block bg-primary/10 text-primary text-xs px-3 py-1 rounded-full transition-colors duration-300 hover:bg-primary/20'>
 						{tech}
 					</span>
 				))}
@@ -71,7 +70,7 @@ export default function Home() {
 						Faraja<span className='text-primary'>Bien</span>
 					</h1>
 					<p className='text-lg md:text-xl mb-6 md:mb-8 text-muted-foreground'>
-						Visionary Full-Stack Developer & Startup Innovator
+						Full-Stack Developer & Startup Innovator
 					</p>
 					<div className='flex flex-wrap justify-center gap-4 mb-6 md:mb-8'>
 						{socialLinks.map((link) => (
@@ -96,6 +95,13 @@ export default function Home() {
 						<Button asChild variant='outline' size='lg'>
 							<Link href='/resources' className='inline-flex items-center'>
 								<Book className='mr-2 h-4 w-4' /> Resources
+							</Link>
+						</Button>
+						<Button asChild variant='outline' size='lg'>
+							<Link
+								href='/online-payment-button'
+								className='inline-flex items-center'>
+								<ExternalLink className='mr-2 h-4 w-4' /> Go to Payment Demo
 							</Link>
 						</Button>
 					</div>
