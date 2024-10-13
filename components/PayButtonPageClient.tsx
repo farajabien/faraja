@@ -7,12 +7,14 @@ import Link from 'next/link'
 import { toast } from 'sonner'
 
 const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
+
+const amount = 10
 export default function PayButtonPageClient() {
 	const config = {
 		email: 'faraja.bien@gmail.com',
-		amount: 10000, // Amount in cents
+		amount: amount * 100, // Amount in cents
 		publicKey,
-		text: 'Pay Now',
+		text: `Pay Now (${amount} KES)`,
 		currency: 'KES',
 	}
 
@@ -60,23 +62,25 @@ export default function PayButtonPageClient() {
 					</AlertDescription>
 				</Alert>
 
-				<div className='flex justify-center'>
+				<div className='flex flex-col items-center mb-8'>
 					<BookCalendly />
-					<div className='text-center mb-8'>
+					<div className='text-center'>
 						<h2 className='text-xl font-semibold mb-2'>Contact Information</h2>
 						<p>
-							Email:{' '}
+							Email:
 							<Link
 								href={`mailto:faraja.bien@gmail.com`}
-								className='text-primary'>
-								{'faraja.bien@gmail.com'}
+								className='text-primary'
+								aria-label='Email Faraja Bien'>
+								faraja.bien@gmail.com
 							</Link>
 						</p>
 						<p>
-							WhatsApp:{' '}
+							WhatsApp:
 							<Link
 								href={`https://wa.me/+254793643308`}
-								className='text-primary'>
+								className='text-primary'
+								aria-label='WhatsApp Faraja Bien'>
 								+254793643308
 							</Link>
 						</p>

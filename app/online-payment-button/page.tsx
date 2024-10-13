@@ -1,10 +1,13 @@
-import PayButtonPageClient from '@/components/PayButtonPageClient'
+import dynamic from 'next/dynamic'
 import React from 'react'
 
-export default function PaymentDemo() {
-	if (typeof window === 'undefined') {
-		return null // or a loading state
+const PayButtonPageClient = dynamic(
+	() => import('@/components/PayButtonPageClient'),
+	{
+		ssr: false,
 	}
+)
 
+export default function PaymentDemo() {
 	return <PayButtonPageClient />
 }
