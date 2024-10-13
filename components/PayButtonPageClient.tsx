@@ -17,12 +17,14 @@ export default function PayButtonPageClient() {
 	}
 
 	const handleSuccess = (reference: string) => {
+		// Ensure this code runs only in the browser
 		if (typeof window !== 'undefined') {
 			toast.success('Payment Success', { description: reference })
 			console.log('Payment successful, reference:', reference)
 		}
 	}
 
+	// Ensure this code runs only in the browser
 	const handleClose = () => {
 		if (typeof window !== 'undefined') {
 			console.log('Payment dialog closed')
