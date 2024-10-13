@@ -1,0 +1,80 @@
+'use client'
+import PayButton from '@/components/payment/PayButton'
+import React from 'react'
+import { Alert, AlertDescription, AlertTitle } from './ui/alert'
+import BookCalendly from './BookCalendly'
+import Link from 'next/link'
+
+const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
+export default function PayButtonPageClient() {
+	const config = {
+		email: 'faraja.bien@gmail.com',
+		amount: 10000, // Amount in cents
+		publicKey,
+		text: 'Pay Now',
+		currency: 'KES',
+	}
+
+	const handleSuccess = (reference: string) => {
+		console.log('Payment successful, reference:', reference)
+	}
+
+	const handleClose = () => {
+		console.log('Payment dialog closed')
+	}
+
+	return (
+		<div className='min-h-screen bg-background text-foreground flex flex-col'>
+			<main className='container mx-auto px-4 pt-8 max-w-4xl flex-grow'>
+				<div className='text-center mb-12'>
+					<h1 className='text-4xl font-bold mb-4'>Payment Demo</h1>
+					<p className='text-lg mb-6 text-muted-foreground'>
+						Experience seamless payment processing for your business.
+					</p>
+				</div>
+
+				<div className='text-center mb-8'>
+					<h2 className='text-2xl font-semibold mb-4'>Pay for Services</h2>
+					<PayButton
+						config={config}
+						onSuccess={handleSuccess}
+						onClose={handleClose}
+					/>
+				</div>
+
+				<Alert className='mb-8 bg-blue-50 border-l-4 border-blue-400 text-blue-800 p-4 rounded-lg shadow-md'>
+					<AlertTitle className='font-semibold'>
+						Ready to Enhance Your Payment Experience?
+					</AlertTitle>
+					<AlertDescription>
+						If you’re a business or service provider looking to implement
+						payment features like this on your website, let me know!
+					</AlertDescription>
+				</Alert>
+
+				<div className='flex justify-center'>
+					<BookCalendly />
+					<div className='text-center mb-8'>
+						<h2 className='text-xl font-semibold mb-2'>Contact Information</h2>
+						<p>
+							Email:{' '}
+							<Link
+								href={`mailto:faraja.bien@gmail.com`}
+								className='text-primary'>
+								{'faraja.bien@gmail.com'}
+							</Link>
+						</p>
+						<p>
+							WhatsApp:{' '}
+							<Link
+								href={`https://wa.me/+254793643308`}
+								className='text-primary'>
+								+254793643308
+							</Link>
+						</p>
+					</div>
+				</div>
+			</main>
+		</div>
+	)
+}

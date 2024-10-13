@@ -1,33 +1,42 @@
 // lib/utils.ts
+
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-
 import { Github, Twitter, Mail, ExternalLink } from 'lucide-react'
-
-export interface Project {
-	title: string
-	subtitle: string
-	description: string
-	link?: string
-	technologies: string[] // Add this line
-}
-
-export interface SocialLinkData {
-	href: string
-	icon: React.ComponentType<{ className?: string }>
-	label: string
-}
-
-export interface TechStackItem {
-	name: string
-}
 
 // CSS Class Helper
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
-// Sample Projects
+// Project Interface
+export interface Project {
+	title: string
+	subtitle: string
+	description: string
+	link?: string // Optional link
+	technologies: string[] // Array of tech stack used in the project
+}
+
+// SocialLink Interface
+export interface SocialLinkData {
+	href: string
+	icon: React.ComponentType<{ className?: string }>
+	label: string
+}
+
+// Tech Stack Interface
+export interface TechStackItem {
+	name: string
+}
+
+// Achievement Interface
+export interface Achievement {
+	title: string
+	description: string
+	link: string
+}
+
 // Sample Projects
 export const projects: Project[] = [
 	{
@@ -59,10 +68,10 @@ export const projects: Project[] = [
 		subtitle: 'World Food Programme',
 		description:
 			'Developed custom project management tools to improve operational efficiency for the World Food Programme. This internal tool is not publicly accessible but is crucial for mission-critical operations.',
-		link: '', // No public link available
-		technologies: ['React', 'Node.js'], // Assuming technologies based on typical project needs
+		technologies: ['React', 'Node.js'], // Assuming typical tech stack
 	},
 ]
+
 // Kwetunova Web Agency Projects
 export const kwetunovaProjects: Project[] = [
 	{
@@ -134,17 +143,11 @@ export const socialLinks: SocialLinkData[] = [
 ]
 
 // Achievements
-export interface Achievement {
-	title: string
-	description: string
-	link: string
-}
-
 export const achievements: Achievement[] = [
 	{
 		title: 'Certified Digital Innovator',
 		description:
-			'This certificate is awarded to Bienvenu Faraja for successfully participating in the Entrepreneur Academy Explore Course. Gained valuable knowledge in business modeling, customer research, and entrepreneurial experimentation. Explore Course Cohort 4, Certificate ID: jk683ezjjm.',
+			'Awarded to Bienvenu Faraja for successfully completing the Entrepreneur Academy Explore Course. Gained valuable knowledge in business modeling, customer research, and entrepreneurial experimentation. Explore Course Cohort 4, Certificate ID: jk683ezjjm.',
 		link: 'https://54collective.thinkific.com/certificates/jk683ezjjm',
 	},
 	// Add more achievements as needed
