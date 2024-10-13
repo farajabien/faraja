@@ -4,6 +4,7 @@ import React from 'react'
 import { Alert, AlertDescription, AlertTitle } from './ui/alert'
 import BookCalendly from './BookCalendly'
 import Link from 'next/link'
+import { toast } from 'sonner'
 
 const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
 export default function PayButtonPageClient() {
@@ -16,11 +17,16 @@ export default function PayButtonPageClient() {
 	}
 
 	const handleSuccess = (reference: string) => {
-		console.log('Payment successful, reference:', reference)
+		if (typeof window !== 'undefined') {
+			toast.success('Payment Success', { description: reference })
+			console.log('Payment successful, reference:', reference)
+		}
 	}
 
 	const handleClose = () => {
-		console.log('Payment dialog closed')
+		if (typeof window !== 'undefined') {
+			console.log('Payment dialog closed')
+		}
 	}
 
 	return (
