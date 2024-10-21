@@ -93,9 +93,11 @@ export default function Home() {
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text={`Schedule Consultation `} />
 
-						<Button variant='outline' size='lg'>
-							View Services
-						</Button>
+						<Link href='/services'>
+							<Button variant='outline' size='lg'>
+								View Services
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -122,7 +124,7 @@ export default function Home() {
 			<section className='py-16 container mx-auto px-4'>
 				<div className='max-w-4xl mx-auto'>
 					<h2 className='text-3xl font-bold text-center mb-12'>
-						Let's Work Together
+						Let&apos;s Work Together
 					</h2>
 					<div className='grid md:grid-cols-2 gap-6'>
 						{benefits.map((benefit) => (
@@ -185,8 +187,8 @@ export default function Home() {
 						Ready to Transform Your Startup?
 					</h2>
 					<p className='text-xl text-muted-foreground mb-8'>
-						Let's work together to turn your vision into reality while avoiding
-						costly mistakes.
+						Let&apos;s work together to turn your vision into reality while
+						avoiding costly mistakes.
 					</p>
 					<BookCalendly />
 				</div>

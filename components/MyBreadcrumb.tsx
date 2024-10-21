@@ -19,7 +19,7 @@ interface BreadcrumbProps {
 export function MyBreadcrumb({ items }: BreadcrumbProps) {
 	return (
 		<BreadcrumbRoot>
-			<BreadcrumbList>
+			<BreadcrumbList className='mt-1'>
 				<BreadcrumbItem>
 					<BreadcrumbLink href='/'>
 						<Home className='h-4 w-4' />
