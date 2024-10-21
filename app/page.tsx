@@ -98,6 +98,11 @@ export default function Home() {
 								View Services
 							</Button>
 						</Link>
+						<Link href='/projects'>
+							<Button variant='outline' size='lg'>
+								View Projects
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -169,11 +174,7 @@ export default function Home() {
 										</li>
 									))}
 								</ul>
-								<Button
-									className='w-full'
-									variant={pkg.isPopular ? 'default' : 'outline'}>
-									Get Started
-								</Button>
+								<BookCalendly text='Get Started' />
 							</Card>
 						))}
 					</div>
