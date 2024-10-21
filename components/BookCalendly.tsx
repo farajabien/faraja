@@ -1,8 +1,9 @@
 'use client'
+import { ArrowRight } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { PopupButton } from 'react-calendly'
 
-export default function BookCalendly() {
+export default function BookCalendly({ text }: { text?: string }) {
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
@@ -17,7 +18,7 @@ export default function BookCalendly() {
 		<PopupButton
 			url='https://calendly.com/farajabien'
 			rootElement={document.body}
-			text='Schedule a Call'
+			text={text ?? 'Schedule a Call'}
 			prefill={{
 				name: 'Your Name',
 				email: 'your@email.com',
