@@ -1,4 +1,4 @@
-import { CheckCircle, ArrowRight, Star } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
@@ -20,18 +20,18 @@ const services: Service[] = [
 	{
 		title: 'Prototype Strategy Consulting',
 		description:
-			'Get expert guidance on turning your idea into a viable product',
+			'Expert guidance to transform your idea into a product with a solid foundation.',
 		features: [
 			{
 				name: 'Basic Package',
 				price: '15,000 KSH ($150)',
 				includes: [
-					'Problem analysis & validation',
+					'Problem analysis and validation',
 					'Technical architecture planning',
-					'Database structure planning',
+					'Database structure design',
 					'User flow diagrams',
 					'Tool stack recommendations',
-					'24-hour turnaround time',
+					'24-hour turnaround',
 				],
 			},
 			{
@@ -39,13 +39,13 @@ const services: Service[] = [
 				price: '20,000 KSH ($200)',
 				isPopular: true,
 				includes: [
-					'Everything in Basic Package',
+					'All Basic Package features',
 					'Implementation support',
 					'Cost optimization strategies',
 					'Technical team briefings',
-					'Two revision rounds',
+					'Two rounds of revisions',
 					'30-minute follow-up consultation',
-					'48-hour turnaround time',
+					'48-hour turnaround',
 					'Satisfaction guarantee',
 				],
 			},
@@ -54,24 +54,24 @@ const services: Service[] = [
 	{
 		title: 'Prototype Development',
 		description:
-			'Hands-on assistance in building your prototype using modern tech stacks',
+			'Hands-on assistance in building your prototype using modern technology stacks.',
 		featureStrings: [
-			'Custom development using Next.js',
+			'Custom development with Next.js',
 			'Scalable architecture implementation',
 			'Database design and setup',
-			'API integration',
-			'Performance optimization',
+			'API integrations',
+			'Performance optimizations',
 			'Custom pricing based on project scope',
 		],
 	},
 	{
 		title: 'VC Introduction Service',
 		price: '10,000 KSH ($100)',
-		description: 'For vetted startups ready for venture capital funding',
+		description: 'For vetted startups ready for venture capital funding.',
 		featureStrings: [
 			'Startup pitch review',
 			'Investor deck optimization',
-			'Curated introductions to relevant investors',
+			'Curated investor introductions',
 			'Pre-pitch preparation guidance',
 			'Follow-up strategy planning',
 		],
@@ -82,22 +82,22 @@ const processSteps = [
 	{
 		title: 'Initial Consultation',
 		description:
-			'We discuss your idea, goals, and current challenges to determine the best approach.',
+			'We discuss your goals and challenges to determine the best approach for your idea.',
 	},
 	{
 		title: 'Strategy Development',
 		description:
-			'I create a detailed plan tailored to your specific needs and market requirements.',
+			'A detailed, customized plan is created to meet your specific needs and market demands.',
 	},
 	{
 		title: 'Implementation',
 		description:
-			"Whether it's prototype planning or development, we execute the strategy efficiently.",
+			'From prototype planning to development, we efficiently execute the strategy.',
 	},
 	{
 		title: 'Review & Refinement',
 		description:
-			'We review the deliverables and make necessary adjustments to ensure satisfaction.',
+			'Deliverables are reviewed, and necessary adjustments are made to ensure satisfaction.',
 	},
 ]
 
@@ -110,6 +110,7 @@ export default function ServicesPage() {
 					{ label: 'Services', href: '/services' },
 				]}
 			/>
+
 			{/* Hero Section */}
 			<section className='container mx-auto px-4 py-16'>
 				<div className='max-w-4xl mx-auto text-center'>
@@ -118,7 +119,7 @@ export default function ServicesPage() {
 					</h1>
 					<p className='text-xl text-muted-foreground mb-8'>
 						From concept validation to prototype development, I provide the
-						expertise you need to succeed
+						expertise your startup needs to succeed.
 					</p>
 				</div>
 			</section>
@@ -160,8 +161,8 @@ export default function ServicesPage() {
 					<div className='max-w-3xl mx-auto text-center'>
 						<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
 						<p className='text-xl text-muted-foreground mb-8'>
-							Book a consultation and let&apos;s discuss how I can help your
-							startup succeed
+							Book a consultation today and let's discuss how I can help your
+							startup succeed.
 						</p>
 						<BookCalendly />
 					</div>
@@ -181,17 +182,11 @@ function ServiceCard({ service }: { service: Service }) {
 
 			{service.features && Array.isArray(service.features) ? (
 				<div className='grid md:grid-cols-2 gap-8'>
-					{service.featureStrings?.map((pkg) => {
-						// Determine if the feature is a string or an object
-						if (typeof pkg === 'string') {
-							// For string features (like in Prototype Development)
-							return (
-								<Card key={pkg} className='p-6 relative'>
-									<h3 className='text-2xl font-bold mb-2'>{pkg}</h3>
-								</Card>
-							)
-						}
-					})}
+					{service.featureStrings?.map((feature) => (
+						<Card key={feature} className='p-6 relative'>
+							<h3 className='text-2xl font-bold mb-2'>{feature}</h3>
+						</Card>
+					))}
 
 					{service.features.map((pkg) => (
 						<Card
@@ -207,23 +202,18 @@ function ServiceCard({ service }: { service: Service }) {
 							<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
 							<p className='text-xl font-semibold mb-6'>{pkg.price}</p>
 							<ul className='space-y-2'>
-								{/* Check if `pkg.includes` is an array before mapping */}
-								{Array.isArray(pkg.includes) ? (
-									pkg.includes.map((feature, idx) => (
-										<li key={idx} className='flex items-start gap-3'>
-											<CheckCircle className='text-primary h-5 w-5 mt-1 flex-shrink-0' />
-											<span>{feature}</span>
-										</li>
-									))
-								) : (
-									<p>No features available for this package.</p>
-								)}
+								{pkg.includes.map((feature, idx) => (
+									<li key={idx} className='flex items-start gap-3'>
+										<CheckCircle className='text-primary h-5 w-5 mt-1 flex-shrink-0' />
+										<span>{feature}</span>
+									</li>
+								))}
 							</ul>
 						</Card>
 					))}
 				</div>
 			) : (
-				<p>No features found for this service.</p>
+				<p>No detailed features available for this service.</p>
 			)}
 		</div>
 	)
