@@ -17,6 +17,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
+import ValidationSection from '@/components/ValidateIdeaSection'
 
 const services = [
 	{
@@ -141,6 +142,7 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+			<ValidationSection />
 
 			{/* Pricing Section */}
 			<section className='bg-secondary/30 py-16'>
