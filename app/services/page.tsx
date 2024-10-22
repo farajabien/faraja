@@ -2,6 +2,7 @@ import { CheckCircle, Code } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
+import { Metadata } from 'next'
 
 type ServicePackage = {
 	name: string
@@ -27,6 +28,12 @@ type Service = {
 		items: string[]
 		formats?: DeliverableFormat[]
 	}
+}
+
+export const metadata: Metadata = {
+	title: 'Farajabien - Strategic Services for Tech Startups',
+	description:
+		'Explore strategic services designed for tech startups. From concept validation to prototype development, our packages provide comprehensive support, including problem analysis, architecture planning, and implementation assistance.',
 }
 
 const services: Service[] = [
