@@ -367,8 +367,8 @@ export default function ServicesPage() {
 					<div className='max-w-3xl mx-auto text-center'>
 						<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
 						<p className='text-xl text-muted-foreground mb-8'>
-							Book a consultation today and let's discuss how I can help your
-							startup succeed.
+							Book a consultation today and let&apos;s discuss how I can help
+							your startup succeed.
 						</p>
 						<BookCalendly />
 					</div>
