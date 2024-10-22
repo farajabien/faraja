@@ -1,19 +1,5 @@
 import Link from 'next/link'
-import {
-	Github,
-	Twitter,
-	ExternalLink,
-	Mail,
-	Award,
-	Code,
-	Calendar,
-	Briefcase,
-	FileText,
-	User,
-	Book,
-	ArrowRight,
-	CheckCircle,
-} from 'lucide-react'
+import { CheckCircle, Award, Code, Briefcase } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
@@ -49,31 +35,36 @@ const benefits = [
 
 const packages = [
 	{
-		title: 'Basic Package',
-		price: '15,000 KSH',
+		name: 'Validation Package',
+		priceKsh: '15,000 KSH',
 		priceUSD: '$150',
-		features: [
-			'In-depth problem analysis to identify key challenges',
-			'Comprehensive technical architecture tailored to your needs',
-			'Expert tool recommendations to enhance your project',
-			'Detailed user flow diagrams for intuitive design',
-			'Quick 24-hour turnaround for immediate results',
+		turnaround: '24-48 hours',
+		includes: [
+			'Technical Feasibility Analysis',
+			'Architecture Blueprint',
+			'Stack Recommendations',
+			'MVP Feature Scope',
+			'Development Timeline & Budget',
+			'Security Considerations',
+			'30-min Strategy Call',
 		],
 	},
 	{
-		title: 'Full Package',
-		price: '20,000 KSH',
-		priceUSD: '$200',
+		name: 'Implementation Package',
+		priceKsh: '25,000 KSH',
+		priceUSD: '$250',
 		isPopular: true,
-		features: [
-			'All features from the Basic Package',
-			'Ongoing implementation support for smooth execution',
-			'Cost optimization strategies to maximize your investment',
-			'Team briefings to ensure alignment and clarity',
-			'Two revision rounds to refine your project',
-			'30-minute follow-up consultation for additional guidance',
-			'Fast 48-hour turnaround for expedited results',
-			'Satisfaction guarantee to ensure your peace of mind',
+		turnaround: '3-5 business days',
+		includes: [
+			'Everything in Validation Package',
+			'Detailed Technical Specifications',
+			'Development Roadmap',
+			'Infrastructure Planning',
+			'Scalability Strategy',
+			'Team Structure Guidance',
+			'2 Review Sessions',
+			'30-min Implementation Call',
+			'14-day Email Support',
 		],
 	},
 ]
@@ -82,28 +73,25 @@ export default function Home() {
 	return (
 		<div className='min-h-screen bg-background'>
 			{/* Hero Section */}
-			<section className='container mx-auto px-4 py-16 md:py-24'>
-				<div className='max-w-4xl mx-auto text-center'>
-					<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-						Transform your idea into a successful tech business{' '}
-					</h1>
-					<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
-						with personalized expert guidance to avoid common pitfalls.
-					</p>
-					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
-						<BookCalendly text={`Schedule Consultation `} />
-
-						<Link href='/services'>
-							<Button variant='outline' size='lg'>
-								View Services
-							</Button>
-						</Link>
-						<Link href='/projects'>
-							<Button variant='outline' size='lg'>
-								View Projects
-							</Button>
-						</Link>
-					</div>
+			<section className='container mx-auto px-4 py-16 md:py-24 text-center'>
+				<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
+					Transform your idea into a successful tech business
+				</h1>
+				<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
+					with personalized expert guidance to avoid common pitfalls.
+				</p>
+				<div className='flex flex-col sm:flex-row gap-4 justify-center'>
+					<BookCalendly text='Schedule Consultation' />
+					<Link href='/services'>
+						<Button variant='outline' size='lg'>
+							View Services
+						</Button>
+					</Link>
+					<Link href='/projects'>
+						<Button variant='outline' size='lg'>
+							View Projects
+						</Button>
+					</Link>
 				</div>
 			</section>
 
@@ -129,11 +117,11 @@ export default function Home() {
 			<section className='py-16 container mx-auto px-4'>
 				<div className='max-w-4xl mx-auto'>
 					<h2 className='text-3xl font-bold text-center mb-12'>
-						Let&apos;s Work Together
+						Let's Work Together
 					</h2>
 					<div className='grid md:grid-cols-2 gap-6'>
-						{benefits.map((benefit) => (
-							<div key={benefit} className='flex items-center gap-3'>
+						{benefits.map((benefit, index) => (
+							<div key={index} className='flex items-center gap-3'>
 								<CheckCircle className='text-primary h-5 w-5 flex-shrink-0' />
 								<span className='text-lg'>{benefit}</span>
 							</div>
@@ -141,6 +129,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			{/* Validation Section */}
 			<ValidationSection />
 
 			{/* Pricing Section */}
@@ -150,7 +140,7 @@ export default function Home() {
 					<div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
 						{packages.map((pkg) => (
 							<Card
-								key={pkg.title}
+								key={pkg.name}
 								className={`p-6 relative ${
 									pkg.isPopular ? 'border-primary' : ''
 								}`}>
@@ -159,22 +149,27 @@ export default function Home() {
 										Popular
 									</div>
 								)}
-								<h3 className='text-2xl font-bold mb-2'>{pkg.title}</h3>
+								<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
 								<div className='mb-4'>
-									<span className='text-3xl font-bold'>{pkg.price}</span>
+									<span className='text-3xl font-bold'>{pkg.priceKsh}</span>
 									<span className='text-muted-foreground'>
 										{' '}
 										/ {pkg.priceUSD}
 									</span>
 								</div>
-								<ul className='space-y-3 mb-6'>
-									{pkg.features.map((feature) => (
-										<li key={feature} className='flex items-center gap-2'>
-											<CheckCircle className='text-primary h-4 w-4 flex-shrink-0' />
-											<span>{feature}</span>
-										</li>
-									))}
-								</ul>
+								<div className='space-y-6'>
+									<div>
+										<h4 className='font-semibold mb-3'>Package Includes:</h4>
+										<ul className='space-y-2'>
+											{pkg.includes.map((feature, idx) => (
+												<li key={idx} className='flex items-start gap-3'>
+													<CheckCircle className='text-primary h-5 w-5 mt-1 flex-shrink-0' />
+													<span>{feature}</span>
+												</li>
+											))}
+										</ul>
+									</div>
+								</div>
 								<BookCalendly text='Get Started' />
 							</Card>
 						))}
@@ -183,17 +178,15 @@ export default function Home() {
 			</section>
 
 			{/* CTA Section */}
-			<section className='py-16 container mx-auto px-4'>
-				<div className='max-w-3xl mx-auto text-center'>
-					<h2 className='text-3xl font-bold mb-4'>
-						Ready to Transform Your Startup?
-					</h2>
-					<p className='text-xl text-muted-foreground mb-8'>
-						Let&apos;s work together to turn your vision into reality while
-						avoiding costly mistakes.
-					</p>
-					<BookCalendly />
-				</div>
+			<section className='py-16 container mx-auto px-4 text-center'>
+				<h2 className='text-3xl font-bold mb-4'>
+					Ready to Transform Your Startup?
+				</h2>
+				<p className='text-xl text-muted-foreground mb-8'>
+					Let&apos;s work together to turn your vision into reality while
+					avoiding costly mistakes.
+				</p>
+				<BookCalendly />
 			</section>
 		</div>
 	)
