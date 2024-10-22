@@ -23,28 +23,28 @@ const services = [
 	{
 		title: 'Expert Prototype Strategy',
 		description:
-			'Validate your concept before heavy investment, ensuring market fit.',
+			'Turn your innovative concept into a market-ready product with strategic insights that drive success.',
 		icon: Code,
 	},
 	{
 		title: 'Next.js Expertise',
 		description:
-			'Create high-performance, scalable web applications with modern tech.',
+			'Build high-performance, scalable web applications leveraging the latest technologies for optimal performance.',
 		icon: Award,
 	},
 	{
 		title: 'Tailored Guidance',
 		description:
-			'Get personalized advice from real startup experience in Africa.',
+			'Receive personalized insights and mentorship drawn from real startup experiences in Africa, tailored to your needs.',
 		icon: Briefcase,
 	},
 ]
 
 const benefits = [
-	'Avoid common startup pitfalls',
-	'Build a sustainable and scalable business',
-	'Achieve your entrepreneurial goals',
-	'Save time and resources with proven strategies',
+	'Mitigate costly mistakes by implementing proven strategies from a seasoned expert.',
+	'Accelerate your business growth with customized strategies that cater to your unique challenges.',
+	'Reach your entrepreneurial aspirations with focused support and actionable insights.',
+	'Optimize your time and resources through tried-and-tested methodologies for success.',
 ]
 
 const packages = [
@@ -53,11 +53,11 @@ const packages = [
 		price: '15,000 KSH',
 		priceUSD: '$150',
 		features: [
-			'Problem analysis',
-			'Technical architecture',
-			'Tool recommendations',
-			'User flow diagrams',
-			'24-hour turnaround',
+			'In-depth problem analysis to identify key challenges',
+			'Comprehensive technical architecture tailored to your needs',
+			'Expert tool recommendations to enhance your project',
+			'Detailed user flow diagrams for intuitive design',
+			'Quick 24-hour turnaround for immediate results',
 		],
 	},
 	{
@@ -66,14 +66,14 @@ const packages = [
 		priceUSD: '$200',
 		isPopular: true,
 		features: [
-			'Everything in Basic',
-			'Implementation support',
-			'Cost optimization',
-			'Team briefings',
-			'2 revision rounds',
-			'30-min follow-up',
-			'48-hour turnaround',
-			'Satisfaction guarantee',
+			'All features from the Basic Package',
+			'Ongoing implementation support for smooth execution',
+			'Cost optimization strategies to maximize your investment',
+			'Team briefings to ensure alignment and clarity',
+			'Two revision rounds to refine your project',
+			'30-minute follow-up consultation for additional guidance',
+			'Fast 48-hour turnaround for expedited results',
+			'Satisfaction guarantee to ensure your peace of mind',
 		],
 	},
 ]
@@ -85,11 +85,10 @@ export default function Home() {
 			<section className='container mx-auto px-4 py-16 md:py-24'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-						Transform Your Startup Idea into Reality
+						Transform your idea into a successful tech business{' '}
 					</h1>
 					<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
-						Avoid the pitfalls I faced and build a successful tech business with
-						expert guidance
+						with personalized expert guidance to avoid common pitfalls.
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text={`Schedule Consultation `} />

@@ -107,7 +107,7 @@ export default function ServicesPage() {
 			<MyBreadcrumb
 				items={[
 					{ label: 'Home', href: '/' },
-					{ label: 'Projects', href: '/services' },
+					{ label: 'Services', href: '/services' },
 				]}
 			/>
 			{/* Hero Section */}
