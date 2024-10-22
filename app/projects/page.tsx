@@ -1,8 +1,8 @@
 import { ArrowRight, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import ProjectCard from '@/components/ProjectCard'
+import { Metadata } from 'next'
 
 export type Project = {
 	title: string
@@ -15,6 +15,12 @@ export type Project = {
 	features?: string[]
 	servicesDelivered?: string[]
 	lessons?: string
+}
+
+export const metadata: Metadata = {
+	title: 'Farajabien - Project Portfolio',
+	description:
+		'Showcasing a diverse portfolio of projects across industries, including real estate, e-commerce, and gaming. Discover how Farajabien leverages Next.js and modern technologies to deliver impactful solutions.',
 }
 
 const projects: Project[] = [

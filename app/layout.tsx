@@ -17,9 +17,9 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-	title: 'farajabien - NextJs Developer',
+	title: 'Farajabien - Transform Your Startup Ideas into Reality',
 	description:
-		'farajabien - NextJs, React, TailwindCSS, MongoDB, NextAuth, Paystack',
+		"Unlock your startup's potential with expert guidance from Farajabien. Specializing in prototype strategy consulting, technical architecture, and tailored support for tech startups.",
 }
 
 export default function RootLayout({
