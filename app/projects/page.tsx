@@ -28,25 +28,30 @@ const projects: Project[] = [
 		title: 'PropManage',
 		industry: 'Real Estate',
 		category: 'Property Management',
+		subtitle: 'Comprehensive Property Management Platform',
 		description:
-			'A comprehensive property management platform designed to optimize interactions between property owners, tenants, and service providers, enhancing efficiency and communication.',
+			'A comprehensive property management platform designed to optimize interactions between property owners, tenants, and service providers, enhancing efficiency and communication. PropManage aims to streamline property management tasks and improve user experiences.',
 		link: 'https://propmanage.fbien.com',
-
 		technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
 		features: [
 			'Robust tenant management system for seamless interactions',
 			'Maintenance request tracking to ensure timely responses',
 			'Automated billing features for hassle-free transactions',
 			'Intuitive property listing portal to attract potential tenants',
+			'Real-time financial reporting for property owners',
+			'Customizable dashboard for a personalized user experience',
 		],
 		servicesDelivered: [
-			'Prototype Strategy for effective project planning',
-			'Next.js Expertise for high-performance applications',
-			'Tailored Guidance based on industry insights',
+			'Technical Feasibility Analysis to assess project viability',
+			'Architecture Blueprint outlining system structure',
+			'Technology Stack Recommendation tailored for project needs',
+			'MVP Feature Scope & Budget estimation for initial launch',
+			'Landing Page Overview + Copy development for effective marketing',
 		],
 		lessons:
-			'This project underscored the necessity of thorough planning and adaptable architecture to accommodate complex business workflows.',
+			'This project underscored the necessity of thorough planning and adaptable architecture to accommodate complex business workflows. Engaging stakeholders early in the process proved crucial for aligning expectations and ensuring the project met real user needs.',
 	},
+
 	{
 		title: 'BingBang',
 		industry: 'Gaming',
