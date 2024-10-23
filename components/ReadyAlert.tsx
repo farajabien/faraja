@@ -7,7 +7,7 @@ const ReadyAlert = () => (
 			Ready to Enhance Your Payment Experience?
 		</AlertTitle>
 		<AlertDescription>
-			If you're a business or service provider looking to implement payment
+			If you&apos;re a business or service provider looking to implement payment
 			features like this on your website, let me know!
 		</AlertDescription>
 	</Alert>
