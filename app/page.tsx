@@ -7,64 +7,59 @@ import ValidationSection from '@/components/ValidateIdeaSection'
 
 const services = [
 	{
-		title: 'Expert Prototype Strategy',
+		title: 'Technical Validation',
 		description:
-			'Turn your innovative concept into a market-ready product with strategic insights that drive success.',
-		icon: Code,
-	},
-	{
-		title: 'Next.js Expertise',
-		description:
-			'Build high-performance, scalable web applications leveraging the latest technologies for optimal performance.',
+			'Validate your startup idea with expert technical analysis and architecture planning.',
 		icon: Award,
 	},
 	{
-		title: 'Tailored Guidance',
+		title: 'Landing Page Development',
 		description:
-			'Receive personalized insights and mentorship drawn from real startup experiences in Africa, tailored to your needs.',
+			'Get your startup online quickly with a professional landing page and prototype strategy.',
+		icon: Code,
+	},
+	{
+		title: 'Frontend Development',
+		description:
+			'Build your MVP with modern tech stack and scalable architecture.',
 		icon: Briefcase,
 	},
 ]
 
 const benefits = [
-	'Mitigate costly mistakes by implementing proven strategies from a seasoned expert.',
-	'Accelerate your business growth with customized strategies that cater to your unique challenges.',
-	'Reach your entrepreneurial aspirations with focused support and actionable insights.',
-	'Optimize your time and resources through tried-and-tested methodologies for success.',
+	'Validate your startup idea before investing in full development',
+	'Launch faster with a professional landing page and clear technical strategy',
+	'Build scalable solutions using modern tech stack (Next.js, Supabase)',
+	'Get expert guidance throughout your technical journey',
 ]
 
-const packages = [
+const featuredPackages = [
 	{
-		name: 'Validation Package',
-		priceKsh: '15,000 KSH',
-		priceUSD: '$150',
+		name: 'Rapid Validation Package',
+		price: '15,000 KSH ($150)',
 		turnaround: '24-48 hours',
+		isPopular: false,
 		includes: [
 			'Technical Feasibility Analysis',
-			'Architecture Blueprint',
-			'Stack Recommendations',
-			'MVP Feature Scope',
-			'Development Timeline & Budget',
-			'Security Considerations',
-			'30-min Strategy Call',
+			'Architecture Blueprint for Scalability',
+			'Tech Stack Recommendations',
+			'MVP Feature Scope Definition',
+			'Development Timeline & Budget Estimation',
 		],
 	},
 	{
-		name: 'Implementation Package',
-		priceKsh: '25,000 KSH',
-		priceUSD: '$250',
-		isPopular: true,
+		name: 'Landing Page + Prototype Strategy',
+		price: '30,000 KSH ($300)',
 		turnaround: '3-5 business days',
+		isPopular: true,
 		includes: [
-			'Everything in Validation Package',
-			'Detailed Technical Specifications',
-			'Development Roadmap',
-			'Infrastructure Planning',
-			'Scalability Strategy',
-			'Team Structure Guidance',
-			'2 Review Sessions',
-			'30-min Implementation Call',
-			'14-day Email Support',
+			'Everything in Rapid Validation Package',
+			'Functional Landing Page Development',
+			'Service/Product Overview Section',
+			'Features & Benefits Showcase',
+			'Call-to-Action with Signup Form',
+			'Mobile-Responsive Design',
+			'Prototype Development Strategy',
 		],
 	},
 ]
@@ -75,21 +70,17 @@ export default function Home() {
 			{/* Hero Section */}
 			<section className='container mx-auto px-4 py-16 md:py-24 text-center'>
 				<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-					Transform your idea into a successful tech business
+					Launch Your Startup Fast with Expert Technical Guidance
 				</h1>
 				<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
-					with personalized expert guidance to avoid common pitfalls.
+					From validation to MVP, get the technical expertise you need to
+					succeed
 				</p>
 				<div className='flex flex-col sm:flex-row gap-4 justify-center'>
-					<BookCalendly text='Schedule Consultation' />
+					<BookCalendly text='Book Free Consultation' />
 					<Link href='/services'>
 						<Button variant='outline' size='lg'>
-							View Services
-						</Button>
-					</Link>
-					<Link href='/projects'>
-						<Button variant='outline' size='lg'>
-							View Projects
+							View All Services
 						</Button>
 					</Link>
 				</div>
@@ -98,7 +89,9 @@ export default function Home() {
 			{/* Services Section */}
 			<section className='bg-secondary/30 py-16'>
 				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-12'>My Services</h2>
+					<h2 className='text-3xl font-bold text-center mb-12'>
+						How I Can Help
+					</h2>
 					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
 						{services.map((service) => (
 							<Card
@@ -117,7 +110,7 @@ export default function Home() {
 			<section className='py-16 container mx-auto px-4'>
 				<div className='max-w-4xl mx-auto'>
 					<h2 className='text-3xl font-bold text-center mb-12'>
-						Let&apos;s Work Together
+						Why Work With Me
 					</h2>
 					<div className='grid md:grid-cols-2 gap-6'>
 						{benefits.map((benefit, index) => (
@@ -133,35 +126,40 @@ export default function Home() {
 			{/* Validation Section */}
 			<ValidationSection />
 
-			{/* Pricing Section */}
+			{/* Featured Packages Section */}
 			<section className='bg-secondary/30 py-16'>
 				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-12'>Packages</h2>
+					<h2 className='text-3xl font-bold text-center mb-4'>
+						Popular Packages
+					</h2>
+					<p className='text-center text-muted-foreground mb-12 max-w-2xl mx-auto'>
+						Start with a package that fits your needs, from quick validation to
+						complete frontend development
+					</p>
 					<div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
-						{packages.map((pkg) => (
+						{featuredPackages.map((packageItem) => (
 							<Card
-								key={pkg.name}
+								key={packageItem.name}
 								className={`p-6 relative ${
-									pkg.isPopular ? 'border-primary' : ''
+									packageItem.isPopular ? 'border-primary' : ''
 								}`}>
-								{pkg.isPopular && (
+								{packageItem.isPopular && (
 									<div className='absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm rounded-bl-lg rounded-tr-lg'>
-										Popular
+										Most Popular
 									</div>
 								)}
-								<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
-								<div className='mb-4'>
-									<span className='text-3xl font-bold'>{pkg.priceKsh}</span>
-									<span className='text-muted-foreground'>
-										{' '}
-										/ {pkg.priceUSD}
-									</span>
-								</div>
+								<h3 className='text-2xl font-bold mb-2'>{packageItem.name}</h3>
+								<p className='text-xl font-semibold text-primary mb-4'>
+									{packageItem.price}
+								</p>
+								<p className='text-sm text-muted-foreground mb-6'>
+									Turnaround: {packageItem.turnaround}
+								</p>
 								<div className='space-y-6'>
 									<div>
 										<h4 className='font-semibold mb-3'>Package Includes:</h4>
 										<ul className='space-y-2'>
-											{pkg.includes.map((feature, idx) => (
+											{packageItem.includes.map((feature, idx) => (
 												<li key={idx} className='flex items-start gap-3'>
 													<CheckCircle className='text-primary h-5 w-5 mt-1 flex-shrink-0' />
 													<span>{feature}</span>
@@ -170,9 +168,15 @@ export default function Home() {
 										</ul>
 									</div>
 								</div>
-								<BookCalendly text='Get Started' />
 							</Card>
 						))}
+					</div>
+					<div className='text-center mt-8'>
+						<Link href='/services'>
+							<Button variant='outline' size='lg'>
+								View All Packages
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</section>
@@ -180,11 +184,11 @@ export default function Home() {
 			{/* CTA Section */}
 			<section className='py-16 container mx-auto px-4 text-center'>
 				<h2 className='text-3xl font-bold mb-4'>
-					Ready to Transform Your Startup?
+					Ready to Build Your Startup?
 				</h2>
 				<p className='text-xl text-muted-foreground mb-8'>
-					Let&apos;s work together to turn your vision into reality while
-					avoiding costly mistakes.
+					Book a free consultation to discuss your technical needs and find the
+					right solution for your startup.
 				</p>
 				<BookCalendly />
 			</section>

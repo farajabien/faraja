@@ -4,61 +4,58 @@ import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import { Metadata } from 'next'
 
-type Service = {
-	title: string
-	description: string
-	packages: ServicePackage[]
-}
-
-type ServicePackage = {
-	name: string
-	price: string
-	isPopular?: boolean
-	includes: string[]
-	turnaround: string
-}
-
 export const metadata: Metadata = {
-	title: 'Farajabien - Technical Co-Founder Services',
+	title: 'Farajabien - Technical Strategy & Development Services',
 	description:
-		'Expert technical strategy and implementation guidance for startups. From validation to execution, get the technical expertise you need to succeed.',
+		'Validate and launch your startup idea with expert technical guidance. From rapid validation to MVP development, get the expertise you need to succeed.',
 }
 
-const services: Service[] = [
+const services = [
 	{
-		title: 'Technical Co-Founder Services',
+		title: 'Startup Technical Services',
 		description:
-			'Get the technical expertise your startup needs with proven strategies across 9 successful projects.',
+			'From validation to implementation, get the technical expertise your startup needs to succeed.',
 		packages: [
 			{
-				name: 'Validation Package',
+				name: 'Rapid Validation Package',
 				price: '15,000 KSH ($150)',
 				turnaround: '24-48 hours',
+				isPopular: false,
 				includes: [
 					'Technical Feasibility Analysis',
-					'Architecture Blueprint',
-					'Stack Recommendations',
-					'MVP Feature Scope',
-					'Development Timeline & Budget',
-					'Security Considerations',
-					'30-min Strategy Call',
+					'Architecture Blueprint for Scalability',
+					'Tech Stack Recommendations (Next.js, Supabase)',
+					'MVP Feature Scope Definition',
+					'Development Timeline & Budget Estimation',
 				],
 			},
 			{
-				name: 'Implementation Package',
-				price: '25,000 KSH ($250)',
-				isPopular: true,
+				name: 'Landing Page + Prototype Strategy',
+				price: '30,000 KSH ($300)',
 				turnaround: '3-5 business days',
+				isPopular: true,
 				includes: [
-					'Everything in Validation Package',
-					'Detailed Technical Specifications',
-					'Development Roadmap',
-					'Infrastructure Planning',
-					'Scalability Strategy',
-					'Team Structure Guidance',
-					'2 Review Sessions',
-					'30-min Implementation Call',
-					'14-day Email Support',
+					'Everything in Rapid Validation Package',
+					'Functional Landing Page Development',
+					'Service/Product Overview Section',
+					'Features & Benefits Showcase',
+					'Call-to-Action with Signup Form',
+					'Mobile-Responsive Design',
+					'Prototype Development Strategy',
+				],
+			},
+			{
+				name: 'Prototype Frontend Development',
+				price: 'Custom Pricing',
+				turnaround: 'Custom Timeline',
+				isPopular: false,
+				includes: [
+					'Complete Frontend Development (React/Next.js)',
+					'Landing Page Implementation',
+					'Web Application Development',
+					'Supabase Database Setup & Integration',
+					'Progress Updates & Documentation',
+					'Full Development Handoff',
 				],
 			},
 		],
@@ -67,51 +64,71 @@ const services: Service[] = [
 
 const deliveryFormats = [
 	{
-		category: 'Technical Documents',
-		icon: '📋',
+		category: 'Documentation',
+		icon: '📄',
 		formats: [
-			'Architecture Diagrams',
-			'Technical Specs',
-			'Implementation Guide',
+			'Technical Architecture Diagrams',
+			'Feature Scope Documents',
+			'Development Roadmaps',
+			'API Documentation',
 		],
 	},
 	{
-		category: 'Strategy Assets',
+		category: 'Code & Development',
+		icon: '💻',
+		formats: [
+			'Frontend Codebase',
+			'Database Schema',
+			'API Integration',
+			'Deployment Setup',
+		],
+	},
+	{
+		category: 'Strategy',
 		icon: '🎯',
-		formats: ['Development Roadmap', 'Resource Planning', 'Stack Analysis'],
+		formats: [
+			'Tech Stack Analysis',
+			'Scalability Planning',
+			'Resource Requirements',
+			'Cost Optimization',
+		],
 	},
 	{
-		category: 'Support Sessions',
-		icon: '💡',
-		formats: ['Strategy Calls', 'Review Meetings', 'Team Briefings'],
-	},
-	{
-		category: 'Custom Code',
-		icon: '⚡',
-		formats: ['Proof of Concepts', 'Code Examples', 'Setup Scripts'],
+		category: 'Support',
+		icon: '🤝',
+		formats: [
+			'Technical Consultation',
+			'Implementation Guidance',
+			'Code Reviews',
+			'Handoff Support',
+		],
 	},
 ]
 
 const processSteps = [
 	{
-		title: 'Technical Discovery',
-		description: 'Understanding your vision and technical requirements.',
+		title: 'Discovery',
+		description:
+			"Understanding your startup's vision, requirements, and technical needs through in-depth consultation.",
 	},
 	{
-		title: 'Solution Design',
-		description: 'Creating your technical architecture and roadmap.',
+		title: 'Strategy',
+		description:
+			'Developing a comprehensive technical strategy and selecting the optimal tech stack for your needs.',
 	},
 	{
-		title: 'Implementation Planning',
-		description: 'Detailed execution strategy and resource planning.',
+		title: 'Implementation',
+		description:
+			'Rapid development of your solution, from landing pages to complete frontend applications.',
 	},
 	{
-		title: 'Ongoing Support',
-		description: 'Guidance and reviews during development.',
+		title: 'Handoff & Support',
+		description:
+			'Thorough documentation and guidance to ensure seamless continuation of your project.',
 	},
 ]
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceCard({ service }: { service: (typeof services)[0] }) {
 	return (
 		<div className='max-w-4xl mx-auto'>
 			<h2 className='text-3xl font-bold mb-4'>{service.title}</h2>
@@ -119,7 +136,7 @@ function ServiceCard({ service }: { service: Service }) {
 				{service.description}
 			</p>
 
-			<div className='grid md:grid-cols-2 gap-8'>
+			<div className='grid md:grid-cols-3 gap-8'>
 				{service.packages.map((packageItem) => (
 					<Card
 						key={packageItem.name}
@@ -128,7 +145,7 @@ function ServiceCard({ service }: { service: Service }) {
 						}`}>
 						{packageItem.isPopular && (
 							<div className='absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm rounded-bl-lg rounded-tr-lg'>
-								Popular
+								Most Popular
 							</div>
 						)}
 						<h3 className='text-2xl font-bold mb-2'>{packageItem.name}</h3>
@@ -172,11 +189,11 @@ export default function ServicesPage() {
 			<section className='container mx-auto px-4 py-16'>
 				<div className='max-w-4xl mx-auto text-center'>
 					<h1 className='text-4xl md:text-5xl font-bold mb-6'>
-						Technical Co-Founder Services
+						Technical Strategy & Development Services
 					</h1>
 					<p className='text-xl text-muted-foreground mb-8'>
-						Get the technical expertise your startup needs with proven
-						strategies and modern tech stack implementation.
+						Validate your startup idea and launch faster with expert technical
+						guidance and modern development solutions.
 					</p>
 				</div>
 			</section>
@@ -241,11 +258,11 @@ export default function ServicesPage() {
 				<div className='container mx-auto px-4'>
 					<div className='max-w-3xl mx-auto text-center'>
 						<h2 className='text-3xl font-bold mb-4'>
-							Ready to Build Something Great?
+							Ready to Launch Your Startup?
 						</h2>
 						<p className='text-xl text-muted-foreground mb-8'>
-							Book a consultation to discuss how we can bring your technical
-							vision to life.
+							Book a consultation to discuss your technical needs and find the
+							right package for your startup.
 						</p>
 						<BookCalendly />
 					</div>
