@@ -14,7 +14,7 @@ const services = [
 	{
 		title: 'Startup Technical Services',
 		description:
-			'From validation to implementation, get the technical expertise your startup needs to succeed.',
+			'I provide tailored technical solutions that help you turn your startup vision into reality—from idea validation to full implementation. Let me handle the tech while you focus on your business.',
 		packages: [
 			{
 				name: 'Rapid Validation Package',
@@ -22,11 +22,11 @@ const services = [
 				turnaround: '24-48 hours',
 				isPopular: false,
 				includes: [
-					'Technical Feasibility Analysis',
-					'Architecture Blueprint for Scalability',
-					'Tech Stack Recommendations (Next.js, Supabase)',
-					'MVP Feature Scope Definition',
-					'Development Timeline & Budget Estimation',
+					'Comprehensive assessment of your startup idea’s technical feasibility.',
+					'Custom architecture plan to support scalability as your business grows.',
+					'Expert recommendations for the most suitable tech stack for your project.',
+					'Clear definition of essential features for your Minimum Viable Product (MVP).',
+					'Accurate timeline and budget estimation to help you plan your project effectively.',
 				],
 			},
 			{
@@ -35,13 +35,13 @@ const services = [
 				turnaround: '3-5 business days',
 				isPopular: true,
 				includes: [
-					'Everything in Rapid Validation Package',
-					'Functional Landing Page Development',
-					'Service/Product Overview Section',
-					'Features & Benefits Showcase',
-					'Call-to-Action with Signup Form',
-					'Mobile-Responsive Design',
-					'Prototype Development Strategy',
+					'Everything included in the Rapid Validation Package.',
+					'A fully functional, simple landing page to showcase your product or service and capture leads.',
+					'A dedicated section for a clear overview of your service or product, highlighting what it offers.',
+					'Showcase your key features and benefits to attract potential users.',
+					'A strong call-to-action section with a signup form to build a waitlist or capture inquiries.',
+					'Mobile-friendly design to ensure your page looks great on all devices.',
+					'A strategic plan for developing the next stages of your product or prototype.',
 				],
 			},
 			{
@@ -50,12 +50,12 @@ const services = [
 				turnaround: 'Custom Timeline',
 				isPopular: false,
 				includes: [
-					'Complete Frontend Development (React/Next.js)',
-					'Landing Page Implementation',
-					'Web Application Development',
-					'Supabase Database Setup & Integration',
-					'Progress Updates & Documentation',
-					'Full Development Handoff',
+					'Complete development of your product’s frontend using modern technologies like React and Next.js.',
+					'Seamless implementation of the landing page for your startup’s web presence.',
+					'Building the core functionality of your web application to give users a real product experience.',
+					'Setting up and integrating your backend database using Supabase to store and manage your data.',
+					'Regular progress updates and clear documentation to keep you informed at every step.',
+					'A full handoff of the developed codebase, complete with documentation for future developers to work from.',
 				],
 			},
 		],
@@ -67,40 +67,40 @@ const deliveryFormats = [
 		category: 'Documentation',
 		icon: '📄',
 		formats: [
-			'Technical Architecture Diagrams',
-			'Feature Scope Documents',
-			'Development Roadmaps',
-			'API Documentation',
+			'Clear, easy-to-follow diagrams that show the technical architecture of your solution.',
+			'Detailed documentation outlining the features and scope of your project.',
+			'A roadmap showing the key stages of development, so you know what to expect.',
+			'Complete API documentation if your project involves integrating with external services.',
 		],
 	},
 	{
 		category: 'Code & Development',
 		icon: '💻',
 		formats: [
-			'Frontend Codebase',
-			'Database Schema',
-			'API Integration',
-			'Deployment Setup',
+			'A well-organized, clean codebase for your frontend that developers can easily work on.',
+			'A solid database schema to store all your essential data, set up through Supabase or another service.',
+			'Smooth API integrations to connect your frontend with external services or your backend.',
+			'Full setup for deployment, making sure your product or website is live and accessible to users.',
 		],
 	},
 	{
 		category: 'Strategy',
 		icon: '🎯',
 		formats: [
-			'Tech Stack Analysis',
-			'Scalability Planning',
-			'Resource Requirements',
-			'Cost Optimization',
+			'An analysis of the best tech stack for your project based on your specific needs and goals.',
+			'A plan for how your product can scale as you grow, ensuring it’s ready to handle more users.',
+			"A breakdown of the technical resources you'll need, from developer skills to cloud services.",
+			'Cost-saving strategies that help you minimize expenses without sacrificing quality.',
 		],
 	},
 	{
 		category: 'Support',
 		icon: '🤝',
 		formats: [
-			'Technical Consultation',
-			'Implementation Guidance',
-			'Code Reviews',
-			'Handoff Support',
+			'Ongoing technical consultation to address any questions or concerns as your project develops.',
+			'Step-by-step guidance during the implementation phase, ensuring a smooth development process.',
+			'Code reviews to ensure your project maintains high-quality standards.',
+			'Handoff support to make sure you and any future developers are set up for success.',
 		],
 	},
 ]
@@ -109,22 +109,22 @@ const processSteps = [
 	{
 		title: 'Discovery',
 		description:
-			"Understanding your startup's vision, requirements, and technical needs through in-depth consultation.",
+			'I’ll work with you to fully understand your vision, goals, and the specific technical needs of your startup. This is where we clarify your requirements and create a clear project roadmap.',
 	},
 	{
 		title: 'Strategy',
 		description:
-			'Developing a comprehensive technical strategy and selecting the optimal tech stack for your needs.',
+			'I’ll develop a solid, strategic technical plan, including the best tech stack, key development milestones, and how to scale your product as your business grows. The goal is to align the tech with your business objectives.',
 	},
 	{
 		title: 'Implementation',
 		description:
-			'Rapid development of your solution, from landing pages to complete frontend applications.',
+			'I’ll quickly and efficiently develop your solution, from building a landing page to creating a functional prototype. Throughout the process, I’ll keep you updated on progress to ensure we stay on track.',
 	},
 	{
 		title: 'Handoff & Support',
 		description:
-			'Thorough documentation and guidance to ensure seamless continuation of your project.',
+			'Once development is complete, I’ll provide detailed documentation and training to ensure a smooth transition. I’ll also offer post-launch support, ensuring you have everything you need to succeed moving forward.',
 	},
 ]
 

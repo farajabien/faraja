@@ -9,28 +9,28 @@ const services = [
 	{
 		title: 'Technical Validation',
 		description:
-			'Validate your startup idea with expert technical analysis and architecture planning.',
+			'Expert technical analysis to validate your startup idea and plan your architecture.',
 		icon: Award,
 	},
 	{
 		title: 'Landing Page Development',
 		description:
-			'Get your startup online quickly with a professional landing page and prototype strategy.',
+			'Quickly establish an online presence with a professional landing page.',
 		icon: Code,
 	},
 	{
 		title: 'Frontend Development',
 		description:
-			'Build your MVP with modern tech stack and scalable architecture.',
+			'Build your MVP using a modern tech stack with a focus on scalability.',
 		icon: Briefcase,
 	},
 ]
 
 const benefits = [
-	'Validate your startup idea before investing in full development',
-	'Launch faster with a professional landing page and clear technical strategy',
-	'Build scalable solutions using modern tech stack (Next.js, Supabase)',
-	'Get expert guidance throughout your technical journey',
+	'Validate your startup idea before committing to full development.',
+	'Launch faster with a clear technical strategy and professional landing page.',
+	'Utilize a modern tech stack (Next.js, Supabase) for scalable solutions.',
+	'Receive expert guidance throughout your technical journey.',
 ]
 
 const featuredPackages = [
@@ -53,8 +53,8 @@ const featuredPackages = [
 		turnaround: '3-5 business days',
 		isPopular: true,
 		includes: [
-			'Everything in Rapid Validation Package',
-			'Functional Landing Page Development',
+			'All features in the Rapid Validation Package',
+			'Professional Landing Page Development',
 			'Service/Product Overview Section',
 			'Features & Benefits Showcase',
 			'Call-to-Action with Signup Form',
@@ -73,8 +73,8 @@ export default function Home() {
 					Launch Your Startup Fast with Expert Technical Guidance
 				</h1>
 				<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
-					From validation to MVP, get the technical expertise you need to
-					succeed
+					From validation to MVP, gain the technical expertise you need to
+					succeed.
 				</p>
 				<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 					<BookCalendly text='Book Free Consultation' />
@@ -133,8 +133,8 @@ export default function Home() {
 						Popular Packages
 					</h2>
 					<p className='text-center text-muted-foreground mb-12 max-w-2xl mx-auto'>
-						Start with a package that fits your needs, from quick validation to
-						complete frontend development
+						Choose a package that fits your needs, from quick validation to
+						comprehensive frontend development.
 					</p>
 					<div className='grid md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
 						{featuredPackages.map((packageItem) => (
