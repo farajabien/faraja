@@ -4,6 +4,7 @@ import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
+import PayButton from '@/components/payment/PayButton'
 
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',
@@ -127,7 +128,15 @@ export default function ServicesPage() {
 											</li>
 										))}
 									</ul>
-									<Button className='w-full mt-6'>Get Started</Button>
+									<Button
+										className='w-full mt-6'
+										onClick={
+											pkg.isPopular ? () => BookCalendly : () => PayButton
+										}>
+										{pkg.isPopular
+											? 'Schedule a Free Discovery Call'
+											: 'Purchase Package Now'}
+									</Button>
 								</CardContent>
 							</Card>
 						))}
