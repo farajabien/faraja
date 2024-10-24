@@ -84,3 +84,11 @@ export const achievements: Achievement[] = [
 	},
 	// Add more achievements as needed
 ]
+
+
+export function getPriceInKSH(priceString: string): number {
+	// Extract the numeric value from the price string
+	const match = priceString.match(/(\d{1,3}(,\d{3})*|\d+)(?=\s*KSH)/)
+	// Return the numeric value as a number, or null if not found
+	return match ? parseInt(match[0].replace(/,/g, ''), 10) : 0
+}
