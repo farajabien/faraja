@@ -36,22 +36,24 @@ export default async function PackagePage({ params }: { params: Params }) {
 			<div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
 				{otherPackages.map((otherPkg) => (
 					<Card
-						key={pkg.name}
-						className={`p-6 relative ${pkg.isPopular ? 'border-primary' : ''}`}>
-						{pkg.isPopular && (
+						key={otherPkg.name}
+						className={`p-6 relative ${
+							otherPkg.isPopular ? 'border-primary' : ''
+						}`}>
+						{otherPkg.isPopular && (
 							<div className='absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm rounded-bl-lg rounded-tr-lg'>
 								Most Popular
 							</div>
 						)}
-						<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
+						<h3 className='text-2xl font-bold mb-2'>{otherPkg.name}</h3>
 						<p className='text-sm text-muted-foreground mb-6'>
-							Timeline: {pkg.turnaround}{' '}
+							Timeline: {otherPkg.turnaround}{' '}
 						</p>
 
 						<Button
 							asChild
 							className='w-full  bottom-0 left-0 right-0 absolute'>
-							<Link href={`/services/${encodeURIComponent(pkg.name)}`}>
+							<Link href={`/services/${encodeURIComponent(otherPkg.name)}`}>
 								Get Started
 							</Link>
 						</Button>
