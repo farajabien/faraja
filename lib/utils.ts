@@ -169,12 +169,12 @@ export const services: ServiceType[] = [
 				],
 			},
 			{
-				name: 'Prototype Frontend Development',
+				name: 'Prototype Full Stack Development',
 				price: 'Starting at 50,000 KSH ($500)',
 				turnaround: 'Custom timeline',
 				isPopular: false,
 				includes: [
-					'Comprehensive frontend development of your product.',
+					'Comprehensive full stack development of your product.',
 					'Landing page implementation into your web presence.',
 					'Core functionality development for a real product experience.',
 					'Backend integration using Supabase for effective data management.',
