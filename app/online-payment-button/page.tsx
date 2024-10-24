@@ -1,6 +1,6 @@
-import PayButtonPageClient from '@/components/PayButtonPageClient'
 import React from 'react'
+import ClientWrapper from '@/components/ClientWrapper'
 
 export default function PaymentDemo() {
-	return <PayButtonPageClient />
+	return <ClientWrapper />
 }
