@@ -1,10 +1,26 @@
-import { CheckCircle } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+	Calendar,
+	CheckCircle,
+	Code,
+	Database,
+	FileCode,
+	Layout,
+	RefreshCw,
+} from 'lucide-react'
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import { Metadata } from 'next'
+
+import ServiceCard from '@/components/ServiceCard'
 import { Button } from '@/components/ui/button'
-import PayButton from '@/components/payment/PayButton'
+import ServicePurchaseButton from '@/components/payment/ServicePurchaseButton'
 
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',
@@ -19,6 +35,17 @@ const services = [
 			'I provide tailored technical solutions that help you turn your startup vision into reality—from idea validation to full implementation. Let me handle the tech while you focus on your business.',
 		packages: [
 			{
+				name: '1-Hour Consultation',
+				price: '5,000 KSH ($50)',
+				turnaround: '1 hour',
+				isPopular: false,
+				includes: [
+					'One-on-one consultation to discuss your startup idea or technical challenge.',
+					'Expert feedback on your business strategy or technology stack.',
+					'Actionable advice for moving forward with your project.',
+				],
+			},
+			{
 				name: 'Rapid Validation Package',
 				price: '15,000 KSH ($150)',
 				turnaround: '24-48 hours',
@@ -32,37 +59,95 @@ const services = [
 				],
 			},
 			{
-				name: 'Landing Page + Prototype Strategy',
-				price: '30,000 KSH ($300)',
+				name: 'Stripped-down Landing Page Package',
+				price: '20,000 KSH ($200)',
 				turnaround: '3-5 business days',
 				isPopular: true,
 				includes: [
-					'Everything included in the Rapid Validation Package.',
-					'A fully functional, simple landing page to showcase your product or service and capture leads.',
-					'A dedicated section for a clear overview of your service or product, highlighting what it offers.',
-					'Showcase your key features and benefits to attract potential users.',
-					'A strong call-to-action section with a signup form to build a waitlist or capture inquiries.',
-					'Mobile-friendly design to ensure your page looks great on all devices.',
-					'A strategic plan for developing the next stages of your product or prototype.',
+					'Basic landing page design to capture leads and showcase your service.',
+					'Email collection setup (without prototype strategy).',
+					'Free domain: <BUSINESS>.fbien.com.',
+					'Free SSL and hosting for one year.',
+					'Mobile-friendly design for accessibility on all devices.',
 				],
 			},
 			{
-				name: 'Prototype Frontend Development',
-				price: 'Custom Pricing',
+				name: 'Logo + Landing Page + Email Collection Package',
+				price: '25,000 KSH ($250)',
+				turnaround: '48 hours',
+				isPopular: true,
+				includes: [
+					'Custom logo design to establish your brand identity.',
+					'A fully functional landing page to capture leads and showcase your service.',
+					'Email collection setup to grow your subscriber list.',
+					'Free domain: <BUSINESS>.fbien.com.',
+					'Free SSL and hosting for one year.',
+					'Mobile-friendly design to ensure accessibility on all devices.',
+					'A strategic overview of your service offerings.',
+				],
+			},
+			{
+				name: 'Prototype Frontend Development Package',
+				price: 'Starting at 50,000 KSH ($500)',
 				turnaround: 'Custom Timeline',
 				isPopular: false,
 				includes: [
 					'Complete frontend development tailored to your requirements.',
-					'Landing page implementation to establish your online presence.',
-					'Building core functionality as per your defined specifications.',
-					'Supabase backend integration for a robust data management solution.',
-					'Regular progress updates and thorough documentation throughout the development process.',
+					'Core functionality build-out based on your specifications.',
+					'Supabase backend integration for scalable data management.',
+					'Progress updates and full documentation throughout the process.',
 					'Full codebase handoff for your continued development and management.',
 				],
 			},
 		],
 	},
+	{
+		title: 'Branding & Marketing Design Services',
+		type: 'branding',
+		description:
+			'I offer professional design services to help you create a cohesive and memorable brand presence, from logos to marketing materials that make a lasting impression.',
+		packages: [
+			{
+				name: 'Brand Identity Package',
+				price: '25,000 KSH ($250)',
+				turnaround: '5-7 business days',
+				isPopular: true,
+				includes: [
+					'Custom logo design to establish your brand identity.',
+					'Business card design (print-ready).',
+					'Company profile design to showcase your business professionally.',
+					'Free consultation on brand positioning and identity strategy.',
+				],
+			},
+			{
+				name: 'Marketing Essentials Package',
+				price: '15,000 KSH ($150)',
+				turnaround: '3-5 business days',
+				isPopular: false,
+				includes: [
+					'Design of 2-3 posters or flyers for marketing campaigns.',
+					'Email signature design (to match brand identity).',
+					'Social media graphics for your upcoming promotions or campaigns.',
+					'Limited revisions to keep the project within scope.',
+				],
+			},
+			{
+				name: 'Landing Page Design',
+				price: '25,000 KSH ($250)',
+				turnaround: '5-7 business days',
+				isPopular: false,
+				includes: [
+					'A professionally designed landing page to capture leads and showcase your business.',
+					'Custom email collection setup (with tools like Mailchimp).',
+					'Mobile-friendly and SEO-optimized design.',
+					'Free domain and SSL setup for one year.',
+				],
+			},
+		],
+	},
 ]
+
+const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
 
 export default function ServicesPage() {
 	return (
@@ -92,57 +177,118 @@ export default function ServicesPage() {
 				</div>
 			</section>
 
-			<section className='py-16 bg-secondary/10'>
-				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-8'>Our Services</h2>
-					<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
-						Explore our tailored packages designed for startups at various
-						stages.
-					</p>
-					<div className='grid md:grid-cols-3 gap-8'>
-						{services[0].packages.map((pkg, index) => (
-							<Card
-								key={index}
-								className={`relative ${pkg.isPopular ? 'border-primary' : ''}`}>
-								{pkg.isPopular && (
-									<div className='absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm rounded-bl-lg rounded-tr-lg'>
-										Most Popular
-									</div>
-								)}
-								<CardHeader>
-									<CardTitle className='text-xl mb-2'>{pkg.name}</CardTitle>
-									<p className='text-lg font-semibold text-primary'>
-										{pkg.price}
-									</p>
-									<p className='text-sm text-muted-foreground'>
-										Turnaround: {pkg.turnaround}
-									</p>
-								</CardHeader>
-								<CardContent>
-									<h5 className='font-semibold mb-4'>Includes:</h5>
-									<ul className='space-y-2'>
-										{pkg.includes.map((item, idx) => (
-											<li key={idx} className='flex items-start gap-2'>
-												<CheckCircle className='h-5 w-5 text-primary flex-shrink-0 mt-1' />
-												<span className='text-sm'>{item}</span>
-											</li>
-										))}
-									</ul>
-									<Button
-										className='w-full mt-6'
-										onClick={
-											pkg.isPopular ? () => BookCalendly : () => PayButton
-										}>
-										{pkg.isPopular
-											? 'Schedule a Free Discovery Call'
-											: 'Purchase Package Now'}
-									</Button>
-								</CardContent>
-							</Card>
-						))}
+			{services.map((service, index) => (
+				<section key={index} className='py-16 bg-secondary/10'>
+					<div className='container mx-auto px-4'>
+						<h2 className='text-3xl font-bold text-center mb-8'>
+							{service.title}
+						</h2>
+						<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
+							{service.description}
+						</p>
+						<div className='grid md:grid-cols-3 gap-8 mb-8'>
+							{service.packages.map((pkg, pkgIndex) => (
+								<ServiceCard
+									key={pkgIndex}
+									pkg={pkg}
+									isBrandingMarketing={service.type === 'branding'}
+								/>
+							))}
+						</div>
 					</div>
+				</section>
+			))}
+
+			<section className='py-16 bg-secondary/30'>
+				<div className='container mx-auto px-4 text-center'>
+					<h2 className='text-3xl font-bold mb-4'>
+						Free Domain, SSL, and Hosting
+					</h2>
+					<p className='text-xl text-muted-foreground mb-8'>
+						Get a free domain, SSL certificate, and hosting with our Logo +
+						Landing Page + Email Collection package!
+					</p>
+					<ul className='text-left max-w-md mx-auto mb-8'>
+						<li className='flex items-center gap-2 mb-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free domain: {'<BUSINESS>'}.fbien.com</span>
+						</li>
+						<li className='flex items-center gap-2 mb-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free SSL certificate for secure browsing</span>
+						</li>
+						<li className='flex items-center gap-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free hosting for your landing page</span>
+						</li>
+					</ul>
+					<BookCalendly text='Get Started Now' />
 				</div>
 			</section>
+
+			<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
+				<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
+					<CardTitle className='text-2xl md:text-3xl font-bold'>
+						Prototype Frontend Development
+					</CardTitle>
+					<div className='flex items-center mt-2'>
+						<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
+						<span className='text-sm bg-primary-foreground/20 px-2 py-1 rounded'>
+							Tailored Solution
+						</span>
+					</div>
+				</CardHeader>
+				<CardContent className='p-6'>
+					<div className='flex items-center text-muted-foreground mb-4'>
+						<Calendar className='w-5 h-5 mr-2' />
+						<span>Turnaround: Custom Timeline</span>
+					</div>
+					<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
+					<ul className='space-y-3'>
+						{[
+							{
+								icon: Code,
+								text: 'Complete frontend development tailored to your requirements.',
+							},
+							{
+								icon: Layout,
+								text: 'Landing page implementation to establish your online presence.',
+							},
+							{
+								icon: CheckCircle,
+								text: 'Building core functionality as per your defined specifications.',
+							},
+							{
+								icon: Database,
+								text: 'Supabase backend integration for a robust data management solution.',
+							},
+							{
+								icon: RefreshCw,
+								text: 'Regular progress updates and thorough documentation throughout the development process.',
+							},
+							{
+								icon: FileCode,
+								text: 'Full codebase handoff for your continued development and management.',
+							},
+						].map((item, index) => (
+							<li key={index} className='flex items-start'>
+								<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
+								<span>{item.text}</span>
+							</li>
+						))}
+					</ul>
+				</CardContent>
+				<CardFooter className='bg-muted p-6'>
+					<div className='w-full'>
+						<p className='text-sm text-muted-foreground mb-4'>
+							Ready to bring your prototype to life? Let&apos;s discuss your
+							project requirements and create a tailored solution for your
+							business.
+						</p>
+						<Button className='w-full'>Schedule a Free Discovery Call</Button>
+					</div>
+				</CardFooter>
+			</Card>
 
 			<section className='py-16 bg-secondary/30'>
 				<div className='container mx-auto px-4 text-center'>

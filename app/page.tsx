@@ -38,6 +38,16 @@ const techStack = {
 
 const packages = [
 	{
+		name: '1-Hour Consultation',
+		price: '5,000 KSH ($50)',
+		timeline: '1 hour',
+		deliverables: [
+			'One-on-one consultation on startup idea or technical challenge',
+			'Expert feedback on business strategy or technology stack',
+			'Actionable advice for project progression',
+		],
+	},
+	{
 		name: 'Rapid Validation Package',
 		price: '15,000 KSH ($150)',
 		timeline: '24-48 hours',
@@ -50,31 +60,16 @@ const packages = [
 		],
 	},
 	{
-		name: 'Landing Page + Prototype Strategy',
-		price: '30,000 KSH ($300)',
+		name: 'Stripped-down Landing Page Package',
+		price: '20,000 KSH ($200)',
 		timeline: '3-5 business days',
 		isPopular: true,
 		deliverables: [
-			'Full Rapid Validation Package',
-			'Functional landing page',
-			'Product/service overview section',
-			'Key features showcase',
-			'Call-to-action with signup form',
+			'Basic landing page design',
+			'Email collection setup',
+			'Free domain: <BUSINESS>.fbien.com',
+			'Free SSL and hosting for one year',
 			'Mobile-friendly design',
-			'Prototype development strategy',
-		],
-	},
-	{
-		name: 'Prototype Frontend Development',
-		price: 'Custom Pricing',
-		timeline: 'Custom Timeline',
-		deliverables: [
-			'Complete frontend development',
-			'Landing page implementation',
-			'Core functionality building',
-			'Supabase backend integration',
-			'Progress updates and documentation',
-			'Full codebase handoff',
 		],
 	},
 ]
@@ -248,10 +243,12 @@ export default function Home() {
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text='Schedule Discovery Call' />
-						<Button variant='outline' size='lg'>
-							View Services
-							<ArrowRight className='ml-2 h-4 w-4' />
-						</Button>
+						<Link href='/services'>
+							<Button variant='outline' size='lg'>
+								View Services
+								<ArrowRight className='ml-2 h-4 w-4' />
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</section>
