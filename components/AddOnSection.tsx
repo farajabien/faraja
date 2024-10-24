@@ -74,37 +74,26 @@ const AddOnsSection = () => {
 			category: 'Technical Services',
 			items: [
 				{
-					title: 'Mautic Installation',
+					title: 'Mautic Setup and Email Marketing',
 					description:
-						'Complete setup and configuration of Mautic for your marketing automation needs.',
+						'Complete Mautic installation and configuration, including full setup of email marketing campaigns with design and automation.',
 					icon: ServerCog,
 					price: {
 						ksh: '20,000',
 						usd: '200',
 					},
-					deliveryTime: '2-3 days',
+					deliveryTime: '2-5 days',
 				},
 				{
 					title: 'Website Maintenance Package',
 					description:
-						'Monthly maintenance and updates for your website to ensure optimal performance.',
+						'Monthly maintenance and updates to ensure optimal performance for your website.',
 					icon: Wrench,
 					price: {
 						ksh: '15,000',
 						usd: '150',
 					},
 					deliveryTime: 'Monthly',
-				},
-				{
-					title: 'Email Marketing Setup (Mautic)',
-					description:
-						'Full setup of email marketing campaigns, including design and automation.',
-					icon: MailPlus,
-					price: {
-						ksh: '20,000',
-						usd: '200',
-					},
-					deliveryTime: '3-5 days',
 				},
 			],
 		},
