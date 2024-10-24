@@ -1,4 +1,5 @@
 'use client'
+import { ArrowRightIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { PopupButton } from 'react-calendly'
 
@@ -17,7 +18,13 @@ export default function BookCalendly({ text }: { text?: string }) {
 		<PopupButton
 			url='https://calendly.com/farajabien/30min'
 			rootElement={document.body}
-			text={text ?? 'Schedule a Call'}
+			//@ts-ignore
+			text={
+				<span className='flex items-center'>
+					{text ?? 'Schedule a Call'}
+					<ArrowRightIcon className='w-5 h-5 ml-2' /> {/* Arrow icon */}
+				</span>
+			}
 			prefill={{
 				name: 'Your Name',
 				email: 'your@email.com',

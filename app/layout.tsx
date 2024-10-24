@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import NextTopLoader from 'nextjs-toploader'
 import ThemeToggle from '@/components/ThemeToggle'
 import { Providers } from './providers'
+import Footer from '@/components/Footer'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -35,6 +36,7 @@ export default function RootLayout({
 					<ThemeToggle />
 					<NextTopLoader />
 					{children}
+					<Footer />
 				</Providers>
 			</body>
 		</html>

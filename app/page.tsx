@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 import Link from 'next/link'
+import { allPackages } from '@/lib/utils'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -35,44 +36,6 @@ const techStack = {
 	Cloud: ['AWS', 'Vercel'],
 	Additional: ['Supabase', 'Firebase'],
 }
-
-const packages = [
-	{
-		name: '1-Hour Consultation',
-		price: '5,000 KSH ($50)',
-		timeline: '1 hour',
-		deliverables: [
-			'One-on-one consultation on startup idea or technical challenge',
-			'Expert feedback on business strategy or technology stack',
-			'Actionable advice for project progression',
-		],
-	},
-	{
-		name: 'Rapid Validation Package',
-		price: '15,000 KSH ($150)',
-		timeline: '24-48 hours',
-		deliverables: [
-			'Technical feasibility assessment',
-			'Custom architecture plan',
-			'Tech stack recommendations',
-			'MVP feature definition',
-			'Timeline and budget estimation',
-		],
-	},
-	{
-		name: 'Stripped-down Landing Page Package',
-		price: '20,000 KSH ($200)',
-		timeline: '3-5 business days',
-		isPopular: true,
-		deliverables: [
-			'Basic landing page design',
-			'Email collection setup',
-			'Free domain: <BUSINESS>.fbien.com',
-			'Free SSL and hosting for one year',
-			'Mobile-friendly design',
-		],
-	},
-]
 
 export default function Home() {
 	return (
@@ -151,10 +114,10 @@ export default function Home() {
 			<section className='py-16'>
 				<div className='container mx-auto px-4'>
 					<h2 className='text-3xl font-bold text-center mb-12'>
-						Service Packages
+						Service Packages ({allPackages.length})
 					</h2>
-					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto'>
-						{packages.map((pkg) => (
+					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto '>
+						{allPackages.map((pkg) => (
 							<Card
 								key={pkg.name}
 								className={`p-6 relative ${
@@ -166,24 +129,17 @@ export default function Home() {
 									</div>
 								)}
 								<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
-								<p className='text-xl font-semibold text-primary mb-2'>
-									{pkg.price}
-								</p>
 								<p className='text-sm text-muted-foreground mb-6'>
-									Timeline: {pkg.timeline}
+									Timeline: {pkg.turnaround}{' '}
 								</p>
-								<div className='space-y-4'>
-									<h4 className='font-semibold'>Deliverables:</h4>
-									<ul className='space-y-2'>
-										{pkg.deliverables.map((item, idx) => (
-											<li key={idx} className='flex items-start gap-2'>
-												<CheckCircle className='h-5 w-5 text-primary flex-shrink-0 mt-1' />
-												<span>{item}</span>
-											</li>
-										))}
-									</ul>
-								</div>
-								<Button className='w-full mt-6'>Get Started</Button>
+
+								<Button
+									asChild
+									className='w-full  bottom-0 left-0 right-0 absolute'>
+									<Link href={`/services/${encodeURIComponent(pkg.name)}`}>
+										Get Started
+									</Link>
+								</Button>
 							</Card>
 						))}
 					</div>
