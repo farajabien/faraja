@@ -54,7 +54,7 @@ export default function ServiceCard({
 			</CardHeader>
 			<CardContent>
 				<h5 className='font-semibold mb-4'>Includes:</h5>
-				<ul className='space-y-2'>
+				<ul className='space-y-2 mb-2'>
 					{pkg.includes.map((item, idx) => (
 						<li key={idx} className='flex items-start gap-2'>
 							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0 mt-1' />

@@ -4,12 +4,14 @@ import {
 	Code,
 	Database,
 	FileCode,
+	Info,
 	Layout,
 	RefreshCw,
 } from 'lucide-react'
 import {
 	Card,
 	CardContent,
+	CardDescription,
 	CardFooter,
 	CardHeader,
 	CardTitle,
@@ -18,133 +20,24 @@ import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import { Metadata } from 'next'
 
-import ServiceCard from '@/components/ServiceCard'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { Badge } from '@/components/ui/badge'
+import { Package, services, ServiceType } from '@/lib/utils'
+import AddOnsSection from '@/components/AddOnSection'
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from '@/components/ui/tooltip'
+import FreeServicesSection from '@/components/FreeServiceSection'
 
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',
 	description:
 		'Validate and launch your startup idea with expert technical guidance. From rapid validation to MVP development, get the expertise you need to succeed.',
 }
-
-const services = [
-	{
-		title: 'Startup Technical Services',
-		description:
-			'I provide tailored technical solutions that help you turn your startup vision into reality—from idea validation to full implementation. Let me handle the tech while you focus on your business.',
-		packages: [
-			{
-				name: '1-Hour Consultation',
-				price: '5,000 KSH ($50)',
-				turnaround: '1 hour',
-				isPopular: false,
-				includes: [
-					'One-on-one consultation to discuss your startup idea or technical challenge.',
-					'Expert feedback on your business strategy or technology stack.',
-					'Actionable advice for moving forward with your project.',
-				],
-			},
-			{
-				name: 'Rapid Validation Package',
-				price: '15,000 KSH ($150)',
-				turnaround: '24-48 hours',
-				isPopular: false,
-				includes: [
-					"Comprehensive assessment of your startup idea's technical feasibility.",
-					'Custom architecture plan to support scalability as your business grows.',
-					'Expert recommendations for the most suitable tech stack for your project.',
-					'Clear definition of essential features for your Minimum Viable Product (MVP).',
-					'Accurate timeline and budget estimation to help you plan your project effectively.',
-				],
-			},
-			{
-				name: 'Stripped-down Landing Page Package',
-				price: '20,000 KSH ($200)',
-				turnaround: '3-5 business days',
-				isPopular: true,
-				includes: [
-					'Basic landing page design to capture leads and showcase your service.',
-					'Email collection setup (without prototype strategy).',
-					'Free domain: <BUSINESS>.fbien.com.',
-					'Free SSL and hosting for one year.',
-					'Mobile-friendly design for accessibility on all devices.',
-				],
-			},
-			{
-				name: 'Logo + Landing Page + Email Collection Package',
-				price: '25,000 KSH ($250)',
-				turnaround: '48 hours',
-				isPopular: true,
-				includes: [
-					'Custom logo design to establish your brand identity.',
-					'A fully functional landing page to capture leads and showcase your service.',
-					'Email collection setup to grow your subscriber list.',
-					'Free domain: <BUSINESS>.fbien.com.',
-					'Free SSL and hosting for one year.',
-					'Mobile-friendly design to ensure accessibility on all devices.',
-					'A strategic overview of your service offerings.',
-				],
-			},
-			{
-				name: 'Prototype Frontend Development Package',
-				price: 'Starting at 50,000 KSH ($500)',
-				turnaround: 'Custom Timeline',
-				isPopular: false,
-				includes: [
-					'Complete frontend development tailored to your requirements.',
-					'Core functionality build-out based on your specifications.',
-					'Supabase backend integration for scalable data management.',
-					'Progress updates and full documentation throughout the process.',
-					'Full codebase handoff for your continued development and management.',
-				],
-			},
-		],
-	},
-	{
-		title: 'Branding & Marketing Design Services',
-		type: 'branding',
-		description:
-			'I offer professional design services to help you create a cohesive and memorable brand presence, from logos to marketing materials that make a lasting impression.',
-		packages: [
-			{
-				name: 'Brand Identity Package',
-				price: '25,000 KSH ($250)',
-				turnaround: '5-7 business days',
-				isPopular: true,
-				includes: [
-					'Custom logo design to establish your brand identity.',
-					'Business card design (print-ready).',
-					'Company profile design to showcase your business professionally.',
-					'Free consultation on brand positioning and identity strategy.',
-				],
-			},
-			{
-				name: 'Marketing Essentials Package',
-				price: '15,000 KSH ($150)',
-				turnaround: '3-5 business days',
-				isPopular: false,
-				includes: [
-					'Design of 2-3 posters or flyers for marketing campaigns.',
-					'Email signature design (to match brand identity).',
-					'Social media graphics for your upcoming promotions or campaigns.',
-					'Limited revisions to keep the project within scope.',
-				],
-			},
-			{
-				name: 'Landing Page Design',
-				price: '25,000 KSH ($250)',
-				turnaround: '5-7 business days',
-				isPopular: false,
-				includes: [
-					'A professionally designed landing page to capture leads and showcase your business.',
-					'Custom email collection setup (with tools like Mailchimp).',
-					'Mobile-friendly and SEO-optimized design.',
-					'Free domain and SSL setup for one year.',
-				],
-			},
-		],
-	},
-]
 
 const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
 
@@ -177,117 +70,14 @@ export default function ServicesPage() {
 			</section>
 
 			{services.map((service, index) => (
-				<section key={index} className='py-16 bg-secondary/10'>
-					<div className='container mx-auto px-4'>
-						<h2 className='text-3xl font-bold text-center mb-8'>
-							{service.title}
-						</h2>
-						<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
-							{service.description}
-						</p>
-						<div className='grid md:grid-cols-3 gap-8 mb-8'>
-							{service.packages.map((pkg, pkgIndex) => (
-								<ServiceCard
-									key={pkgIndex}
-									pkg={pkg}
-									isBrandingMarketing={service.type === 'branding'}
-								/>
-							))}
-						</div>
-					</div>
-				</section>
+				<ServiceSection key={index} service={service} />
 			))}
 
-			<section className='py-16 bg-secondary/30'>
-				<div className='container mx-auto px-4 text-center'>
-					<h2 className='text-3xl font-bold mb-4'>
-						Free Domain, SSL, and Hosting
-					</h2>
-					<p className='text-xl text-muted-foreground mb-8'>
-						Get a free domain, SSL certificate, and hosting with our Logo +
-						Landing Page + Email Collection package!
-					</p>
-					<ul className='text-left max-w-md mx-auto mb-8'>
-						<li className='flex items-center gap-2 mb-2'>
-							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-							<span>Free domain: {'<BUSINESS>'}.fbien.com</span>
-						</li>
-						<li className='flex items-center gap-2 mb-2'>
-							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-							<span>Free SSL certificate for secure browsing</span>
-						</li>
-						<li className='flex items-center gap-2'>
-							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-							<span>Free hosting for your landing page</span>
-						</li>
-					</ul>
-					<BookCalendly text='Get Started Now' />
-				</div>
-			</section>
+			<AddOnsSection />
+			<MauticInfoSection />
 
-			<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
-				<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
-					<CardTitle className='text-2xl md:text-3xl font-bold'>
-						Prototype Frontend Development
-					</CardTitle>
-					<div className='flex items-center mt-2'>
-						<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
-						<span className='text-sm bg-primary-foreground/20 px-2 py-1 rounded'>
-							Tailored Solution
-						</span>
-					</div>
-				</CardHeader>
-				<CardContent className='p-6'>
-					<div className='flex items-center text-muted-foreground mb-4'>
-						<Calendar className='w-5 h-5 mr-2' />
-						<span>Turnaround: Custom Timeline</span>
-					</div>
-					<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
-					<ul className='space-y-3'>
-						{[
-							{
-								icon: Code,
-								text: 'Complete frontend development tailored to your requirements.',
-							},
-							{
-								icon: Layout,
-								text: 'Landing page implementation to establish your online presence.',
-							},
-							{
-								icon: CheckCircle,
-								text: 'Building core functionality as per your defined specifications.',
-							},
-							{
-								icon: Database,
-								text: 'Supabase backend integration for a robust data management solution.',
-							},
-							{
-								icon: RefreshCw,
-								text: 'Regular progress updates and thorough documentation throughout the development process.',
-							},
-							{
-								icon: FileCode,
-								text: 'Full codebase handoff for your continued development and management.',
-							},
-						].map((item, index) => (
-							<li key={index} className='flex items-start'>
-								<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
-								<span>{item.text}</span>
-							</li>
-						))}
-					</ul>
-				</CardContent>
-				<CardFooter className='bg-muted p-6'>
-					<div className='w-full'>
-						<p className='text-sm text-muted-foreground mb-4'>
-							Ready to bring your prototype to life? Let&apos;s discuss your
-							project requirements and create a tailored solution for your
-							business.
-						</p>
-						<Button className='w-full'>Schedule a Free Discovery Call</Button>
-					</div>
-				</CardFooter>
-			</Card>
+			<FreeServicesSection />
+			<PrototypeFrontendDevelopment />
 
 			<section className='py-16 bg-secondary/30'>
 				<div className='container mx-auto px-4 text-center'>
@@ -299,5 +89,226 @@ export default function ServicesPage() {
 				</div>
 			</section>
 		</div>
+	)
+}
+
+function ServiceSection({ service }: { service: ServiceType }) {
+	return (
+		<section className='py-16 bg-secondary/10'>
+			<div className='container mx-auto px-4'>
+				<h2 className='text-3xl font-bold text-center mb-8'>{service.title}</h2>
+				<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
+					{service.description}
+				</p>
+				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
+					{service.packages.map((pkg, pkgIndex) => (
+						<ServiceCard key={pkgIndex} pkg={pkg} />
+					))}
+				</div>
+			</div>
+		</section>
+	)
+}
+//ServiceCardProps
+type ServiceCardProps = {
+	pkg: Package
+	variant?: string
+}
+
+const ServiceCard = ({ pkg, variant = 'default' }: ServiceCardProps) => {
+	const isFeatured = variant === 'featured' || pkg.isPopular
+
+	return (
+		<Card
+			className={`
+		flex flex-col transform transition-all duration-300 hover:scale-[1.02]
+		${isFeatured ? 'border-primary shadow-lg relative' : 'hover:shadow-md'}
+	  `}>
+			{isFeatured && (
+				<div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+					<Badge className='bg-primary text-primary-foreground px-4 py-1 text-sm'>
+						Most Popular
+					</Badge>
+				</div>
+			)}
+
+			<CardHeader
+				className={`
+		  ${isFeatured ? 'bg-primary/5 border-b border-primary/20' : ''}
+		  pb-6
+		`}>
+				<div className='space-y-2'>
+					<div className='flex justify-between items-start'>
+						<div>
+							<CardTitle className='text-2xl font-bold'>{pkg.name}</CardTitle>
+						</div>
+					</div>
+					<div className='flex items-baseline'>
+						<span className='text-3xl font-bold'>{pkg.price}</span>
+						{pkg.savings && (
+							<Badge variant='secondary' className='ml-2 bg-green-500'>
+								{pkg.savings}
+							</Badge>
+						)}
+					</div>
+				</div>
+			</CardHeader>
+
+			<CardContent className='flex-grow space-y-6'>
+				<div className='flex items-center text-muted-foreground'>
+					<Calendar className='w-4 h-4 mr-2' />
+					<span className='text-sm'>Delivery in {pkg.turnaround}</span>
+				</div>
+
+				{pkg.bestFor && (
+					<div className='bg-secondary/30 p-3 rounded-lg'>
+						<p className='text-sm font-medium mb-2'>Best For:</p>
+						<ul className='space-y-1'>
+							{pkg.bestFor.map((item: string, index: number) => (
+								<li key={index} className='text-sm text-muted-foreground'>
+									• {item}
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
+
+				<div>
+					<div className='flex items-center mb-3'>
+						<span className='text-sm font-medium'>What&apos;s Included:</span>
+						<TooltipProvider>
+							<Tooltip>
+								<TooltipTrigger asChild>
+									<Info className='w-4 h-4 ml-2 text-muted-foreground cursor-help' />
+								</TooltipTrigger>
+								<TooltipContent>
+									<p className='text-sm'>
+										All features included in this package
+									</p>
+								</TooltipContent>
+							</Tooltip>
+						</TooltipProvider>
+					</div>
+					<ul className='space-y-3'>
+						{pkg.includes.map((item: string, index: number) => (
+							<li key={index} className='flex items-start'>
+								<CheckCircle className='w-4 h-4 text-primary mr-2 mt-1 flex-shrink-0' />
+								<span className='text-sm leading-tight'>{item}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+			</CardContent>
+
+			<CardFooter className='pt-6'>
+				<BookCalendly text={`Book Call for ${pkg.name} `} />
+			</CardFooter>
+		</Card>
+	)
+}
+
+function MauticInfoSection() {
+	return (
+		<Card className='w-full max-w-3xl mx-auto my-16'>
+			<CardHeader>
+				<CardTitle>What is Mautic?</CardTitle>
+			</CardHeader>
+			<CardContent className='space-y-4'>
+				<p>
+					Mautic is the world&apos;s largest{' '}
+					<strong>open-source marketing automation platform</strong> that helps
+					businesses of all sizes create, automate, and personalize customer
+					journeys. With Mautic, you can:
+				</p>
+				<ul className='list-disc list-inside space-y-1'>
+					<li>Automate email marketing campaigns</li>
+					<li>Track website visitors and capture leads</li>
+					<li>Build and manage segmented contact lists</li>
+					<li>Send personalized content based on customer behavior</li>
+					<li>Easily integrate with your existing tools and services</li>
+				</ul>
+				<p>
+					By using Mautic, you can streamline your marketing efforts, increase
+					engagement, and grow your community—without the limitations of
+					expensive, proprietary platforms.
+				</p>
+			</CardContent>
+			<CardFooter>
+				<Button asChild>
+					<Link
+						href='https://www.mautic.org/'
+						target='_blank'
+						rel='noopener noreferrer'>
+						Learn more about Mautic
+					</Link>
+				</Button>
+			</CardFooter>
+		</Card>
+	)
+}
+
+function PrototypeFrontendDevelopment() {
+	return (
+		<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
+			<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
+				<CardTitle className='text-2xl md:text-3xl font-bold'>
+					Prototype Full Stack Development
+				</CardTitle>
+				<div className='flex items-center mt-2'>
+					<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
+					<Badge variant='secondary'>Tailored Solution</Badge>
+				</div>
+			</CardHeader>
+			<CardContent className='p-6'>
+				<div className='flex items-center text-muted-foreground mb-4'>
+					<Calendar className='w-5 h-5 mr-2' />
+					<span>Turnaround: Custom Timeline</span>
+				</div>
+				<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
+				<ul className='space-y-3'>
+					{[
+						{
+							icon: Code,
+							text: 'Complete frontend development tailored to your requirements.',
+						},
+						{
+							icon: Layout,
+							text: 'Landing page implementation to establish your online presence.',
+						},
+						{
+							icon: CheckCircle,
+							text: 'Building core functionality as per your defined specifications.',
+						},
+						{
+							icon: Database,
+							text: 'Supabase backend integration for a robust data management solution.',
+						},
+						{
+							icon: RefreshCw,
+							text: 'Regular progress updates and thorough documentation throughout the development process.',
+						},
+						{
+							icon: FileCode,
+							text: 'Full codebase handoff for your continued development and management.',
+						},
+					].map((item, index) => (
+						<li key={index} className='flex items-start'>
+							<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
+							<span>{item.text}</span>
+						</li>
+					))}
+				</ul>
+			</CardContent>
+			<CardFooter className='bg-muted p-6'>
+				<div className='w-full'>
+					<p className='text-sm text-muted-foreground mb-4'>
+						Ready to bring your prototype to life? Let&aposs discuss your
+						project requirements and create a tailored solution for your
+						business.
+					</p>
+					<Button className='w-full'>Schedule a Free Discovery Call</Button>
+				</div>
+			</CardFooter>
+		</Card>
 	)
 }
