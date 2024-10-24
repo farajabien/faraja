@@ -20,7 +20,6 @@ import { Metadata } from 'next'
 
 import ServiceCard from '@/components/ServiceCard'
 import { Button } from '@/components/ui/button'
-import ServicePurchaseButton from '@/components/payment/ServicePurchaseButton'
 
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',

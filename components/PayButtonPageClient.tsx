@@ -20,7 +20,6 @@ type PaymentConfig = {
 	currency: string
 }
 
-// components/PaymentSection.tsx
 const PaymentSection = ({
 	config,
 	onSuccess,
