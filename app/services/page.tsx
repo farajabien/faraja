@@ -149,159 +149,155 @@ const services = [
 const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
 
 export default function ServicesPage() {
-	if (typeof window !== 'undefined') {
-		return (
-			<div className='min-h-screen bg-background'>
-				<MyBreadcrumb
-					items={[
-						{ label: 'Home', href: '/' },
-						{ label: 'Services', href: '/services' },
-						{ label: 'Startup Technical Services', href: '/services/startup' },
-						{
-							label: 'Startup Technical Services Packages',
-							href: '/services/startup/packages',
-						},
-					]}
-				/>
+	return (
+		<div className='min-h-screen bg-background'>
+			<MyBreadcrumb
+				items={[
+					{ label: 'Home', href: '/' },
+					{ label: 'Services', href: '/services' },
+					{ label: 'Startup Technical Services', href: '/services/startup' },
+					{
+						label: 'Startup Technical Services Packages',
+						href: '/services/startup/packages',
+					},
+				]}
+			/>
 
-				<section className='container mx-auto px-4 py-12 md:py-20'>
-					<div className='max-w-4xl mx-auto text-center'>
-						<h1 className='text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-							Unlock Your Startup Potential
-						</h1>
-						<p className='text-xl text-muted-foreground mb-8'>
-							Expert technical strategy and development services to help your
-							business thrive.
-						</p>
-						<BookCalendly text='Book Free Discovery Call' />
-					</div>
-				</section>
+			<section className='container mx-auto px-4 py-12 md:py-20'>
+				<div className='max-w-4xl mx-auto text-center'>
+					<h1 className='text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
+						Unlock Your Startup Potential
+					</h1>
+					<p className='text-xl text-muted-foreground mb-8'>
+						Expert technical strategy and development services to help your
+						business thrive.
+					</p>
+					<BookCalendly text='Book Free Discovery Call' />
+				</div>
+			</section>
 
-				{services.map((service, index) => (
-					<section key={index} className='py-16 bg-secondary/10'>
-						<div className='container mx-auto px-4'>
-							<h2 className='text-3xl font-bold text-center mb-8'>
-								{service.title}
-							</h2>
-							<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
-								{service.description}
-							</p>
-							<div className='grid md:grid-cols-3 gap-8 mb-8'>
-								{service.packages.map((pkg, pkgIndex) => (
-									<ServiceCard
-										key={pkgIndex}
-										pkg={pkg}
-										isBrandingMarketing={service.type === 'branding'}
-									/>
-								))}
-							</div>
-						</div>
-					</section>
-				))}
-
-				<section className='py-16 bg-secondary/30'>
-					<div className='container mx-auto px-4 text-center'>
-						<h2 className='text-3xl font-bold mb-4'>
-							Free Domain, SSL, and Hosting
+			{services.map((service, index) => (
+				<section key={index} className='py-16 bg-secondary/10'>
+					<div className='container mx-auto px-4'>
+						<h2 className='text-3xl font-bold text-center mb-8'>
+							{service.title}
 						</h2>
-						<p className='text-xl text-muted-foreground mb-8'>
-							Get a free domain, SSL certificate, and hosting with our Logo +
-							Landing Page + Email Collection package!
+						<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
+							{service.description}
 						</p>
-						<ul className='text-left max-w-md mx-auto mb-8'>
-							<li className='flex items-center gap-2 mb-2'>
-								<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-								<span>Free domain: {'<BUSINESS>'}.fbien.com</span>
-							</li>
-							<li className='flex items-center gap-2 mb-2'>
-								<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-								<span>Free SSL certificate for secure browsing</span>
-							</li>
-							<li className='flex items-center gap-2'>
-								<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
-								<span>Free hosting for your landing page</span>
-							</li>
-						</ul>
-						<BookCalendly text='Get Started Now' />
-					</div>
-				</section>
-
-				<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
-					<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
-						<CardTitle className='text-2xl md:text-3xl font-bold'>
-							Prototype Frontend Development
-						</CardTitle>
-						<div className='flex items-center mt-2'>
-							<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
-							<span className='text-sm bg-primary-foreground/20 px-2 py-1 rounded'>
-								Tailored Solution
-							</span>
-						</div>
-					</CardHeader>
-					<CardContent className='p-6'>
-						<div className='flex items-center text-muted-foreground mb-4'>
-							<Calendar className='w-5 h-5 mr-2' />
-							<span>Turnaround: Custom Timeline</span>
-						</div>
-						<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
-						<ul className='space-y-3'>
-							{[
-								{
-									icon: Code,
-									text: 'Complete frontend development tailored to your requirements.',
-								},
-								{
-									icon: Layout,
-									text: 'Landing page implementation to establish your online presence.',
-								},
-								{
-									icon: CheckCircle,
-									text: 'Building core functionality as per your defined specifications.',
-								},
-								{
-									icon: Database,
-									text: 'Supabase backend integration for a robust data management solution.',
-								},
-								{
-									icon: RefreshCw,
-									text: 'Regular progress updates and thorough documentation throughout the development process.',
-								},
-								{
-									icon: FileCode,
-									text: 'Full codebase handoff for your continued development and management.',
-								},
-							].map((item, index) => (
-								<li key={index} className='flex items-start'>
-									<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
-									<span>{item.text}</span>
-								</li>
+						<div className='grid md:grid-cols-3 gap-8 mb-8'>
+							{service.packages.map((pkg, pkgIndex) => (
+								<ServiceCard
+									key={pkgIndex}
+									pkg={pkg}
+									isBrandingMarketing={service.type === 'branding'}
+								/>
 							))}
-						</ul>
-					</CardContent>
-					<CardFooter className='bg-muted p-6'>
-						<div className='w-full'>
-							<p className='text-sm text-muted-foreground mb-4'>
-								Ready to bring your prototype to life? Let&apos;s discuss your
-								project requirements and create a tailored solution for your
-								business.
-							</p>
-							<Button className='w-full'>Schedule a Free Discovery Call</Button>
 						</div>
-					</CardFooter>
-				</Card>
-
-				<section className='py-16 bg-secondary/30'>
-					<div className='container mx-auto px-4 text-center'>
-						<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
-						<p className='text-xl text-muted-foreground mb-8'>
-							Schedule a free discovery call to discuss your technical needs.
-						</p>
-						<BookCalendly text='Schedule Discovery Call' />
 					</div>
 				</section>
-			</div>
-		)
-	} else {
-		return <div>Loading...</div>
-	}
+			))}
+
+			<section className='py-16 bg-secondary/30'>
+				<div className='container mx-auto px-4 text-center'>
+					<h2 className='text-3xl font-bold mb-4'>
+						Free Domain, SSL, and Hosting
+					</h2>
+					<p className='text-xl text-muted-foreground mb-8'>
+						Get a free domain, SSL certificate, and hosting with our Logo +
+						Landing Page + Email Collection package!
+					</p>
+					<ul className='text-left max-w-md mx-auto mb-8'>
+						<li className='flex items-center gap-2 mb-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free domain: {'<BUSINESS>'}.fbien.com</span>
+						</li>
+						<li className='flex items-center gap-2 mb-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free SSL certificate for secure browsing</span>
+						</li>
+						<li className='flex items-center gap-2'>
+							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0' />
+							<span>Free hosting for your landing page</span>
+						</li>
+					</ul>
+					<BookCalendly text='Get Started Now' />
+				</div>
+			</section>
+
+			<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
+				<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
+					<CardTitle className='text-2xl md:text-3xl font-bold'>
+						Prototype Frontend Development
+					</CardTitle>
+					<div className='flex items-center mt-2'>
+						<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
+						<span className='text-sm bg-primary-foreground/20 px-2 py-1 rounded'>
+							Tailored Solution
+						</span>
+					</div>
+				</CardHeader>
+				<CardContent className='p-6'>
+					<div className='flex items-center text-muted-foreground mb-4'>
+						<Calendar className='w-5 h-5 mr-2' />
+						<span>Turnaround: Custom Timeline</span>
+					</div>
+					<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
+					<ul className='space-y-3'>
+						{[
+							{
+								icon: Code,
+								text: 'Complete frontend development tailored to your requirements.',
+							},
+							{
+								icon: Layout,
+								text: 'Landing page implementation to establish your online presence.',
+							},
+							{
+								icon: CheckCircle,
+								text: 'Building core functionality as per your defined specifications.',
+							},
+							{
+								icon: Database,
+								text: 'Supabase backend integration for a robust data management solution.',
+							},
+							{
+								icon: RefreshCw,
+								text: 'Regular progress updates and thorough documentation throughout the development process.',
+							},
+							{
+								icon: FileCode,
+								text: 'Full codebase handoff for your continued development and management.',
+							},
+						].map((item, index) => (
+							<li key={index} className='flex items-start'>
+								<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
+								<span>{item.text}</span>
+							</li>
+						))}
+					</ul>
+				</CardContent>
+				<CardFooter className='bg-muted p-6'>
+					<div className='w-full'>
+						<p className='text-sm text-muted-foreground mb-4'>
+							Ready to bring your prototype to life? Let&apos;s discuss your
+							project requirements and create a tailored solution for your
+							business.
+						</p>
+						<Button className='w-full'>Schedule a Free Discovery Call</Button>
+					</div>
+				</CardFooter>
+			</Card>
+
+			<section className='py-16 bg-secondary/30'>
+				<div className='container mx-auto px-4 text-center'>
+					<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
+					<p className='text-xl text-muted-foreground mb-8'>
+						Schedule a free discovery call to discuss your technical needs.
+					</p>
+					<BookCalendly text='Schedule Discovery Call' />
+				</div>
+			</section>
+		</div>
+	)
 }

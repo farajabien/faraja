@@ -1,10 +1,6 @@
-import PayButtonPageClient from '@/components/PayButtonPageClient'
 import React from 'react'
+import ClientWrapper from '@/components/ClientWrapper'
 
 export default function PaymentDemo() {
-	if (typeof window !== 'undefined') {
-		return <PayButtonPageClient />
-	} else {
-		return <div>Loading...</div>
-	}
+	return <ClientWrapper />
 }

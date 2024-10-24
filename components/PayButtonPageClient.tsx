@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import BookCalendly from '@/components/BookCalendly'
 import PayButton from './payment/PayButton'
@@ -20,7 +20,6 @@ type PaymentConfig = {
 	currency: string
 }
 
-// components/PaymentSection.tsx
 const PaymentSection = ({
 	config,
 	onSuccess,

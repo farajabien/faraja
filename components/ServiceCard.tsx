@@ -11,7 +11,17 @@ import { Button } from './ui/button'
 import { CheckCircle } from 'lucide-react'
 import BookCalendly from './BookCalendly'
 import PayButton from './payment/PayButton'
-import ServicePurchaseButton from './payment/ServicePurchaseButton'
+// import ServicePurchaseButton from './payment/ServicePurchaseButton'
+
+import dynamic from 'next/dynamic'
+
+// ServicePurchaseButton dynmaic
+const ServicePurchaseButton = dynamic(
+	() => import('./payment/ServicePurchaseButton'),
+	{
+		ssr: false,
+	}
+)
 
 import { getPriceInKSH } from '@/lib/utils'
 
