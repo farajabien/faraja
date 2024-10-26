@@ -18,12 +18,12 @@ export default function BookCalendly({ text }: { text?: string }) {
 		<PopupButton
 			url='https://calendly.com/farajabien/30min'
 			rootElement={document.body}
-			//@ts-ignore
+			// @ts-ignore
 			text={
-				<span className='flex items-center'>
-					{text ?? 'Schedule a Call'}
+				<div className='flex items-center justify-center'>
+					<span>{text ?? 'Schedule a Call'}</span>
 					<ArrowRightIcon className='w-5 h-5 ml-2' /> {/* Arrow icon */}
-				</span>
+				</div>
 			}
 			prefill={{
 				name: 'Your Name',
@@ -33,7 +33,7 @@ export default function BookCalendly({ text }: { text?: string }) {
 					a2: 'Discuss potential collaboration or project',
 				},
 			}}
-			className='inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
+			className='inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary'
 		/>
 	)
 }

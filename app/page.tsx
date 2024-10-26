@@ -15,6 +15,7 @@ import BookCalendly from '@/components/BookCalendly'
 import Link from 'next/link'
 import { allPackages } from '@/lib/utils'
 import ValidationSection from '@/components/ValidateIdeaSection'
+import Image from 'next/image'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -67,6 +68,14 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<Image
+				src='/images/my_0_dollar_tech_stack.png'
+				alt='Visual representation of a zero-dollar tech stack'
+				className='mx-auto mt-8 max-w-full h-auto w-full'
+				width={1000}
+				height={0}
+			/>
 
 			{/* Why Work With Me Section */}
 			<section className='py-16 bg-secondary/30'>
