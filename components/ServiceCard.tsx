@@ -6,6 +6,7 @@ import {
 	CardDescription,
 	CardTitle,
 	CardHeader,
+	CardFooter,
 } from './ui/card'
 import { Button } from './ui/button'
 import { CheckCircle } from 'lucide-react'
@@ -69,6 +70,13 @@ export default function ServiceCard({
 					)}
 				</>
 			</CardContent>
+
+			<CardFooter
+				className={`bg-primary text-primary-foreground py-4 ${
+					pkg.isPopular ? 'rounded-b-lg' : ''
+				}`}>
+				{pkg.overview}
+			</CardFooter>
 		</Card>
 	)
 }

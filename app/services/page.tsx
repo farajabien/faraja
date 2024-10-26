@@ -137,13 +137,6 @@ const ServiceCard = ({ pkg, variant = 'default' }: ServiceCardProps) => {
 		  ${isFeatured ? 'bg-primary/5 border-b border-primary/20' : ''}
 		  pb-6
 		`}>
-			<CardDescription>
-				<div className='flex items-center justify-center h-12 w-12 rounded-full bg-secondary'>
-					{pkg.overview}
-
-				</div>
-			</CardDescription>
-
 				<div className='space-y-2'>
 					<div className='flex justify-between items-start'>
 						<div>
