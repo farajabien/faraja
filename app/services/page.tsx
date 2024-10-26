@@ -23,7 +23,7 @@ import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
-import { Package, services, ServiceType } from '@/lib/utils'
+import { DeliverableType, Package, services, ServiceType } from '@/lib/utils'
 import AddOnsSection from '@/components/AddOnSection'
 import {
 	Tooltip,
@@ -32,6 +32,8 @@ import {
 	TooltipTrigger,
 } from '@/components/ui/tooltip'
 import FreeServicesSection from '@/components/FreeServiceSection'
+import { FileText, Image, File } from 'lucide-react'
+import ServiceCard from '@/components/ServiceCard'
 
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',
@@ -109,102 +111,20 @@ function ServiceSection({ service }: { service: ServiceType }) {
 		</section>
 	)
 }
-//ServiceCardProps
-type ServiceCardProps = {
-	pkg: Package
-	variant?: string
-}
 
-const ServiceCard = ({ pkg, variant = 'default' }: ServiceCardProps) => {
-	const isFeatured = variant === 'featured' || pkg.isPopular
-
-	return (
-		<Card
-			className={`
-		flex flex-col transform transition-all duration-300 hover:scale-[1.02]
-		${isFeatured ? 'border-primary shadow-lg relative' : 'hover:shadow-md'}
-	  `}>
-			{isFeatured && (
-				<div className='absolute -top-4 left-1/2 -translate-x-1/2'>
-					<Badge className='bg-primary text-primary-foreground px-4 py-1 text-sm'>
-						Most Popular
-					</Badge>
-				</div>
-			)}
-
-			<CardHeader
-				className={`
-		  ${isFeatured ? 'bg-primary/5 border-b border-primary/20' : ''}
-		  pb-6
-		`}>
-				<div className='space-y-2'>
-					<div className='flex justify-between items-start'>
-						<div>
-							<CardTitle className='text-2xl font-bold'>{pkg.name}</CardTitle>
-						</div>
-					</div>
-					<div className='flex items-baseline'>
-						<span className='text-3xl font-bold'>{pkg.price}</span>
-						{pkg.savings && (
-							<Badge variant='secondary' className='ml-2 bg-green-100'>
-								{pkg.savings}
-							</Badge>
-						)}
-					</div>
-				</div>
-			</CardHeader>
-
-			<CardContent className='flex-grow space-y-6'>
-				<div className='flex items-center text-muted-foreground'>
-					<Calendar className='w-4 h-4 mr-2' />
-					<span className='text-sm'>Delivery in {pkg.turnaround}</span>
-				</div>
-
-				{pkg.bestFor && (
-					<div className='bg-secondary/30 p-3 rounded-lg'>
-						<p className='text-sm font-medium mb-2'>Best For:</p>
-						<ul className='space-y-1'>
-							{pkg.bestFor.map((item: string, index: number) => (
-								<li key={index} className='text-sm text-muted-foreground'>
-									• {item}
-								</li>
-							))}
-						</ul>
-					</div>
-				)}
-
-				<div>
-					<div className='flex items-center mb-3'>
-						<span className='text-sm font-medium'>What&apos;s Included:</span>
-						<TooltipProvider>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<Info className='w-4 h-4 ml-2 text-muted-foreground cursor-help' />
-								</TooltipTrigger>
-								<TooltipContent>
-									<p className='text-sm'>
-										All features included in this package
-									</p>
-								</TooltipContent>
-							</Tooltip>
-						</TooltipProvider>
-					</div>
-					<ul className='space-y-3'>
-						{pkg.includes.map((item: string, index: number) => (
-							<li key={index} className='flex items-start'>
-								<CheckCircle className='w-4 h-4 text-primary mr-2 mt-1 flex-shrink-0' />
-								<span className='text-sm leading-tight'>{item}</span>
-							</li>
-						))}
-					</ul>
-				</div>
-			</CardContent>
-
-			<CardFooter className='pt-6'>
-				<BookCalendly text={`Book Call for ${pkg.name} `} />
-			</CardFooter>
-		</Card>
-	)
+const getFileIcon = (type: DeliverableType['type']) => {
+	switch (type) {
+		case 'pdf':
+			return <FileText className='w-6 h-6 text-blue-500' />
+		case 'doc':
+			return <FileText className='w-6 h-6 text-blue-500' />
+		case 'design':
+			return <Image className='w-6 h-6 text-purple-500' />
+		case 'code':
+			return <FileCode className='w-6 h-6 text-green-500' />
+		default:
+			return <File className='w-6 h-6 text-gray-500' />
+	}
 }
 
 function MauticInfoSection() {
