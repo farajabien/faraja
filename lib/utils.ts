@@ -169,7 +169,6 @@ export const services: ServiceType[] = [
 				includes: [
 					'Technical Feasibility Check: A comprehensive assessment to determine if your startup idea can be technically executed.',
 					'Tool & Technology Recommendations: Expert suggestions on the best tools and technologies tailored for your project’s needs.',
-					'Product Roadmap: A strategic roadmap that outlines key phases for building your product, including budget estimates and timelines.',
 					'Landing Page Overview: A detailed overview of a landing page design, complete with suggested copy to effectively capture leads.',
 				],
 				bestFor: [
@@ -180,7 +179,6 @@ export const services: ServiceType[] = [
 				deliverables: [
 					{ name: 'Technical Assessment', type: 'pdf' },
 					{ name: 'Tech Stack Guide', type: 'pdf' },
-					{ name: 'Product Roadmap', type: 'pdf' },
 					{ name: 'Landing Page Copy', type: 'doc' },
 				],
 			},
