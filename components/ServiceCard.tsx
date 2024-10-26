@@ -23,19 +23,13 @@ const ServicePurchaseButton = dynamic(
 	}
 )
 
-import { getPriceInKSH } from '@/lib/utils'
+import { getPriceInKSH, Package } from '@/lib/utils'
 
 export default function ServiceCard({
 	pkg,
 	isBrandingMarketing,
 }: {
-	pkg: {
-		name: string
-		price: string
-		turnaround: string
-		includes: string[]
-		isPopular: boolean
-	}
+	pkg: Package
 	isBrandingMarketing?: boolean
 }) {
 	return (

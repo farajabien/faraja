@@ -14,6 +14,7 @@ import { Card } from '@/components/ui/card'
 import BookCalendly from '@/components/BookCalendly'
 import Link from 'next/link'
 import { allPackages } from '@/lib/utils'
+import ValidationSection from '@/components/ValidateIdeaSection'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -47,19 +48,20 @@ export default function Home() {
 						Turn Your Startup Vision into Reality
 					</h1>
 					<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
-						Technical Co-Founder Experience for Non-Technical Founders
+						Get Technical Co-Founder Expertise, Tailored for Non-Technical
+						Founders
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text='Book Free Discovery Call' />
 						<Link href='/projects'>
 							<Button variant='outline' size='lg'>
-								View Portfolio
+								View Our Portfolio
 								<ArrowRight className='ml-2 h-4 w-4' />
 							</Button>
 						</Link>
 						<Link href='/services'>
 							<Button variant='outline' size='lg'>
-								View Packages
+								Explore Packages
 							</Button>
 						</Link>
 					</div>
@@ -109,6 +111,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<ValidationSection />
 
 			{/* Packages Section */}
 			<section className='py-16'>
