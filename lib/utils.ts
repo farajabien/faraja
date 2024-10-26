@@ -101,6 +101,7 @@ export type Package = {
 	savings?: string // Optional savings field
 	bestFor?: string[] // Optional bestFor field
 	addOns?: AddOn[]
+	overview: string
 }
 
 export type AddOn = {
@@ -118,6 +119,7 @@ export type ServiceType = {
 
 type PackageType = {
 	name: string
+	overview: string
 	price: string
 	turnaround: string
 	isPopular: boolean
@@ -130,42 +132,45 @@ export const services: ServiceType[] = [
 		title: 'Startup Technical Services',
 		description:
 			'Let me handle the technical side of things so you can focus on your business. I provide tailored tech solutions to help turn your startup ideas into reality.',
+
 		packages: [
 			{
 				name: 'Startup Idea Validation Package',
 				price: '15,000 KSH ($150)',
 				turnaround: '24-48 hours',
 				isPopular: false,
+				overview:
+					'Kickstart your startup journey with a thorough technical validation of your idea. This package ensures that your concept is not only viable but also equipped with the right technological foundations.',
 				includes: [
-					'A full check of whether your startup idea is technically possible.',
-					'A plan for growing your business as it scales.',
-					'Recommendations on the best tools and technologies for your project.',
-					'A roadmap for building your product, including budget and timeline.',
-					'Landing page overview and suggested copy to capture leads.',
+					'Technical Feasibility Check: A comprehensive assessment to determine if your startup idea can be technically executed.',
+					'Tool & Technology Recommendations: Expert suggestions on the best tools and technologies tailored for your project’s needs.',
+					'Product Roadmap: A strategic roadmap that outlines key phases for building your product, including budget estimates and timelines.',
+					'Landing Page Overview: A detailed overview of a landing page design, complete with suggested copy to effectively capture leads.',
 				],
 				bestFor: [
 					'Early-stage startups',
-					'Entrepreneurs validating ideas',
-					'Tech founders',
+					'Entrepreneurs validating tech ideas',
+					'Tech founders aiming for a solid foundation',
 				],
 			},
 			{
 				name: 'Landing Page + Prototype Strategy',
 				price: '30,000 KSH ($300)',
-				savings: 'Save 5,000 KSH ($50)', // Added savings
+				savings: 'Save 5,000 KSH ($50)',
 				turnaround: '3-5 business days',
 				isPopular: true,
+				overview:
+					'Ideal for startups looking to establish a digital presence, this package combines technical validation with a functional landing page and prototype strategy.',
 				includes: [
-					'Everything in the Startup Idea Validation Package.',
-					'A fully functional landing page to showcase your product.',
-					'Overview section highlighting key features and benefits.',
-					'Strong call-to-action for capturing inquiries or building a waitlist.',
-					'Mobile-friendly design for all devices.',
-					'A strategic development plan for next stages of your product.',
+					'Complete Startup Idea Validation Package: All features from the initial package.',
+					'Functional Landing Page: A fully developed landing page showcasing your product with an attractive, mobile-friendly design.',
+					'Feature Highlights: An overview section that clearly articulates key features and benefits.',
+					'Strategic Call-to-Action: Effective call-to-action designed to capture inquiries and build an early user waitlist.',
+					'Next-Stage Development Plan: A tailored strategic plan for further product development based on feedback and testing.',
 				],
 				bestFor: [
-					'Startups looking for early product validation',
-					'Entrepreneurs needing a web presence',
+					'Startups seeking early product validation',
+					'Entrepreneurs needing an online presence',
 				],
 			},
 			{
@@ -173,17 +178,19 @@ export const services: ServiceType[] = [
 				price: 'Starting at 50,000 KSH ($500)',
 				turnaround: 'Custom timeline',
 				isPopular: false,
+				overview:
+					'This comprehensive package offers full stack development tailored for established startups ready to turn their validated ideas into a real product. We leverage cutting-edge technologies to deliver a functional solution.',
 				includes: [
-					'Comprehensive full stack development of your product.',
-					'Landing page implementation into your web presence.',
-					'Core functionality development for a real product experience.',
-					'Backend integration using Supabase for effective data management.',
-					'Regular progress updates and documentation for transparency.',
-					'Full handoff of the developed codebase for future developers.',
+					'Full Stack Development: Comprehensive development covering both front-end and back-end needs for your product.',
+					'Landing Page Integration: Seamless integration of your landing page into your overall web presence.',
+					'Core Functionality Development: Building essential features to provide users with a real product experience.',
+					'Backend Integration with Supabase: Efficient data management through backend integration using Supabase.',
+					'Transparent Communication: Regular updates and documentation throughout the development process.',
+					'Codebase Handoff: Complete handoff of the developed codebase for your future developers to continue the project.',
 				],
 				bestFor: [
 					'Established startups ready for product development',
-					'Companies scaling web applications',
+					'Companies looking to scale web applications',
 				],
 			},
 		],
@@ -192,7 +199,7 @@ export const services: ServiceType[] = [
 		title: 'Branding & Marketing Design Services',
 		type: 'branding',
 		description:
-			'I create professional branding and design solutions to help you build a strong and memorable brand identity.',
+			'Transform your business with professional branding and design solutions that build a strong and memorable identity, enhancing customer engagement and driving growth.',
 		packages: [
 			{
 				name: 'Brand Identity Package',
@@ -200,15 +207,17 @@ export const services: ServiceType[] = [
 				savings: 'Save 2,500 KSH ($25)',
 				turnaround: '5-7 business days',
 				isPopular: true,
+				overview:
+					'Craft a unique brand identity that resonates with your target audience.',
 				includes: [
-					'Custom logo design that represents your brand.',
-					'Business card design, ready to print.',
-					'Company profile design to showcase your business.',
-					'Free brand strategy consultation to align your vision.',
+					'Custom logo design reflecting your brand values.',
+					'Business card design, ready for printing.',
+					'Professional company profile to effectively showcase your business.',
+					'Free brand strategy consultation to ensure alignment with your vision.',
 				],
 				bestFor: [
-					'Small businesses building a new brand',
-					'Entrepreneurs needing visual identity',
+					'Small businesses launching a new brand',
+					'Entrepreneurs establishing a visual identity',
 				],
 			},
 			{
@@ -217,15 +226,17 @@ export const services: ServiceType[] = [
 				savings: 'Save 1,000 KSH ($10)',
 				turnaround: '3-5 business days',
 				isPopular: false,
+				overview:
+					'Equip your marketing efforts with essential design elements that attract and engage customers.',
 				includes: [
-					'Design of 2-3 posters or flyers for your marketing efforts.',
-					'Custom email signature design to enhance your brand presence.',
+					'Design of 2-3 promotional posters or flyers.',
+					'Custom email signature design for enhanced brand presence.',
 					'Social media graphics tailored for your campaigns.',
-					'Limited revisions to keep the process efficient and focused.',
+					'Limited revisions to streamline the design process.',
 				],
 				bestFor: [
-					'Companies launching a marketing campaign',
-					'Brands looking for social media designs',
+					'Companies launching marketing campaigns',
+					'Brands enhancing their social media presence',
 				],
 			},
 			{
@@ -234,15 +245,17 @@ export const services: ServiceType[] = [
 				savings: 'Save 3,000 KSH ($30)',
 				turnaround: '5-7 business days',
 				isPopular: false,
+				overview:
+					'Create a high-converting landing page designed to capture leads and grow your business.',
 				includes: [
-					'A professionally designed landing page to capture leads effectively.',
-					'Email collection setup using tools like Mailchimp.',
+					'Professionally designed landing page optimized for lead generation.',
+					'Email collection setup using platforms like Mailchimp.',
 					'Mobile-friendly design optimized for search engines.',
-					'Free domain and SSL setup for one year to ensure security.',
+					'Free domain and SSL setup for one year to ensure security and trust.',
 				],
 				bestFor: [
-					'Businesses looking to generate leads',
-					'Startups needing a conversion-focused page',
+					'Businesses focused on generating leads',
+					'Startups needing a conversion-oriented web presence',
 				],
 			},
 		],

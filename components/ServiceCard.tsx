@@ -6,6 +6,7 @@ import {
 	CardDescription,
 	CardTitle,
 	CardHeader,
+	CardFooter,
 } from './ui/card'
 import { Button } from './ui/button'
 import { CheckCircle } from 'lucide-react'
@@ -23,19 +24,13 @@ const ServicePurchaseButton = dynamic(
 	}
 )
 
-import { getPriceInKSH } from '@/lib/utils'
+import { getPriceInKSH, Package } from '@/lib/utils'
 
 export default function ServiceCard({
 	pkg,
 	isBrandingMarketing,
 }: {
-	pkg: {
-		name: string
-		price: string
-		turnaround: string
-		includes: string[]
-		isPopular: boolean
-	}
+	pkg: Package
 	isBrandingMarketing?: boolean
 }) {
 	return (
@@ -75,6 +70,13 @@ export default function ServiceCard({
 					)}
 				</>
 			</CardContent>
+
+			<CardFooter
+				className={`bg-primary text-primary-foreground py-4 ${
+					pkg.isPopular ? 'rounded-b-lg' : ''
+				}`}>
+				{pkg.overview}
+			</CardFooter>
 		</Card>
 	)
 }
