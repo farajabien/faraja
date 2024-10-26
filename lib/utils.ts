@@ -110,21 +110,46 @@ export type AddOn = {
 	description: string
 }
 
-export type ServiceType = {
-	title: string
-	description: string
-	packages: Package[]
-	type?: string
-}
-
-type PackageType = {
+export type PackageType = {
 	name: string
 	overview: string
 	price: string
 	turnaround: string
 	isPopular: boolean
 	includes: string[]
+	bestFor?: string[]
+	savings?: string
+	deliverables: DeliverableType[]
 	addOns?: { name: string; price: string; description: string }[]
+}
+
+export type ServiceType = {
+	title: string
+	description: string
+	packages: PackageType[]
+	type?: string
+}
+
+export type DeliverableType = {
+	name: string
+	type: 'pdf' | 'doc' | 'design' | 'code'
+	icon?: string
+}
+
+// Get file extension based on type
+export const getFileExtension = (type: DeliverableType['type']): string => {
+	switch (type) {
+		case 'pdf':
+			return '.pdf'
+		case 'doc':
+			return '.doc'
+		case 'design':
+			return '.fig'
+		case 'code':
+			return '.zip'
+		default:
+			return ''
+	}
 }
 
 export const services: ServiceType[] = [
@@ -152,6 +177,12 @@ export const services: ServiceType[] = [
 					'Entrepreneurs validating tech ideas',
 					'Tech founders aiming for a solid foundation',
 				],
+				deliverables: [
+					{ name: 'Technical Assessment', type: 'pdf' },
+					{ name: 'Tech Stack Guide', type: 'pdf' },
+					{ name: 'Product Roadmap', type: 'pdf' },
+					{ name: 'Landing Page Copy', type: 'doc' },
+				],
 			},
 			{
 				name: 'Landing Page + Prototype Strategy',
@@ -167,6 +198,13 @@ export const services: ServiceType[] = [
 					'Feature Highlights: An overview section that clearly articulates key features and benefits.',
 					'Strategic Call-to-Action: Effective call-to-action designed to capture inquiries and build an early user waitlist.',
 					'Next-Stage Development Plan: A tailored strategic plan for further product development based on feedback and testing.',
+				],
+				deliverables: [
+					{ name: 'Technical Assessment', type: 'pdf' },
+					{ name: 'Landing Page Design Mockup', type: 'design' },
+					{ name: 'Prototype Strategy Document', type: 'pdf' },
+					{ name: 'Development Timeline', type: 'pdf' },
+					{ name: 'Landing Page Copy', type: 'doc' },
 				],
 				bestFor: [
 					'Startups seeking early product validation',
@@ -187,6 +225,14 @@ export const services: ServiceType[] = [
 					'Backend Integration with Supabase: Efficient data management through backend integration using Supabase.',
 					'Transparent Communication: Regular updates and documentation throughout the development process.',
 					'Codebase Handoff: Complete handoff of the developed codebase for your future developers to continue the project.',
+				],
+				deliverables: [
+					{ name: 'Technical Architecture', type: 'pdf' },
+					{ name: 'Source Code Repository', type: 'code' },
+					{ name: 'API Documentation', type: 'pdf' },
+					{ name: 'Database Schema', type: 'pdf' },
+					{ name: 'Deployment Guide', type: 'pdf' },
+					{ name: 'User Manual', type: 'doc' },
 				],
 				bestFor: [
 					'Established startups ready for product development',
@@ -215,6 +261,13 @@ export const services: ServiceType[] = [
 					'Professional company profile to effectively showcase your business.',
 					'Free brand strategy consultation to ensure alignment with your vision.',
 				],
+				deliverables: [
+					{ name: 'Brand Guidelines', type: 'pdf' },
+					{ name: 'Logo Package', type: 'design' },
+					{ name: 'Business Card Design', type: 'design' },
+					{ name: 'Company Profile', type: 'doc' },
+					{ name: 'Brand Assets', type: 'design' },
+				],
 				bestFor: [
 					'Small businesses launching a new brand',
 					'Entrepreneurs establishing a visual identity',
@@ -234,6 +287,13 @@ export const services: ServiceType[] = [
 					'Social media graphics tailored for your campaigns.',
 					'Limited revisions to streamline the design process.',
 				],
+				deliverables: [
+					{ name: 'Marketing Kit', type: 'design' },
+					{ name: 'Social Media Templates', type: 'design' },
+					{ name: 'Email Signature Files', type: 'design' },
+					{ name: 'Campaign Guidelines', type: 'pdf' },
+					{ name: 'Asset Usage Guide', type: 'doc' },
+				],
 				bestFor: [
 					'Companies launching marketing campaigns',
 					'Brands enhancing their social media presence',
@@ -252,6 +312,13 @@ export const services: ServiceType[] = [
 					'Email collection setup using platforms like Mailchimp.',
 					'Mobile-friendly design optimized for search engines.',
 					'Free domain and SSL setup for one year to ensure security and trust.',
+				],
+				deliverables: [
+					{ name: 'Landing Page Design', type: 'design' },
+					{ name: 'Website Assets', type: 'design' },
+					{ name: 'Setup Documentation', type: 'pdf' },
+					{ name: 'SEO Guidelines', type: 'doc' },
+					{ name: 'Analytics Setup Guide', type: 'pdf' },
 				],
 				bestFor: [
 					'Businesses focused on generating leads',
