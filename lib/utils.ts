@@ -195,12 +195,11 @@ export const services: ServiceType[] = [
 					'Functional Landing Page: A fully developed landing page showcasing your product with an attractive, mobile-friendly design.',
 					'Feature Highlights: An overview section that clearly articulates key features and benefits.',
 					'Strategic Call-to-Action: Effective call-to-action designed to capture inquiries and build an early user waitlist.',
-					'Next-Stage Development Plan: A tailored strategic plan for further product development based on feedback and testing.',
 				],
 				deliverables: [
 					{ name: 'Technical Assessment', type: 'pdf' },
 					{ name: 'Landing Page Design Mockup', type: 'design' },
-					{ name: 'Prototype Strategy Document', type: 'pdf' },
+
 					{ name: 'Development Timeline', type: 'pdf' },
 					{ name: 'Landing Page Copy', type: 'doc' },
 				],
@@ -225,6 +224,7 @@ export const services: ServiceType[] = [
 					'Codebase Handoff: Complete handoff of the developed codebase for your future developers to continue the project.',
 				],
 				deliverables: [
+					{ name: 'Prototype Strategy Document', type: 'pdf' },
 					{ name: 'Technical Architecture', type: 'pdf' },
 					{ name: 'Source Code Repository', type: 'code' },
 					{ name: 'API Documentation', type: 'pdf' },
