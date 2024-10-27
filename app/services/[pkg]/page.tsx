@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, Clock, ArrowRight } from 'lucide-react'
-import ServiceCard from '@/components/ServiceCard'
+import ServiceCard from '@/components/PackageCard'
 import AddOnsSection from '@/components/AddOnSection'
 
 type Params = Promise<{ pkg: string }>
