@@ -8,9 +8,7 @@ import { ArrowLeft, Clock, ArrowRight } from 'lucide-react'
 import ServiceCard from '@/components/PackageCard'
 import AddOnsSection from '@/components/AddOnSection'
 
-type Params = {
-	pkg: string
-}
+type Params = Promise<{ pkg: string }>
 
 const PackageNotFound = ({ packageName }: { packageName: string }) => (
 	<div className='container mx-auto px-4 py-16'>
@@ -103,7 +101,9 @@ const OtherPackagesSection = ({
 )
 
 export default async function PackagePage({ params }: { params: Params }) {
-	const decodedPkg = decodeURIComponent(params.pkg)
+	const { pkg: pkgSlug } = await params
+
+	const decodedPkg = decodeURIComponent(pkgSlug)
 	const pkg = allPackages.find((pkg) => pkg.name === decodedPkg)
 
 	if (!pkg) {
