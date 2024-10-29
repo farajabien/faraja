@@ -1,9 +1,16 @@
 'use client'
+import { cn } from '@/lib/utils'
 import { ArrowRightIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { PopupButton } from 'react-calendly'
 
-export default function BookCalendly({ text }: { text?: string }) {
+export default function BookCalendly({
+	text,
+	className,
+}: {
+	text?: string
+	className?: string
+}) {
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
@@ -33,7 +40,10 @@ export default function BookCalendly({ text }: { text?: string }) {
 					a2: 'Discuss potential collaboration or project',
 				},
 			}}
-			className='inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary w-full bg-green-500'
+			className={cn(
+				`inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary  bg-green-500`,
+				className ?? 'w-full'
+			)}
 		/>
 	)
 }

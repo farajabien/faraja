@@ -64,6 +64,12 @@ export default function Home() {
 							<Link href='/services'>Explore Packages</Link>
 						</Button>
 					</div>
+
+					<div className='mt-12'>
+						<h2 className='text-3xl font-bold mb-4'>
+							Specializations Include:
+						</h2>
+					</div>
 				</div>
 			</section>
 
