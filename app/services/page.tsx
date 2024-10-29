@@ -100,7 +100,7 @@ const SectionHeader = ({
 }) => {
 	return (
 		<>
-			<h2 className='text-2xl md:text-3xl font-bold text-center mb-2 md:mb-4'>
+			<h2 className='text-2xl md:text-3xl font-bold text-center mb-2 md:mb-4 text-primary'>
 				{title}
 			</h2>
 			<p className='text-base md:text-lg text-muted-foreground text-center mb-6 md:mb-8 max-w-2xl mx-auto'>
@@ -110,7 +110,6 @@ const SectionHeader = ({
 	)
 }
 
-// Custom ServiceCard component for displaying core services
 const ServiceCard = ({ service }: { service: PackageType }) => {
 	return (
 		<Card className='flex flex-col hover:shadow-lg transition-shadow'>
@@ -118,39 +117,36 @@ const ServiceCard = ({ service }: { service: PackageType }) => {
 				<CardTitle className='text-xl font-semibold'>{service.name}</CardTitle>
 			</CardHeader>
 
-			<CardContent className='flex-grow'>
-				<p className='text-muted-foreground mb-4'>{service.description}</p>
-				<div className='space-y-3'>
+			<CardContent className='flex-grow space-y-4'>
+				<p className='text-sm text-muted-foreground'>{service.description}</p>
+
+				<div className='flex justify-between items-center'>
 					<div className='flex items-center gap-2'>
+						<Calendar className='w-5 h-5 text-primary' />
+						<span className='text-sm'>{service.deliveryTime}</span>
+					</div>
+					<div className='text-right'>
 						<span className='font-bold text-lg'>{service.price}</span>
 					</div>
-					<div className='flex items-center gap-2'>
-						<span className='text-sm text-muted-foreground'>
-							Delivery: {service.deliveryTime}
-						</span>
-					</div>
 				</div>
 
-				<div className='mt-4'>
-					{service.details?.map((detail, index) => (
-						<div key={index} className='flex items-start mb-2'>
-							<CheckCircle className='w-5 h-5 text-primary mr-2' />
-							<div>
-								<h4 className='font-semibold'>{detail.subtitle}</h4>
-								<p className='text-muted-foreground'>{detail.content}</p>
-							</div>
-						</div>
+				<ul className='space-y-2'>
+					{service.details?.slice(0, 3).map((detail, index) => (
+						<li key={index} className='flex items-center text-sm'>
+							<CheckCircle className='w-4 h-4 text-primary mr-2 flex-shrink-0' />
+							<span>{detail.subtitle}</span>
+						</li>
 					))}
-				</div>
+				</ul>
 			</CardContent>
 
-			<CardFooter className='border-t pt-4 justify-between gap-2 flex'>
-				<BookCalendly text='Book Call' />
-				<Button asChild className='w-full'>
+			<CardFooter className='border-t pt-4 flex justify-between gap-2'>
+				<Button asChild variant='outline' className='w-1/2'>
 					<Link href={`/services/${encodeURIComponent(service.name)}`}>
 						Learn More
 					</Link>
 				</Button>
+				<BookCalendly text='Book Call' className='w-1/2' />
 			</CardFooter>
 		</Card>
 	)
