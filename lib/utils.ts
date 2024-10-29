@@ -158,7 +158,7 @@ export const services: ServiceType[] = [
 				description:
 					'Comprehensive package including a technical feasibility check for your startup idea, recommended tech stack, and custom landing page design to effectively capture leads and promote your business.',
 				price: '25,000 KSH',
-				deliveryTime: '5-7 days',
+				deliveryTime: '48 hours',
 				overview:
 					'Includes feasibility assessment, tech stack recommendations, and landing page design.',
 				deliverables: [
@@ -218,7 +218,7 @@ export const services: ServiceType[] = [
 			{
 				name: 'Logo Design',
 				price: '10,000 KSH',
-				deliveryTime: '5-7 days',
+				deliveryTime: '48 hours',
 				overview:
 					'Professional logo design to create a unique identity for your brand.',
 				deliverables: [{ name: 'Logo Design File', type: 'design' }],
@@ -233,7 +233,7 @@ export const services: ServiceType[] = [
 			{
 				name: 'Landing Page Design',
 				price: '15,000 KSH',
-				deliveryTime: '5-7 days',
+				deliveryTime: '48 hours',
 				overview:
 					'Custom landing page design to effectively capture leads and promote your business.',
 				deliverables: [{ name: 'Landing Page Design', type: 'design' }],
@@ -248,7 +248,7 @@ export const services: ServiceType[] = [
 			{
 				name: 'Landing Page + Idea Validation',
 				price: '25,000 KSH',
-				deliveryTime: '5-7 days',
+				deliveryTime: '48 hours',
 				overview:
 					'Comprehensive package including landing page design and technical feasibility check for your startup idea.',
 				deliverables: [

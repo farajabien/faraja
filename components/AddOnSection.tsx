@@ -18,7 +18,7 @@ const AddOnsSection = () => {
 						ksh: '10,000',
 						usd: '100',
 					},
-					deliveryTime: '5-7 days',
+					deliveryTime: '24 hours',
 				},
 				{
 					title: 'Landing Page',
@@ -29,7 +29,7 @@ const AddOnsSection = () => {
 						ksh: '15,000',
 						usd: '150',
 					},
-					deliveryTime: '5-7 days',
+					deliveryTime: '48 hours',
 				},
 				{
 					title: 'Landing Page + Idea Validation',
@@ -40,7 +40,7 @@ const AddOnsSection = () => {
 						ksh: '25,000',
 						usd: '250',
 					},
-					deliveryTime: '5-7 days',
+					deliveryTime: '2-3 days',
 				},
 			],
 		},
