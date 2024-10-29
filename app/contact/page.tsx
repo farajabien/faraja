@@ -12,8 +12,23 @@ const Contact = () => {
 			</p>
 			<div className='text-lg mb-6'>
 				<p className='mb-2'>You can reach us at:</p>
-				<p className='font-semibold'>Email: faraja.bien@gmail.com</p>
-				<p className='font-semibold'>Phone: +254 793 643 308</p>
+				<div className='text-lg mb-6'>
+					<p className='mb-2'>You can reach us at:</p>
+					<p className='font-semibold'>
+						Email:
+						<Link
+							href='mailto:faraja.bien@gmail.com'
+							className=' hover:underline ml-1'>
+							faraja.bien@gmail.com
+						</Link>
+					</p>
+					<p className='font-semibold'>
+						Phone:
+						<Link href='tel:+254793643308' className=' hover:underline ml-1'>
+							+254 793 643 308
+						</Link>
+					</p>
+				</div>
 			</div>
 			<Link
 				href='https://wa.me/254793643308'
