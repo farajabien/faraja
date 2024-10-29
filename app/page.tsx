@@ -52,8 +52,10 @@ export default function Home() {
 						Get Technical Co-Founder Expertise, Tailored for Non-Technical
 						Founders
 					</p>
-					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
+					<div className='my-5'>
 						<BookCalendly text='Book Free Discovery Call' />
+					</div>
+					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<Button variant='outline' size='lg' className='w-full' asChild>
 							<Link href='/projects'>
 								View Our Portfolio
@@ -63,12 +65,10 @@ export default function Home() {
 						<Button variant='outline' size='lg' className='w-full' asChild>
 							<Link href='/services'>Explore Packages</Link>
 						</Button>
-					</div>
-
-					<div className='mt-12'>
-						<h2 className='text-3xl font-bold mb-4'>
-							Specializations Include:
-						</h2>
+						{/* New About Button */}
+						<Button variant='outline' size='lg' className='w-full' asChild>
+							<Link href='/about'>About Us</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
