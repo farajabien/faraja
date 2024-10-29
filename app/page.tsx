@@ -53,7 +53,13 @@ export default function Home() {
 						Founders
 					</p>
 					<div className='my-5'>
-						<BookCalendly text='Book Free Discovery Call' />
+						<Link
+							href='https://wa.me/254793643308'
+							target='_blank'
+							rel='noopener noreferrer'
+							className='inline-flex items-center px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600'>
+							Contact Me via WhatsApp
+						</Link>{' '}
 					</div>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<Button variant='outline' size='lg' className='w-full' asChild>

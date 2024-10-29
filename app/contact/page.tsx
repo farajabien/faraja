@@ -35,7 +35,7 @@ const Contact = () => {
 				target='_blank'
 				rel='noopener noreferrer'
 				className='inline-flex items-center px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600'>
-				Contact Us via WhatsApp
+				Contact Me via WhatsApp
 			</Link>
 
 			<BookCalendly
