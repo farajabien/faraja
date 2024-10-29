@@ -113,7 +113,7 @@ export default function ValidationSection() {
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<Button size='lg' className='group' asChild>
 							<a
-								href='https://www.notion.so/Validate-Before-You-Build-c0ba51f38a8c4c78b6ba0650b44d0ca5'
+								href='https://warm-pantry-ee2.notion.site/Validate-Before-You-Build-c0ba51f38a8c4c78b6ba0650b44d0ca5'
 								target='_blank'
 								rel='noopener noreferrer'>
 								Use Free Template
