@@ -8,10 +8,8 @@ import {
 	CardHeader,
 	CardFooter,
 } from './ui/card'
-import { Button } from './ui/button'
 import { CheckCircle } from 'lucide-react'
 import BookCalendly from './BookCalendly'
-import PayButton from './payment/PayButton'
 // import ServicePurchaseButton from './payment/ServicePurchaseButton'
 
 import dynamic from 'next/dynamic'
@@ -24,13 +22,13 @@ const ServicePurchaseButton = dynamic(
 	}
 )
 
-import { getPriceInKSH, Package } from '@/lib/utils'
+import { getPriceInKSH, PackageType } from '@/lib/utils'
 
 export default function ServiceCard({
 	pkg,
 	isBrandingMarketing,
 }: {
-	pkg: Package
+	pkg: PackageType
 	isBrandingMarketing?: boolean
 }) {
 	return (
@@ -50,10 +48,10 @@ export default function ServiceCard({
 			<CardContent>
 				<h5 className='font-semibold mb-4'>Includes:</h5>
 				<ul className='space-y-2 mb-2'>
-					{pkg.includes.map((item, idx) => (
+					{pkg.deliverables.map((item, idx) => (
 						<li key={idx} className='flex items-start gap-2'>
 							<CheckCircle className='h-5 w-5 text-primary flex-shrink-0 mt-1' />
-							<span className='text-sm'>{item}</span>
+							<span className='text-sm'>{item.name}</span>
 						</li>
 					))}
 				</ul>

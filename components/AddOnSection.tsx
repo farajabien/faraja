@@ -1,99 +1,46 @@
 import React from 'react'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import {
-	Palette,
-	ServerCog,
-	Image,
-	Wrench,
-	Pen,
-	Search,
-	MailPlus,
-	Clock,
-	DollarSign,
-} from 'lucide-react'
+import { Image, Clock, DollarSign } from 'lucide-react'
+import BookCalendly from './BookCalendly'
 
+// Main AddOnsSection Component
 const AddOnsSection = () => {
 	const addOns = [
 		{
-			category: 'Design & Branding',
+			category: 'Unlock Your Startup Potential',
 			items: [
 				{
-					title: 'Custom Logo Design',
+					title: 'Logo Design',
 					description:
-						'Tailored logo design that effectively represents your brand identity.',
-					icon: Palette,
+						'Professional logo design to create a unique identity for your brand.',
+					icon: Image, // You can replace this with an appropriate icon
 					price: {
 						ksh: '10,000',
 						usd: '100',
 					},
-					deliveryTime: '3-5 days',
+					deliveryTime: '5-7 days',
 				},
 				{
-					title: 'Social Media Graphics Package',
+					title: 'Landing Page',
 					description:
-						'Professional graphics for your social media campaigns to boost engagement.',
+						'Custom landing page design to effectively capture leads and promote your business.',
 					icon: Image,
 					price: {
 						ksh: '15,000',
 						usd: '150',
 					},
-					deliveryTime: '2-4 days',
+					deliveryTime: '5-7 days',
 				},
-			],
-		},
-		{
-			category: 'Marketing & SEO',
-			items: [
 				{
-					title: 'SEO Optimization Package',
+					title: 'Landing Page + Idea Validation',
 					description:
-						"Comprehensive SEO services to improve your website's visibility on search engines.",
-					icon: Search,
+						'Comprehensive package including landing page design and technical feasibility check for your startup idea.',
+					icon: Image,
 					price: {
 						ksh: '25,000',
 						usd: '250',
 					},
-					deliveryTime: '5-10 days',
-				},
-				{
-					title: 'Content Creation Package',
-					description:
-						'Engaging content creation for your blog or website, tailored to your audience.',
-					icon: Pen,
-					price: {
-						ksh: '20,000',
-						usd: '200',
-					},
 					deliveryTime: '5-7 days',
-				},
-			],
-		},
-		{
-			category: 'Technical Services',
-			items: [
-				{
-					title: 'Mautic Setup and Email Marketing',
-					description:
-						'Complete Mautic installation and configuration, including full setup of email marketing campaigns with design and automation.',
-					icon: ServerCog,
-					price: {
-						ksh: '20,000',
-						usd: '200',
-					},
-					deliveryTime: '2-5 days',
-				},
-				{
-					title: 'Website Maintenance Package',
-					description:
-						'Monthly maintenance and updates to ensure optimal performance for your website.',
-					icon: Wrench,
-					price: {
-						ksh: '15,000',
-						usd: '150',
-					},
-					deliveryTime: 'Monthly',
 				},
 			],
 		},
@@ -105,7 +52,8 @@ const AddOnsSection = () => {
 				<div className='text-center mb-12'>
 					<h2 className='text-3xl font-bold mb-4'>Additional Services</h2>
 					<p className='text-lg text-muted-foreground'>
-						Enhance your package with these professional services
+						Expert technical strategy and development services to help your
+						business thrive.
 					</p>
 				</div>
 
@@ -135,10 +83,9 @@ const AddOnsSection = () => {
 
 										<div className='space-y-3'>
 											<div className='flex items-center gap-2'>
-												<DollarSign className='w-4 h-4 text-primary' />
 												<div>
 													<span className='font-bold text-lg'>
-														{addon.price.ksh} KSH
+														Ksh.{addon.price.ksh}
 													</span>
 													<span className='text-muted-foreground ml-2'>
 														(${addon.price.usd})
@@ -155,11 +102,9 @@ const AddOnsSection = () => {
 										</div>
 									</CardContent>
 
-									{/* <CardFooter className='border-t pt-4'>
-										<Button variant='outline' className='w-full'>
-											Add to Package
-										</Button>
-									</CardFooter> */}
+									<CardFooter className='border-t pt-4'>
+										<BookCalendly text='Book Call' />
+									</CardFooter>
 								</Card>
 							))}
 						</div>

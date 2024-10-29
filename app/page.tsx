@@ -54,17 +54,15 @@ export default function Home() {
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text='Book Free Discovery Call' />
-						<Link href='/projects'>
-							<Button variant='outline' size='lg'>
+						<Button variant='outline' size='lg' className='w-full' asChild>
+							<Link href='/projects'>
 								View Our Portfolio
 								<ArrowRight className='ml-2 h-4 w-4' />
-							</Button>
-						</Link>
-						<Link href='/services'>
-							<Button variant='outline' size='lg'>
-								Explore Packages
-							</Button>
-						</Link>
+							</Link>
+						</Button>
+						<Button variant='outline' size='lg' className='w-full' asChild>
+							<Link href='/services'>Explore Packages</Link>
+						</Button>
 					</div>
 				</div>
 			</section>
@@ -150,7 +148,7 @@ export default function Home() {
 									asChild
 									className='w-full  bottom-0 left-0 right-0 absolute'>
 									<Link href={`/services/${encodeURIComponent(pkg.name)}`}>
-										Get Started
+										Learn More
 									</Link>
 								</Button>
 							</Card>
@@ -212,12 +210,12 @@ export default function Home() {
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 						<BookCalendly text='Schedule Discovery Call' />
-						<Link href='/services'>
-							<Button variant='outline' size='lg'>
+						<Button variant='outline' size='lg' asChild className='w-full'>
+							<Link href='/services'>
 								View Services
 								<ArrowRight className='ml-2 h-4 w-4' />
-							</Button>
-						</Link>
+							</Link>
+						</Button>
 					</div>
 				</div>
 			</section>

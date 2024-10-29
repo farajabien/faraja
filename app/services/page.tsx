@@ -1,17 +1,17 @@
+import React from 'react'
 import {
 	Calendar,
 	CheckCircle,
+	ClipboardCheck,
 	Code,
 	Database,
 	FileCode,
-	Info,
 	Layout,
 	RefreshCw,
 } from 'lucide-react'
 import {
 	Card,
 	CardContent,
-	CardDescription,
 	CardFooter,
 	CardHeader,
 	CardTitle,
@@ -19,33 +19,22 @@ import {
 import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
 import { Metadata } from 'next'
-
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { Badge } from '@/components/ui/badge'
-import { DeliverableType, Package, services, ServiceType } from '@/lib/utils'
 import AddOnsSection from '@/components/AddOnSection'
-import {
-	Tooltip,
-	TooltipContent,
-	TooltipProvider,
-	TooltipTrigger,
-} from '@/components/ui/tooltip'
-import FreeServicesSection from '@/components/FreeServiceSection'
-import { FileText, Image, File } from 'lucide-react'
-import ServiceCard from '@/components/ServiceCard'
+import Link from 'next/link'
+import { services, PackageType } from '@/lib/utils' // Adjusted import for correct type
 
+// Metadata for the page
 export const metadata: Metadata = {
 	title: 'Farajabien - Technical Strategy & Development Services',
 	description:
 		'Validate and launch your startup idea with expert technical guidance. From rapid validation to MVP development, get the expertise you need to succeed.',
 }
 
-const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
-
-export default function ServicesPage() {
+// Main Services Page component
+const ServicesPage = () => {
 	return (
-		<div className='min-h-screen bg-background'>
+		<div className='bg-background'>
 			<MyBreadcrumb
 				items={[
 					{ label: 'Home', href: '/' },
@@ -58,53 +47,27 @@ export default function ServicesPage() {
 				]}
 			/>
 
-			<section className='container mx-auto px-4 py-12 md:py-20'>
-				<div className='max-w-4xl mx-auto text-center'>
-					<h1 className='text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-						Unlock Your Startup Potential
-					</h1>
-					<p className='text-xl text-muted-foreground mb-8'>
-						Expert technical strategy and development services to help your
-						business thrive.
-					</p>
-					<BookCalendly text='Book Free Discovery Call' />
-				</div>
-			</section>
-
-			{services.map((service, index) => (
-				<ServiceSection key={index} service={service} />
-			))}
-
+			<TechServices />
 			<AddOnsSection />
-			<MauticInfoSection />
-
-			<FreeServicesSection />
-			<PrototypeFrontendDevelopment />
-
-			<section className='py-16 bg-secondary/30'>
-				<div className='container mx-auto px-4 text-center'>
-					<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
-					<p className='text-xl text-muted-foreground mb-8'>
-						Schedule a free discovery call to discuss your technical needs.
-					</p>
-					<BookCalendly text='Schedule Discovery Call' />
-				</div>
-			</section>
+			<CallToActionSection />
 		</div>
 	)
 }
 
-function ServiceSection({ service }: { service: ServiceType }) {
+// Section for Technical Services
+const TechServices = () => {
+	const coreServices = services[0].packages // Assuming this retrieves the correct packages
+
 	return (
-		<section className='py-16 bg-secondary/10'>
+		<section className='py-8 md:py-12 bg-secondary/10'>
 			<div className='container mx-auto px-4'>
-				<h2 className='text-3xl font-bold text-center mb-8'>{service.title}</h2>
-				<p className='text-lg text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
-					{service.description}
-				</p>
-				<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
-					{service.packages.map((pkg, pkgIndex) => (
-						<ServiceCard key={pkgIndex} pkg={pkg} />
+				<SectionHeader
+					title='Technical Services'
+					subtitle='Get the technical expertise you need to validate, build, and launch your startup idea.'
+				/>
+				<div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
+					{coreServices.map((service, index) => (
+						<ServiceCard key={index} service={service} />
 					))}
 				</div>
 			</div>
@@ -112,54 +75,80 @@ function ServiceSection({ service }: { service: ServiceType }) {
 	)
 }
 
-const getFileIcon = (type: DeliverableType['type']) => {
-	switch (type) {
-		case 'pdf':
-			return <FileText className='w-6 h-6 text-blue-500' />
-		case 'doc':
-			return <FileText className='w-6 h-6 text-blue-500' />
-		case 'design':
-			return <Image className='w-6 h-6 text-purple-500' />
-		case 'code':
-			return <FileCode className='w-6 h-6 text-green-500' />
-		default:
-			return <File className='w-6 h-6 text-gray-500' />
-	}
+// Call to Action section
+const CallToActionSection = () => {
+	return (
+		<section className='py-8 md:py-12 bg-secondary/30'>
+			<div className='container mx-auto px-4 text-center'>
+				<SectionHeader
+					title='Ready to Get Started?'
+					subtitle='Schedule a free discovery call to discuss your technical needs.'
+				/>
+				<BookCalendly text='Schedule Discovery Call' />
+			</div>
+		</section>
+	)
 }
 
-function MauticInfoSection() {
+// Reusable section header component
+const SectionHeader = ({
+	title,
+	subtitle,
+}: {
+	title: string
+	subtitle: string
+}) => {
 	return (
-		<Card className='w-full max-w-3xl mx-auto my-16'>
+		<>
+			<h2 className='text-2xl md:text-3xl font-bold text-center mb-2 md:mb-4'>
+				{title}
+			</h2>
+			<p className='text-base md:text-lg text-muted-foreground text-center mb-6 md:mb-8 max-w-2xl mx-auto'>
+				{subtitle}
+			</p>
+		</>
+	)
+}
+
+// Custom ServiceCard component for displaying core services
+const ServiceCard = ({ service }: { service: PackageType }) => {
+	return (
+		<Card className='flex flex-col hover:shadow-lg transition-shadow'>
 			<CardHeader>
-				<CardTitle>What is Mautic?</CardTitle>
+				<CardTitle className='text-xl font-semibold'>{service.name}</CardTitle>
 			</CardHeader>
-			<CardContent className='space-y-4'>
-				<p>
-					Mautic is the world&apos;s largest{' '}
-					<strong>open-source marketing automation platform</strong> that helps
-					businesses of all sizes create, automate, and personalize customer
-					journeys. With Mautic, you can:
-				</p>
-				<ul className='list-disc list-inside space-y-1'>
-					<li>Automate email marketing campaigns</li>
-					<li>Track website visitors and capture leads</li>
-					<li>Build and manage segmented contact lists</li>
-					<li>Send personalized content based on customer behavior</li>
-					<li>Easily integrate with your existing tools and services</li>
-				</ul>
-				<p>
-					By using Mautic, you can streamline your marketing efforts, increase
-					engagement, and grow your community—without the limitations of
-					expensive, proprietary platforms.
-				</p>
+
+			<CardContent className='flex-grow'>
+				<p className='text-muted-foreground mb-4'>{service.description}</p>
+				<div className='space-y-3'>
+					<div className='flex items-center gap-2'>
+						<span className='font-bold text-lg'>{service.price}</span>
+					</div>
+					<div className='flex items-center gap-2'>
+						<span className='text-sm text-muted-foreground'>
+							Delivery: {service.deliveryTime}
+						</span>
+					</div>
+				</div>
+
+				<div className='mt-4'>
+					{service.details?.map((detail, index) => (
+						<div key={index} className='flex items-start mb-2'>
+							<CheckCircle className='w-5 h-5 text-primary mr-2' />
+							<div>
+								<h4 className='font-semibold'>{detail.subtitle}</h4>
+								<p className='text-muted-foreground'>{detail.content}</p>
+							</div>
+						</div>
+					))}
+				</div>
 			</CardContent>
-			<CardFooter>
-				<Button asChild>
-					<Link
-						href='https://www.mautic.org/'
-						target='_blank'
-						rel='noopener noreferrer'>
-						Learn more about Mautic
+
+			<CardFooter className='border-t pt-4 justify-between gap-2 flex'>
+				<BookCalendly text='Book Call' />
+				<Button asChild className='w-full'>
+					<Link href={`/services/${encodeURIComponent(service.name)}`}>
+						Learn More
 					</Link>
 				</Button>
 			</CardFooter>
@@ -167,68 +156,4 @@ function MauticInfoSection() {
 	)
 }
 
-function PrototypeFrontendDevelopment() {
-	return (
-		<Card className='w-full max-w-3xl mx-auto overflow-hidden my-16'>
-			<CardHeader className='bg-gradient-to-r from-primary to-primary-foreground text-primary-foreground p-6'>
-				<CardTitle className='text-2xl md:text-3xl font-bold'>
-					Prototype Full Stack Development
-				</CardTitle>
-				<div className='flex items-center mt-2'>
-					<span className='text-xl font-semibold mr-2'>Custom Pricing</span>
-					<Badge variant='secondary'>Tailored Solution</Badge>
-				</div>
-			</CardHeader>
-			<CardContent className='p-6'>
-				<div className='flex items-center text-muted-foreground mb-4'>
-					<Calendar className='w-5 h-5 mr-2' />
-					<span>Turnaround: Custom Timeline</span>
-				</div>
-				<h3 className='text-lg font-semibold mb-4'>Package Includes:</h3>
-				<ul className='space-y-3'>
-					{[
-						{
-							icon: Code,
-							text: 'Complete frontend development tailored to your requirements.',
-						},
-						{
-							icon: Layout,
-							text: 'Landing page implementation to establish your online presence.',
-						},
-						{
-							icon: CheckCircle,
-							text: 'Building core functionality as per your defined specifications.',
-						},
-						{
-							icon: Database,
-							text: 'Supabase backend integration for a robust data management solution.',
-						},
-						{
-							icon: RefreshCw,
-							text: 'Regular progress updates and thorough documentation throughout the development process.',
-						},
-						{
-							icon: FileCode,
-							text: 'Full codebase handoff for your continued development and management.',
-						},
-					].map((item, index) => (
-						<li key={index} className='flex items-start'>
-							<item.icon className='w-5 h-5 text-primary mr-2 mt-1 flex-shrink-0' />
-							<span>{item.text}</span>
-						</li>
-					))}
-				</ul>
-			</CardContent>
-			<CardFooter className='bg-muted p-6'>
-				<div className='w-full'>
-					<p className='text-sm text-muted-foreground mb-4'>
-						Ready to bring your prototype to life? Let&aposs discuss your
-						project requirements and create a tailored solution for your
-						business.
-					</p>
-					<Button className='w-full'>Schedule a Free Discovery Call</Button>
-				</div>
-			</CardFooter>
-		</Card>
-	)
-}
+export default ServicesPage
