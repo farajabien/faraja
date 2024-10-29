@@ -92,50 +92,6 @@ export function getPriceInKSH(priceString: string): number {
 	return match ? parseInt(match[0].replace(/,/g, ''), 10) : 0
 }
 
-export type Package = {
-	name: string
-	price: string
-	turnaround: string
-	isPopular: boolean
-	includes: string[]
-	savings?: string // Optional savings field
-	bestFor?: string[] // Optional bestFor field
-	addOns?: AddOn[]
-	overview: string
-}
-
-export type AddOn = {
-	name: string
-	price: string
-	description: string
-}
-
-export type PackageType = {
-	name: string
-	overview: string
-	price: string
-	turnaround: string
-	isPopular: boolean
-	includes: string[]
-	bestFor?: string[]
-	savings?: string
-	deliverables: DeliverableType[]
-	addOns?: { name: string; price: string; description: string }[]
-}
-
-export type ServiceType = {
-	title: string
-	description: string
-	packages: PackageType[]
-	type?: string
-}
-
-export type DeliverableType = {
-	name: string
-	type: 'pdf' | 'doc' | 'design' | 'code'
-	icon?: string
-}
-
 // Get file extension based on type
 export const getFileExtension = (type: DeliverableType['type']): string => {
 	switch (type) {
@@ -152,175 +108,159 @@ export const getFileExtension = (type: DeliverableType['type']): string => {
 	}
 }
 
+export type AddOn = {
+	name: string
+	price: string
+	description: string
+}
+
+export type DeliverableType = {
+	name: string
+	type: 'pdf' | 'doc' | 'design' | 'code'
+	icon?: string
+}
+
+export type PackageDetailType = {
+	subtitle: string
+	content: string
+}
+
+export type PackageType = {
+	name: string
+	description?: string
+	price: string
+	turnaround?: string // Optional for simplicity
+	isPopular?: boolean // Optional for simplicity
+	savings?: string // Optional savings field
+	bestFor?: string[] // Optional bestFor field
+	overview: string
+	deliverables: DeliverableType[]
+	deliveryTime: string
+	addOns?: AddOn[] // Optional addOns field
+	details: PackageDetailType[] // New field for package details
+}
+
+export type ServiceType = {
+	title: string
+	description: string
+	packages: PackageType[]
+	type?: string
+}
+
 export const services: ServiceType[] = [
 	{
 		title: 'Startup Technical Services',
 		description:
-			'Let me handle the technical side of things so you can focus on your business. I provide tailored tech solutions to help turn your startup ideas into reality.',
-
+			'Get the technical expertise you need to validate, build, and launch your startup idea.',
 		packages: [
 			{
-				name: 'Startup Idea Validation Package',
-				price: '15,000 KSH ($150)',
-				turnaround: '24-48 hours',
-				isPopular: false,
+				name: 'Idea Validation + Landing Page',
+				description:
+					'Comprehensive package including a technical feasibility check for your startup idea, recommended tech stack, and custom landing page design to effectively capture leads and promote your business.',
+				price: '25,000 KSH',
+				deliveryTime: '5-7 days',
 				overview:
-					'Kickstart your startup journey with a thorough technical validation of your idea. This package ensures that your concept is not only viable but also equipped with the right technological foundations.',
-				includes: [
-					'Technical Feasibility Check: A comprehensive assessment to determine if your startup idea can be technically executed.',
-					'Tool & Technology Recommendations: Expert suggestions on the best tools and technologies tailored for your project’s needs.',
-					'Landing Page Overview: A detailed overview of a landing page design, complete with suggested copy to effectively capture leads.',
-				],
-				bestFor: [
-					'Early-stage startups',
-					'Entrepreneurs validating tech ideas',
-					'Tech founders aiming for a solid foundation',
-				],
+					'Includes feasibility assessment, tech stack recommendations, and landing page design.',
 				deliverables: [
 					{ name: 'Technical Assessment', type: 'pdf' },
 					{ name: 'Tech Stack Guide', type: 'pdf' },
-					{ name: 'Landing Page Copy', type: 'doc' },
+					{ name: 'Landing Page Design', type: 'design' },
 				],
-			},
-			{
-				name: 'Landing Page + Prototype Strategy',
-				price: '30,000 KSH ($300)',
-				savings: 'Save 5,000 KSH ($50)',
-				turnaround: '3-5 business days',
-				isPopular: true,
-				overview:
-					'Ideal for startups looking to establish a digital presence, this package combines technical validation with a functional landing page and prototype strategy.',
-				includes: [
-					'Complete Startup Idea Validation Package: All features from the initial package.',
-					'Functional Landing Page: A fully developed landing page showcasing your product with an attractive, mobile-friendly design.',
-					'Feature Highlights: An overview section that clearly articulates key features and benefits.',
-					'Strategic Call-to-Action: Effective call-to-action designed to capture inquiries and build an early user waitlist.',
-				],
-				deliverables: [
-					{ name: 'Technical Assessment', type: 'pdf' },
-					{ name: 'Landing Page Design Mockup', type: 'design' },
-
-					{ name: 'Development Timeline', type: 'pdf' },
-					{ name: 'Landing Page Copy', type: 'doc' },
-				],
-				bestFor: [
-					'Startups seeking early product validation',
-					'Entrepreneurs needing an online presence',
+				details: [
+					{
+						subtitle: 'Technical Feasibility Assessment',
+						content:
+							'An in-depth analysis of your startup idea to determine its viability in the current market. We assess technical requirements, identify potential challenges, and provide tailored solutions.',
+					},
+					{
+						subtitle: 'Recommended Tech Stack',
+						content:
+							'We suggest the best technologies and tools suited for your project, including frontend and backend frameworks, databases, and third-party services that align with your business goals.',
+					},
+					{
+						subtitle: 'Landing Page Copy',
+						content:
+							'Craft compelling copy for your landing page designed to convert visitors into leads. We focus on clear messaging, engaging headlines, and persuasive calls-to-action to maximize lead generation.',
+					},
 				],
 			},
 			{
 				name: 'Prototype Full Stack Development',
-				price: 'Starting at 50,000 KSH ($500)',
-				turnaround: 'Custom timeline',
-				isPopular: false,
-				overview:
-					'This comprehensive package offers full stack development tailored for established startups ready to turn their validated ideas into a real product. We leverage cutting-edge technologies to deliver a functional solution.',
-				includes: [
-					'Full Stack Development: Comprehensive development covering both front-end and back-end needs for your product.',
-					'Landing Page Integration: Seamless integration of your landing page into your overall web presence.',
-					'Core Functionality Development: Building essential features to provide users with a real product experience.',
-					'Backend Integration with Supabase: Efficient data management through backend integration using Supabase.',
-					'Transparent Communication: Regular updates and documentation throughout the development process.',
-					'Codebase Handoff: Complete handoff of the developed codebase for your future developers to continue the project.',
-				],
+				description:
+					'Custom development package tailored to bring your prototype to life, including frontend and backend integration. We ensure a seamless user experience and robust performance.',
+				price: 'Starting at 50,000 KSH', // Updated pricing
+				deliveryTime: 'Custom Timeline',
+				overview: 'Development of both frontend and backend components.',
 				deliverables: [
-					{ name: 'Prototype Strategy Document', type: 'pdf' },
-					{ name: 'Technical Architecture', type: 'pdf' },
-					{ name: 'Source Code Repository', type: 'code' },
-					{ name: 'API Documentation', type: 'pdf' },
-					{ name: 'Database Schema', type: 'pdf' },
-					{ name: 'Deployment Guide', type: 'pdf' },
-					{ name: 'User Manual', type: 'doc' },
+					{ name: 'Prototype Development', type: 'code' },
+					{ name: 'User Testing Report', type: 'pdf' },
 				],
-				bestFor: [
-					'Established startups ready for product development',
-					'Companies looking to scale web applications',
+				details: [
+					{
+						subtitle: 'Full Stack Development',
+						content:
+							'Development of both frontend and backend components to create a functional prototype. We use modern frameworks and best practices to ensure scalability and maintainability.',
+					},
+					{
+						subtitle: 'Iterative Feedback Loop',
+						content:
+							'We implement an iterative process to gather feedback and refine the prototype, ensuring that the final product meets your expectations and user needs.',
+					},
 				],
 			},
 		],
 	},
 	{
-		title: 'Branding & Marketing Design Services',
-		type: 'branding',
+		title: 'Additional Services',
 		description:
-			'Transform your business with professional branding and design solutions that build a strong and memorable identity, enhancing customer engagement and driving growth.',
+			'Expert technical strategy and development services to help your business thrive.',
 		packages: [
 			{
-				name: 'Brand Identity Package',
-				price: '25,000 KSH ($250)',
-				savings: 'Save 2,500 KSH ($25)',
-				turnaround: '5-7 business days',
-				isPopular: true,
+				name: 'Logo Design',
+				price: '10,000 KSH',
+				deliveryTime: '5-7 days',
 				overview:
-					'Craft a unique brand identity that resonates with your target audience.',
-				includes: [
-					'Custom logo design reflecting your brand values.',
-					'Business card design, ready for printing.',
-					'Professional company profile to effectively showcase your business.',
-					'Free brand strategy consultation to ensure alignment with your vision.',
-				],
-				deliverables: [
-					{ name: 'Brand Guidelines', type: 'pdf' },
-					{ name: 'Logo Package', type: 'design' },
-					{ name: 'Business Card Design', type: 'design' },
-					{ name: 'Company Profile', type: 'doc' },
-					{ name: 'Brand Assets', type: 'design' },
-				],
-				bestFor: [
-					'Small businesses launching a new brand',
-					'Entrepreneurs establishing a visual identity',
-				],
-			},
-			{
-				name: 'Marketing Essentials Package',
-				price: '15,000 KSH ($150)',
-				savings: 'Save 1,000 KSH ($10)',
-				turnaround: '3-5 business days',
-				isPopular: false,
-				overview:
-					'Equip your marketing efforts with essential design elements that attract and engage customers.',
-				includes: [
-					'Design of 2-3 promotional posters or flyers.',
-					'Custom email signature design for enhanced brand presence.',
-					'Social media graphics tailored for your campaigns.',
-					'Limited revisions to streamline the design process.',
-				],
-				deliverables: [
-					{ name: 'Marketing Kit', type: 'design' },
-					{ name: 'Social Media Templates', type: 'design' },
-					{ name: 'Email Signature Files', type: 'design' },
-					{ name: 'Campaign Guidelines', type: 'pdf' },
-					{ name: 'Asset Usage Guide', type: 'doc' },
-				],
-				bestFor: [
-					'Companies launching marketing campaigns',
-					'Brands enhancing their social media presence',
+					'Professional logo design to create a unique identity for your brand.',
+				deliverables: [{ name: 'Logo Design File', type: 'design' }],
+				details: [
+					{
+						subtitle: 'Brand Identity',
+						content:
+							'Create a unique and recognizable brand identity for your business.',
+					},
 				],
 			},
 			{
 				name: 'Landing Page Design',
-				price: '25,000 KSH ($250)',
-				savings: 'Save 3,000 KSH ($30)',
-				turnaround: '5-7 business days',
-				isPopular: false,
+				price: '15,000 KSH',
+				deliveryTime: '5-7 days',
 				overview:
-					'Create a high-converting landing page designed to capture leads and grow your business.',
-				includes: [
-					'Professionally designed landing page optimized for lead generation.',
-					'Email collection setup using platforms like Mailchimp.',
-					'Mobile-friendly design optimized for search engines.',
-					'Free domain and SSL setup for one year to ensure security and trust.',
+					'Custom landing page design to effectively capture leads and promote your business.',
+				deliverables: [{ name: 'Landing Page Design', type: 'design' }],
+				details: [
+					{
+						subtitle: 'Responsive Design',
+						content:
+							'A landing page optimized for all devices to maximize conversions.',
+					},
 				],
+			},
+			{
+				name: 'Landing Page + Idea Validation',
+				price: '25,000 KSH',
+				deliveryTime: '5-7 days',
+				overview:
+					'Comprehensive package including landing page design and technical feasibility check for your startup idea.',
 				deliverables: [
 					{ name: 'Landing Page Design', type: 'design' },
-					{ name: 'Website Assets', type: 'design' },
-					{ name: 'Setup Documentation', type: 'pdf' },
-					{ name: 'SEO Guidelines', type: 'doc' },
-					{ name: 'Analytics Setup Guide', type: 'pdf' },
+					{ name: 'Technical Assessment', type: 'pdf' },
 				],
-				bestFor: [
-					'Businesses focused on generating leads',
-					'Startups needing a conversion-oriented web presence',
+				details: [
+					{
+						subtitle: 'Combined Offering',
+						content:
+							'Get both a professionally designed landing page and a detailed technical assessment for your startup idea.',
+					},
 				],
 			},
 		],

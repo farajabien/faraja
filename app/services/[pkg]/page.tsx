@@ -1,11 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import { Package, allPackages } from '@/lib/utils'
+import { allPackages } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { ArrowLeft, Clock, ArrowRight } from 'lucide-react'
-import ServiceCard from '@/components/ServiceCard'
+import ServiceCard from '@/components/PackageCard'
 import AddOnsSection from '@/components/AddOnSection'
 
 type Params = Promise<{ pkg: string }>
@@ -55,11 +55,6 @@ export default async function PackagePage({ params }: { params: Params }) {
 				<div className='max-w-4xl mx-auto mb-16'>
 					<ServiceCard pkg={pkg} />
 				</div>
-
-				{/* Add-ons Section */}
-				<section className='mb-16'>
-					<AddOnsSection />
-				</section>
 
 				{/* Other Packages Section */}
 				<section className='mb-16'>

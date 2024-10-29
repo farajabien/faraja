@@ -26,13 +26,13 @@ export const metadata: Metadata = {
 
 const projects: Project[] = [
 	{
-		title: 'PropManage',
+		title: 'RentFlow',
 		industry: 'Real Estate',
 		category: 'Property Management',
 		subtitle: 'Comprehensive Property Management Platform',
 		description:
-			'A comprehensive property management platform designed to optimize interactions between property owners, tenants, and service providers, enhancing efficiency and communication. PropManage aims to streamline property management tasks and improve user experiences.',
-		link: 'https://propmanage.fbien.com',
+			'A comprehensive property management platform designed to optimize interactions between property owners, tenants, and service providers, enhancing efficiency and communication. RentFlow aims to streamline property management tasks and improve user experiences.',
+		link: 'https://RentFlow.fbien.com',
 		technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
 		features: [
 			'Robust tenant management system for seamless interactions',
