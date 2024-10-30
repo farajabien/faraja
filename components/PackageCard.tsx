@@ -24,13 +24,7 @@ const ServicePurchaseButton = dynamic(
 
 import { getPriceInKSH, PackageType } from '@/lib/utils'
 
-export default function ServiceCard({
-	pkg,
-	isBrandingMarketing,
-}: {
-	pkg: PackageType
-	isBrandingMarketing?: boolean
-}) {
+export default function ServiceCard({ pkg }: { pkg: PackageType }) {
 	return (
 		<Card className={`relative ${pkg.isPopular ? 'border-primary' : ''}`}>
 			{pkg.isPopular && (
@@ -56,16 +50,7 @@ export default function ServiceCard({
 					))}
 				</ul>
 				<>
-					{/* If it's a branding/marketing service, show purchase button; otherwise, show a discovery call button */}
-					{isBrandingMarketing ? (
-						<ServicePurchaseButton
-							serviceName={pkg.name}
-							email='client-email@example.com' // Replace this with the actual client email
-							amount={getPriceInKSH(pkg.price)}
-						/>
-					) : (
-						<BookCalendly text='Schedule Free Discovery Call' />
-					)}
+					<BookCalendly text='Schedule Free Discovery Call' />
 				</>
 			</CardContent>
 
