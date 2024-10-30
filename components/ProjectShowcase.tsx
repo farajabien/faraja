@@ -114,7 +114,7 @@ const ProjectShowcase = () => {
 
 				<div className='flex flex-col sm:flex-row gap-4 justify-center'>
 					<Button className='w-full' asChild>
-						<Link href='https://rentflo.fbien.com'>
+						<Link href='https://rentflow.fbien.com'>
 							Visit Project
 							<ArrowRight className='ml-2 h-4 w-4' />
 						</Link>
