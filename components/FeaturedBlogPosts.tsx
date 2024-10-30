@@ -68,7 +68,7 @@ export default function FeaturedBlogPosts() {
 
 				<div className='text-center mt-8'>
 					<Button variant='outline' size='lg' asChild>
-						<Link href='/blog'>
+						<Link href='https://medium.com/@faraja.bien' target='_blank'>
 							View All Posts
 							<Newspaper className='ml-2 h-4 w-4' />
 						</Link>
