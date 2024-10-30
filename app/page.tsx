@@ -49,7 +49,7 @@ export default function Home() {
 			<section className='container mx-auto px-4 py-16 md:py-24'>
 				<div className='max-w-4xl mx-auto text-center space-y-8'>
 					<Badge className='mb-4'>Technical Co-Founder Service</Badge>
-					<h1 className='text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
+					<h1 className='text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
 						Turn Your Startup Vision into Reality
 					</h1>
 					<p className='text-xl md:text-2xl text-muted-foreground'>
