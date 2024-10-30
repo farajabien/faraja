@@ -19,6 +19,7 @@ import ValidationSection from '@/components/ValidateIdeaSection'
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import ServiceCardCompact from '@/components/ServiceCard'
+import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -227,6 +228,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<FeaturedBlogPosts />
 		</div>
 	)
 }

@@ -12,6 +12,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import TikTokEmbed from '@/components/TikTokEmbed'
 import ProjectShowcase from '@/components/ProjectShowcase'
+import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
 
 const AboutPage = () => {
 	return (
@@ -110,85 +111,7 @@ const AboutPage = () => {
 				</div>
 			</section>
 
-			{/* Blog Posts Section */}
-			<section className='py-16 bg-secondary/30'>
-				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-8'>
-						Featured Blog Posts
-					</h2>
-					<div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto'>
-						{/* Blog Post: Infrastructure and Tokenization */}
-						<Card className='flex flex-col'>
-							<CardHeader>
-								<CardTitle className='text-xl'>
-									DePIN: When Did Infrastructure Need a Token?
-								</CardTitle>
-							</CardHeader>
-							<CardContent className='flex-grow'>
-								<p className='text-muted-foreground mb-4'>
-									Exploring the dynamics of decentralized infrastructure and the
-									role of tokens...
-								</p>
-								<Button variant='outline' className='w-full' asChild>
-									<Link href='https://medium.com/@faraja.bien/depin-when-did-infrastructure-need-a-token-6d7231f5630d'>
-										Read More
-										<ExternalLink className='ml-2 h-4 w-4' />
-									</Link>
-								</Button>
-							</CardContent>
-						</Card>
-
-						{/* Blog Post: Accelerator Program Lessons */}
-						<Card className='flex flex-col'>
-							<CardHeader>
-								<CardTitle className='text-xl'>
-									7 Mistakes I Learned to Avoid for My Next Accelerator Program
-								</CardTitle>
-							</CardHeader>
-							<CardContent className='flex-grow'>
-								<p className='text-muted-foreground mb-4'>
-									My journey of learning, failure, and growth in the accelerator
-									world...
-								</p>
-								<Button variant='outline' className='w-full' asChild>
-									<Link href='https://medium.com/@faraja.bien/7-mistakes-i-learned-to-avoid-for-my-next-accelerator-program-2024-c4f2ff22a8f8'>
-										Read More
-										<ExternalLink className='ml-2 h-4 w-4' />
-									</Link>
-								</Button>
-							</CardContent>
-						</Card>
-
-						{/* Placeholder for Upcoming Blog */}
-						<Card className='flex flex-col'>
-							<CardHeader>
-								<CardTitle className='text-xl'>
-									Why Investors are Betting on SaaS in Africa: Building Startups
-									That Scale
-								</CardTitle>
-							</CardHeader>
-							<CardContent className='flex-grow'>
-								<p className='text-muted-foreground mb-4'>
-									Exploring the rise of SaaS investments in Africa and what it
-									means for scalable startup growth...
-								</p>
-								<Button variant='outline' className='w-full' disabled>
-									Coming Soon
-								</Button>
-							</CardContent>
-						</Card>
-					</div>
-
-					<div className='text-center mt-8'>
-						<Button variant='outline' size='lg' asChild>
-							<Link href='/blog'>
-								View All Posts
-								<Newspaper className='ml-2 h-4 w-4' />
-							</Link>
-						</Button>
-					</div>
-				</div>
-			</section>
+			<FeaturedBlogPosts />
 		</div>
 	)
 }
