@@ -8,6 +8,7 @@ import {
 	Cloud,
 	Award,
 	Sparkles,
+	MessageCircle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -16,6 +17,8 @@ import Link from 'next/link'
 import { allPackages } from '@/lib/utils'
 import ValidationSection from '@/components/ValidateIdeaSection'
 import Image from 'next/image'
+import { Badge } from '@/components/ui/badge'
+import ServiceCardCompact from '@/components/ServiceCard'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -44,36 +47,51 @@ export default function Home() {
 		<div className='min-h-screen bg-background'>
 			{/* Hero Section */}
 			<section className='container mx-auto px-4 py-16 md:py-24'>
-				<div className='max-w-4xl mx-auto text-center'>
-					<h1 className='text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
+				<div className='max-w-4xl mx-auto text-center space-y-8'>
+					<Badge className='mb-4'>Technical Co-Founder Service</Badge>
+					<h1 className='text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
 						Turn Your Startup Vision into Reality
 					</h1>
-					<p className='text-xl md:text-2xl text-muted-foreground mb-8'>
+					<p className='text-xl md:text-2xl text-muted-foreground'>
 						Get Technical Co-Founder Expertise, Tailored for Non-Technical
 						Founders
 					</p>
-					<div className='my-5'>
-						<Link
-							href='https://wa.me/254793643308'
-							target='_blank'
-							rel='noopener noreferrer'
-							className='inline-flex items-center px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600'>
-							Contact Me via WhatsApp
-						</Link>{' '}
-					</div>
-					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
-						<Button variant='outline' size='lg' className='w-full' asChild>
-							<Link href='/projects'>
-								View Our Portfolio
-								<ArrowRight className='ml-2 h-4 w-4' />
+					<div className='flex flex-col sm:flex-row gap-4 justify-center pt-4'>
+						<Button size='lg' className='w-full sm:w-auto' asChild>
+							<Link
+								href='https://wa.me/254793643308'
+								className='flex items-center gap-2'>
+								<MessageCircle className='h-5 w-5' aria-hidden='true' />
+								<span>Contact Me on WhatsApp</span>
 							</Link>
 						</Button>
-						<Button variant='outline' size='lg' className='w-full' asChild>
-							<Link href='/services'>Explore Packages</Link>
+						<Button
+							variant='outline'
+							size='lg'
+							className='w-full sm:w-auto'
+							asChild>
+							<Link href='/projects' className='flex items-center gap-2'>
+								<span>View My Work</span>
+								<ArrowRight className='h-4 w-4' aria-hidden='true' />
+							</Link>
 						</Button>
-						{/* New About Button */}
-						<Button variant='outline' size='lg' className='w-full' asChild>
-							<Link href='/about'>About Us</Link>
+						<Button
+							variant='outline'
+							size='lg'
+							className='w-full sm:w-auto'
+							asChild>
+							<Link href='/about'>
+								<span>About Me</span>
+							</Link>
+						</Button>
+						<Button
+							variant='outline'
+							size='lg'
+							className='w-full sm:w-auto'
+							asChild>
+							<Link href='/services'>
+								<span>View My Services</span>
+							</Link>
 						</Button>
 					</div>
 				</div>
@@ -141,29 +159,7 @@ export default function Home() {
 					</h2>
 					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto '>
 						{allPackages.map((pkg) => (
-							<Card
-								key={pkg.name}
-								className={`p-6 relative ${
-									pkg.isPopular ? 'border-primary' : ''
-								}`}>
-								{pkg.isPopular && (
-									<div className='absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1 text-sm rounded-bl-lg rounded-tr-lg'>
-										Most Popular
-									</div>
-								)}
-								<h3 className='text-2xl font-bold mb-2'>{pkg.name}</h3>
-								<p className='text-sm text-muted-foreground mb-6'>
-									Timeline: {pkg.turnaround}{' '}
-								</p>
-
-								<Button
-									asChild
-									className='w-full  bottom-0 left-0 right-0 absolute'>
-									<Link href={`/services/${encodeURIComponent(pkg.name)}`}>
-										Learn More
-									</Link>
-								</Button>
-							</Card>
+							<ServiceCardCompact key={pkg.name} pkg={pkg} />
 						))}
 					</div>
 				</div>

@@ -2,12 +2,11 @@ import React from 'react'
 import {
 	Calendar,
 	CheckCircle,
-	ClipboardCheck,
+	Palette,
 	Code,
-	Database,
-	FileCode,
-	Layout,
-	RefreshCw,
+	Package,
+	BadgeDollarSign,
+	Clock,
 } from 'lucide-react'
 import {
 	Card,
@@ -15,23 +14,17 @@ import {
 	CardFooter,
 	CardHeader,
 	CardTitle,
+	CardDescription,
 } from '@/components/ui/card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Badge } from '@/components/ui/badge'
 import BookCalendly from '@/components/BookCalendly'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
-import { Metadata } from 'next'
 import { Button } from '@/components/ui/button'
 import AddOnsSection from '@/components/AddOnSection'
 import Link from 'next/link'
-import { services, PackageType } from '@/lib/utils' // Adjusted import for correct type
+import { services, PackageType } from '@/lib/utils'
 
-// Metadata for the page
-export const metadata: Metadata = {
-	title: 'Farajabien - Technical Strategy & Development Services',
-	description:
-		'Validate and launch your startup idea with expert technical guidance. From rapid validation to MVP development, get the expertise you need to succeed.',
-}
-
-// Main Services Page component
 const ServicesPage = () => {
 	return (
 		<div className='bg-background'>
@@ -39,50 +32,183 @@ const ServicesPage = () => {
 				items={[
 					{ label: 'Home', href: '/' },
 					{ label: 'Services', href: '/services' },
-					{ label: 'Startup Technical Services', href: '/services/startup' },
-					{
-						label: 'Startup Technical Services Packages',
-						href: '/services/startup/packages',
-					},
 				]}
 			/>
 
-			<TechServices />
+			<ServicesTabs />
 			<AddOnsSection />
 			<CallToActionSection />
 		</div>
 	)
 }
 
-// Section for Technical Services
-const TechServices = () => {
-	const coreServices = services[0].packages // Assuming this retrieves the correct packages
-
+const ServicesTabs = () => {
 	return (
 		<section className='py-8 md:py-12 bg-secondary/10'>
 			<div className='container mx-auto px-4'>
 				<SectionHeader
-					title='Technical Services'
-					subtitle='Get the technical expertise you need to validate, build, and launch your startup idea.'
+					title='Our Services'
+					subtitle="Comprehensive solutions for your startup's technical and design needs"
 				/>
-				<div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6'>
-					{coreServices.map((service, index) => (
-						<ServiceCard key={index} service={service} />
+
+				<Tabs defaultValue='technical' className='space-y-8'>
+					<TabsList className='grid w-full grid-cols-3 max-w-2xl mx-auto'>
+						<TabsTrigger value='technical' className='space-x-2'>
+							<Code className='w-4 h-4' />
+							<span>Technical</span>
+						</TabsTrigger>
+						<TabsTrigger value='design' className='space-x-2'>
+							<Palette className='w-4 h-4' />
+							<span>Design</span>
+						</TabsTrigger>
+						<TabsTrigger value='combo' className='space-x-2'>
+							<Package className='w-4 h-4' />
+							<span>Complete</span>
+						</TabsTrigger>
+					</TabsList>
+
+					{services.map((category) => (
+						<TabsContent
+							key={category.type}
+							value={category.type || 'technical'}>
+							<div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+								{category.packages.map((service, index) => (
+									<ServiceCard key={index} service={service} />
+								))}
+							</div>
+						</TabsContent>
 					))}
-				</div>
+				</Tabs>
 			</div>
 		</section>
 	)
 }
 
-// Call to Action section
+const ServiceCard = ({ service }: { service: PackageType }) => {
+	const splitIncludedItem = (item: string) => {
+		const parts = item.split(':')
+		if (parts.length < 2) return { title: item, description: '' }
+		return {
+			title: parts[0].trim(),
+			description: parts[1].trim(),
+		}
+	}
+
+	return (
+		<Card className='flex flex-col hover:shadow-lg transition-shadow'>
+			<CardHeader>
+				<div className='flex justify-between items-start mb-2'>
+					<CardTitle className='text-xl font-semibold'>
+						{service.name}
+					</CardTitle>
+					{service.isPopular && (
+						<Badge variant='secondary'>Popular Choice</Badge>
+					)}
+				</div>
+				<CardDescription>{service.description}</CardDescription>
+			</CardHeader>
+
+			<CardContent className='flex-grow space-y-4'>
+				<div className='flex justify-between items-center gap-4'>
+					<div className='flex items-center gap-2'>
+						<span className='text-sm text-muted-foreground'>
+							{service.deliveryTime}
+						</span>
+					</div>
+					<div className='flex items-center gap-2'>
+						<span className='font-bold text-lg'>{service.price}</span>
+					</div>
+				</div>
+
+				{service.savings && (
+					<div className='bg-secondary/20 rounded-lg p-2 text-sm text-center'>
+						Save {service.savings} with this package
+					</div>
+				)}
+
+				{/* Best For Section */}
+				{service.bestFor && (
+					<div className='space-y-1'>
+						<p className='text-sm font-medium'>Best For:</p>
+						<div className='flex flex-wrap gap-2'>
+							{service.bestFor.map((item, index) => (
+								<Badge key={index} variant='outline'>
+									{item}
+								</Badge>
+							))}
+						</div>
+					</div>
+				)}
+
+				{/* Includes Section */}
+				<div className='space-y-2'>
+					<p className='text-sm font-medium'>Includes:</p>
+					<ul className='space-y-2'>
+						{service.deliverables?.map((deliverable, index) => (
+							<li key={index} className='flex items-start gap-2 text-sm'>
+								<CheckCircle className='w-4 h-4 text-primary mt-0.5 flex-shrink-0' />
+								<span>{deliverable.name}</span>
+							</li>
+						))}
+					</ul>
+				</div>
+
+				{/* Details Section */}
+				{service.details && service.details.length > 0 && (
+					<div className='space-y-2'>
+						<p className='text-sm font-medium'>Details:</p>
+						<ul className='space-y-1'>
+							{service.details.slice(0, 3).map((detail, index) => {
+								const { title, description } = splitIncludedItem(
+									detail.subtitle + ': ' + detail.content
+								)
+								return (
+									<li key={index} className='flex flex-col'>
+										<span className='font-bold'>{title}</span>
+										<span className='text-sm text-muted-foreground'>
+											{description}
+										</span>
+									</li>
+								)
+							})}
+						</ul>
+					</div>
+				)}
+
+				{/* Available Add-ons Section */}
+				{service.addOns && service.addOns.length > 0 && (
+					<div className='space-y-2'>
+						<p className='text-sm font-medium'>Available Add-ons:</p>
+						<ul className='space-y-1'>
+							{service.addOns.map((addon, index) => (
+								<li key={index} className='text-sm text-muted-foreground'>
+									+ {addon.name} ({addon.price})
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
+			</CardContent>
+
+			<CardFooter className='border-t pt-4 flex justify-between gap-2'>
+				<Button asChild variant='outline' className='w-1/2'>
+					<Link href={`/services/${encodeURIComponent(service.name)}`}>
+						Learn More
+					</Link>
+				</Button>
+				<Button className='w-1/2'>Book Call</Button>
+			</CardFooter>
+		</Card>
+	)
+}
+
 const CallToActionSection = () => {
 	return (
 		<section className='py-8 md:py-12 bg-secondary/30'>
 			<div className='container mx-auto px-4 text-center'>
 				<SectionHeader
-					title='Ready to Get Started?'
-					subtitle='Schedule a free discovery call to discuss your technical needs.'
+					title='Ready to Transform Your Startup?'
+					subtitle='Schedule a free discovery call to discuss your technical and design needs.'
 				/>
 				<BookCalendly text='Schedule Discovery Call' />
 			</div>
@@ -90,7 +216,6 @@ const CallToActionSection = () => {
 	)
 }
 
-// Reusable section header component
 const SectionHeader = ({
 	title,
 	subtitle,
@@ -107,48 +232,6 @@ const SectionHeader = ({
 				{subtitle}
 			</p>
 		</>
-	)
-}
-
-const ServiceCard = ({ service }: { service: PackageType }) => {
-	return (
-		<Card className='flex flex-col hover:shadow-lg transition-shadow'>
-			<CardHeader>
-				<CardTitle className='text-xl font-semibold'>{service.name}</CardTitle>
-			</CardHeader>
-
-			<CardContent className='flex-grow space-y-4'>
-				<p className='text-sm text-muted-foreground'>{service.description}</p>
-
-				<div className='flex justify-between items-center'>
-					<div className='flex items-center gap-2'>
-						<Calendar className='w-5 h-5 text-primary' />
-						<span className='text-sm'>{service.deliveryTime}</span>
-					</div>
-					<div className='text-right'>
-						<span className='font-bold text-lg'>{service.price}</span>
-					</div>
-				</div>
-
-				<ul className='space-y-2'>
-					{service.details?.slice(0, 3).map((detail, index) => (
-						<li key={index} className='flex items-center text-sm'>
-							<CheckCircle className='w-4 h-4 text-primary mr-2 flex-shrink-0' />
-							<span>{detail.subtitle}</span>
-						</li>
-					))}
-				</ul>
-			</CardContent>
-
-			<CardFooter className='border-t pt-4 flex justify-between gap-2'>
-				<Button asChild variant='outline' className='w-1/2'>
-					<Link href={`/services/${encodeURIComponent(service.name)}`}>
-						Learn More
-					</Link>
-				</Button>
-				<BookCalendly text='Book Call' className='w-1/2' />
-			</CardFooter>
-		</Card>
 	)
 }
 

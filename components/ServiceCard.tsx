@@ -31,22 +31,7 @@ import {
 	PopoverTrigger,
 } from '@/components/ui/popover'
 import { Button } from '@/components/ui/button'
-
-type DeliverableType = {
-	name: string
-	type: 'pdf' | 'doc' | 'design' | 'code'
-}
-
-type Package = {
-	name: string
-	price: string
-	savings?: string
-	turnaround: string
-	bestFor?: string[]
-	includes: string[]
-	isPopular?: boolean
-	deliverables?: DeliverableType[]
-}
+import { PackageType, DeliverableType, AddOn } from '@/lib/utils'
 
 const getFileIcon = (type: DeliverableType['type']) => {
 	switch (type) {
@@ -89,9 +74,9 @@ const DeliverablesSummary = ({
 			</PopoverTrigger>
 			<PopoverContent className='w-64 p-2'>
 				<div className='space-y-2'>
-					{deliverables.map((deliverable, index) => (
+					{deliverables.map((deliverable) => (
 						<div
-							key={index}
+							key={deliverable.name} // Ensure a unique key based on the deliverable name
 							className='flex items-center gap-2 p-1 hover:bg-secondary/50 rounded'>
 							{getFileIcon(deliverable.type)}
 							<span className='text-sm'>{deliverable.name}</span>
@@ -103,11 +88,11 @@ const DeliverablesSummary = ({
 	)
 }
 
-export default function Component({
+export default function ServiceCardCompact({
 	pkg,
 	variant = 'default',
 }: {
-	pkg: Package
+	pkg: PackageType
 	variant?: string
 }) {
 	const isFeatured = variant === 'featured' || pkg.isPopular
@@ -170,8 +155,8 @@ export default function Component({
 					<div className='bg-secondary/30 p-3 rounded-lg'>
 						<p className='text-sm font-medium mb-2'>Best For:</p>
 						<ul className='space-y-1'>
-							{pkg.bestFor.map((item, index) => (
-								<li key={index} className='text-sm text-muted-foreground'>
+							{pkg.bestFor.map((item) => (
+								<li key={item} className='text-sm text-muted-foreground'>
 									• {item}
 								</li>
 							))}
@@ -196,8 +181,8 @@ export default function Component({
 						</TooltipProvider>
 					</div>
 					<ul className='space-y-3'>
-						{pkg.includes.map((item, index) => {
-							const { title, description } = splitIncludedItem(item)
+						{pkg.details.map((item, index) => {
+							const { title, description } = splitIncludedItem(item.subtitle)
 							return (
 								<li key={index} className='flex items-start'>
 									<CheckCircle className='w-4 h-4 text-primary mr-2 mt-1 flex-shrink-0' />
