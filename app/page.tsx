@@ -152,12 +152,12 @@ export default function Home() {
 			<ValidationSection />
 
 			{/* Packages Section */}
-			<section className='py-16'>
-				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-12'>
+			<section className='py-8 md:py-16'>
+				<div className='md:container mx-auto'>
+					<h2 className='text-3xl font-bold text-center mb-8 md:mb-12'>
 						Service Packages ({allPackages.length})
 					</h2>
-					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto '>
+					<div className='grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-full mx-auto'>
 						{allPackages.map((pkg) => (
 							<ServiceCardCompact key={pkg.name} pkg={pkg} />
 						))}
