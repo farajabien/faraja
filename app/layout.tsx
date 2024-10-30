@@ -5,6 +5,7 @@ import NextTopLoader from 'nextjs-toploader'
 import ThemeToggle from '@/components/ThemeToggle'
 import { Providers } from './providers'
 import Footer from '@/components/Footer'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -38,6 +39,9 @@ export default function RootLayout({
 					{children}
 					<Footer />
 				</Providers>
+				{/* Google Analytics Script */}
+
+				<GoogleAnalytics gaId='G-CCBNJQYH4L' />
 			</body>
 		</html>
 	)
