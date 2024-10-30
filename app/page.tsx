@@ -19,6 +19,7 @@ import ValidationSection from '@/components/ValidateIdeaSection'
 import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import ServiceCardCompact from '@/components/ServiceCard'
+import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -49,7 +50,7 @@ export default function Home() {
 			<section className='container mx-auto px-4 py-16 md:py-24'>
 				<div className='max-w-4xl mx-auto text-center space-y-8'>
 					<Badge className='mb-4'>Technical Co-Founder Service</Badge>
-					<h1 className='text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
+					<h1 className='text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
 						Turn Your Startup Vision into Reality
 					</h1>
 					<p className='text-xl md:text-2xl text-muted-foreground'>
@@ -152,12 +153,12 @@ export default function Home() {
 			<ValidationSection />
 
 			{/* Packages Section */}
-			<section className='py-16'>
-				<div className='container mx-auto px-4'>
-					<h2 className='text-3xl font-bold text-center mb-12'>
+			<section className='py-8 md:py-16'>
+				<div className='md:container mx-auto'>
+					<h2 className='text-3xl font-bold text-center mb-8 md:mb-12'>
 						Service Packages ({allPackages.length})
 					</h2>
-					<div className='grid md:grid-cols-3 gap-8 max-w-6xl mx-auto '>
+					<div className='grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-full mx-auto'>
 						{allPackages.map((pkg) => (
 							<ServiceCardCompact key={pkg.name} pkg={pkg} />
 						))}
@@ -227,6 +228,8 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
+
+			<FeaturedBlogPosts />
 		</div>
 	)
 }
