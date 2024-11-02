@@ -150,262 +150,160 @@ export type ServiceType = {
 }
 export const services: ServiceType[] = [
 	{
-		title: 'Startup Technical Services',
+		title: 'Technical Co-Founder Services',
 		description:
-			'Get the expert help you need to shape, build, and launch your startup idea with confidence.',
+			'Transform your startup vision into reality with proven technical expertise and strategic guidance.',
 		type: 'technical',
 		packages: [
 			{
-				name: 'Idea Check + Landing Page',
+				name: 'Startup Validation Sprint',
 				description:
-					'A complete package to check if your startup idea is doable and set up a landing page to attract customers.',
+					'Validate your idea and get market-ready in 2 weeks with our proven framework',
 				price: '25,000 KSH',
-				deliveryTime: '48 hours',
-				overview: 'Includes idea check, recommended tools, and a landing page.',
+				deliveryTime: '2 weeks',
+				overview:
+					'Complete validation package with landing page and initial market testing',
+				isPopular: true,
 				deliverables: [
-					{ name: 'Idea Check Report', type: 'pdf' },
-					{ name: 'Recommended Tools Guide', type: 'pdf' },
-					{ name: 'Landing Page Design', type: 'design' },
+					{ name: 'Market Validation Report', type: 'pdf' },
+					{ name: 'Tech Stack Analysis', type: 'pdf' },
+					{ name: 'Landing Page', type: 'code' },
+					{ name: 'Analytics Setup', type: 'code' },
 				],
 				details: [
 					{
-						subtitle: 'Idea Check',
+						subtitle: 'Week 1: Strategy & Planning',
 						content:
-							'An in-depth look at your startup idea to see if it can succeed. We highlight any challenges and suggest solutions.',
+							'• Market research & competitor analysis\n• Tech stack recommendations\n• Feature prioritization\n• Cost & timeline estimations',
 					},
 					{
-						subtitle: 'Recommended Tools',
+						subtitle: 'Week 2: Implementation',
 						content:
-							'A list of tools to get your idea started, including which software to use for different parts of the project.',
-					},
-					{
-						subtitle: 'Landing Page Text',
-						content:
-							'Engaging text for your landing page to attract visitors and encourage them to sign up.',
+							'• Landing page development\n• Analytics integration\n• Lead capture setup\n• A/B testing framework',
 					},
 				],
 				addOns: [
 					{
 						name: 'Social Media Kit',
-						price: '10,000 KSH',
-						description:
-							'A matching social media kit to go with your landing page.',
-					},
-				],
-			},
-			{
-				name: 'Prototype Development',
-				description:
-					'A custom development package to bring your idea to life, creating a functional prototype.',
-				price: 'Starting at 50,000 KSH',
-				deliveryTime: 'Custom Timeline',
-				overview: 'Development of the main parts of your product.',
-				isPopular: true,
-				deliverables: [
-					{ name: 'Prototype', type: 'code' },
-					{ name: 'User Testing Feedback', type: 'pdf' },
-					{ name: 'Technical Guide', type: 'pdf' },
-				],
-				details: [
-					{
-						subtitle: 'Prototype Development',
-						content:
-							'Creation of both the customer-facing and backend parts of your product.',
-					},
-					{
-						subtitle: 'Feedback Process',
-						content:
-							'An ongoing process to get your input and improve the product based on real feedback.',
-					},
-					{
-						subtitle: 'Technical Guide',
-						content:
-							'A guide on how to set up and maintain the product, covering all key steps.',
-					},
-				],
-				addOns: [
-					{
-						name: 'Monthly Support',
 						price: '15,000 KSH',
-						description: 'Regular updates and help with any technical issues.',
+						description: 'Custom social assets and content strategy',
 					},
 				],
 			},
-		],
-	},
-	{
-		title: 'Design & Branding Services',
-		description:
-			'Professional design services to build and grow your brand across all platforms.',
-		type: 'design',
-		packages: [
 			{
-				name: 'Startup Brand Package',
+				name: 'MVP Development Sprint',
 				description:
-					'Complete brand identity package for startups, including logo, guidelines, and social media templates.',
-				price: '35,000 KSH',
-				deliveryTime: '5 days',
+					'Get your first working product in front of users within 4 weeks',
+				price: 'Starting at 150,000 KSH',
+				deliveryTime: '4 weeks',
 				isPopular: true,
-				overview: 'Everything you need to set up your brand.',
-				deliverables: [
-					{ name: 'Logo Files', type: 'design' },
-					{ name: 'Brand Guide', type: 'pdf' },
-					{ name: 'Social Media Templates', type: 'design' },
-					{ name: 'Business Card Design', type: 'design' },
-				],
-				details: [
-					{
-						subtitle: 'Brand Identity',
-						content:
-							'A unique logo and design concepts that capture your brand’s personality.',
-					},
-					{
-						subtitle: 'Brand Guide',
-						content:
-							'A guide on how to use your logo, colors, and fonts to keep your brand consistent.',
-					},
-					{
-						subtitle: 'Social Media Kit',
-						content:
-							'Custom designs for social media, including profile pictures and post templates.',
-					},
-				],
-			},
-			{
-				name: 'Digital Marketing Design Pack',
-				description:
-					'Ongoing design support for all your digital marketing needs.',
-				price: '20,000 KSH',
-				deliveryTime: '48-72 hours per request',
-				overview: 'Designs for social media and digital ads.',
-				deliverables: [
-					{ name: 'Social Media Posts', type: 'design' },
-					{ name: 'Digital Ads', type: 'design' },
-					{ name: 'Email Templates', type: 'design' },
-				],
-				details: [
-					{
-						subtitle: 'Social Media Content',
-						content:
-							'Up to 10 custom posts per month for your social channels.',
-					},
-					{
-						subtitle: 'Marketing Materials',
-						content:
-							'Custom ad designs, email headers, and promotional images.',
-					},
-				],
-				addOns: [
-					{
-						name: 'Rush Delivery',
-						price: '5,000 KSH',
-						description: '24-hour turnaround for urgent designs.',
-					},
-				],
-			},
-		],
-	},
-	{
-		title: 'Complete Startup Packages',
-		description:
-			'Everything you need to start your business, from technical setup to brand design, in one package.',
-		type: 'combo',
-		packages: [
-			{
-				name: 'Startup Launch Suite',
-				description:
-					'Our all-in-one startup package includes everything from tech validation to brand design at a discount.',
-				price: '75,000 KSH',
-				deliveryTime: '14 days',
-				isPopular: true,
-				savings: '15,000 KSH',
-				overview:
-					'Launch your startup with a strong foundation and clear brand identity.',
+				overview: 'End-to-end MVP development with user testing and iterations',
 				bestFor: [
-					'New startups launching for the first time',
-					'Businesses needing a complete rebrand',
-					'Founders who want both tech and design support',
+					'Founders ready to build their first product',
+					'Startups seeking product-market fit',
+					'Companies needing technical validation',
 				],
 				deliverables: [
-					{ name: 'Feasibility Report', type: 'pdf' },
-					{ name: 'Custom Landing Page', type: 'code' },
-					{ name: 'Hosting Setup', type: 'code' },
-					{ name: 'Google Analytics Setup', type: 'code' },
-					{ name: 'Logo Design', type: 'design' },
-					{ name: 'Business Cards', type: 'design' },
-					{ name: 'Social Media Templates', type: 'design' },
-					{ name: 'Email Signature', type: 'design' },
-					{ name: 'Brand Guide', type: 'pdf' },
-					{ name: 'Website Guide', type: 'pdf' },
+					{ name: 'Working MVP', type: 'code' },
+					{ name: 'Technical Documentation', type: 'pdf' },
+					{ name: 'User Testing Results', type: 'pdf' },
+					{ name: 'Deployment Guide', type: 'pdf' },
 				],
 				details: [
 					{
-						subtitle: 'Week 1: Technical Setup',
+						subtitle: 'Technical Architecture',
 						content:
-							'• Idea check & planning\n• Domain & hosting setup\n• Landing page development\n• Analytics setup\n• Payment integration (optional)',
+							'• System design & architecture\n• Database schema design\n• API documentation\n• Security implementation',
 					},
 					{
-						subtitle: 'Week 2: Branding',
+						subtitle: 'Development Process',
 						content:
-							'• Logo design\n• Business card & letterhead\n• Social media templates\n• Email signature\n• Brand guide creation',
+							'• Agile development methodology\n• Weekly progress updates\n• Regular demo sessions\n• Iterative improvements',
 					},
 					{
-						subtitle: 'Launch Support',
+						subtitle: 'Launch Preparation',
 						content:
-							'• Website testing\n• Content upload\n• Social profile setup\n• 30-day technical support\n• Launch day support',
+							'• Deployment setup\n• Performance optimization\n• Security hardening\n• Analytics integration',
 					},
 				],
 				addOns: [
 					{
 						name: 'Extended Support',
-						price: '25,000 KSH',
-						description: '3 months of technical support and updates.',
-					},
-					{
-						name: 'SEO Setup',
-						price: '15,000 KSH',
-						description: 'Basic SEO setup to help with search rankings.',
+						price: '30,000 KSH/month',
+						description: 'Ongoing technical support and maintenance',
 					},
 				],
 			},
+		],
+	},
+	{
+		title: 'Growth & Scale Services',
+		description:
+			'Technical solutions to help your startup grow and scale efficiently',
+		type: 'growth',
+		packages: [
 			{
-				name: 'Technical Maintenance & Support',
+				name: 'Technical Growth Package',
 				description:
-					'Flexible, pay-as-you-go support for ongoing technical needs, ensuring your startup stays optimized and secure.',
-				price: 'Varies based on scope of work',
-				deliveryTime: 'As Needed',
-				overview:
-					'Ongoing support for bug fixes, updates, performance improvements, and new feature integration.',
+					'Optimize your product for scale and implement growth features',
+				price: '100,000 KSH',
+				deliveryTime: '3 weeks',
+				overview: 'Performance optimization and growth feature implementation',
 				deliverables: [
-					{ name: 'Bug Fixes & Updates', type: 'code' },
-					{ name: 'Performance Optimization', type: 'code' },
-					{ name: 'Security Patches', type: 'code' },
-					{ name: 'Feature Additions', type: 'code' },
-					{ name: 'Technical Consultation', type: 'consultation' },
+					{ name: 'Performance Audit', type: 'pdf' },
+					{ name: 'Optimization Implementation', type: 'code' },
+					{ name: 'Growth Features', type: 'code' },
+					{ name: 'Analytics Dashboard', type: 'code' },
 				],
 				details: [
 					{
-						subtitle: 'Flexible Support',
+						subtitle: 'Performance Optimization',
 						content:
-							'On-demand technical help tailored to your needs, covering everything from bug fixes to new feature rollouts.',
+							'• Load time optimization\n• Database optimization\n• Caching implementation\n• CDN setup',
 					},
 					{
-						subtitle: 'Security Patches',
+						subtitle: 'Growth Features',
 						content:
-							'Stay protected with regular security patches and updates to guard against vulnerabilities.',
-					},
-					{
-						subtitle: 'Technical Consultation',
-						content:
-							'Consult with experts on the best tech stack, scalability strategies, and long-term development plans for your startup.',
+							'• User onboarding flow\n• Referral system\n• Email integration\n• Analytics dashboard',
 					},
 				],
 				addOns: [
 					{
-						name: 'Priority Support',
-						price: '10,000 KSH per month',
-						description:
-							'Faster response times and dedicated priority handling for urgent or critical technical needs.',
+						name: 'Custom Analytics',
+						price: '25,000 KSH',
+						description: 'Custom analytics setup and reporting',
+					},
+				],
+			},
+			{
+				name: 'Startup CTO Support',
+				description: 'Ongoing technical leadership and development support',
+				price: '75,000 KSH/month',
+				deliveryTime: 'Monthly',
+				overview: 'Technical strategy and hands-on development support',
+				deliverables: [
+					{ name: 'Technical Strategy', type: 'pdf' },
+					{ name: 'Code Reviews', type: 'code' },
+					{ name: 'Architecture Review', type: 'consultation' },
+					{ name: 'Sprint Planning', type: 'consultation' },
+				],
+				details: [
+					{
+						subtitle: 'Technical Leadership',
+						content:
+							'• Architecture planning\n• Tech stack decisions\n• Team guidance\n• Code review',
+					},
+					{
+						subtitle: 'Development Support',
+						content:
+							'• Feature development\n• Bug fixes\n• Performance optimization\n• Security updates',
+					},
+				],
+				addOns: [
+					{
+						name: 'Emergency Support',
+						price: '15,000 KSH',
+						description: '24/7 emergency technical support',
 					},
 				],
 			},

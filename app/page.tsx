@@ -51,11 +51,11 @@ export default function Home() {
 				<div className='max-w-4xl mx-auto text-center space-y-8'>
 					<Badge className='mb-4'>Technical Co-Founder Service</Badge>
 					<h1 className='text-3xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60'>
-						Turn Your Startup Vision into Reality
+						From Idea to Launch in 90 Days
 					</h1>
 					<p className='text-xl md:text-2xl text-muted-foreground'>
-						Get Technical Co-Founder Expertise, Tailored for Non-Technical
-						Founders
+						Transform your startup vision into reality with proven technical
+						expertise
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center pt-4'>
 						<Button size='lg' className='w-full sm:w-auto' asChild>
