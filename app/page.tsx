@@ -20,6 +20,7 @@ import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import ServiceCardCompact from '@/components/ServiceCard'
 import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
+import { Metadata } from 'next'
 
 const specializations = [
 	{ name: 'Marketplace Platforms', icon: Briefcase },
@@ -41,6 +42,19 @@ const techStack = {
 	Database: ['PostgreSQL', 'MongoDB'],
 	Cloud: ['AWS', 'Vercel'],
 	Additional: ['Supabase', 'Firebase'],
+}
+
+// app/page.tsx - Homepage metadata
+export const metadata: Metadata = {
+	title: 'Technical Co-Founder Services for Non-Technical Founders',
+	description:
+		'Get your MVP built in 4 weeks or less. Expert technical co-founder services for East African startups, specializing in validated product development and local payment integrations.',
+	openGraph: {
+		title: 'Technical Co-Founder Services for Non-Technical Founders',
+		description:
+			'Launch your startup with expert technical guidance. From idea validation to MVP in 4 weeks.',
+		images: ['/images/og-home.png'],
+	},
 }
 
 export default function Home() {
