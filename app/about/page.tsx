@@ -1,17 +1,10 @@
 import React from 'react'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import {
-	ExternalLink,
-	Github,
-	Newspaper,
-	Twitter,
-	LinkedinIcon,
-} from 'lucide-react'
+import { Github, Twitter, LinkedinIcon } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import TikTokEmbed from '@/components/TikTokEmbed'
-import ProjectShowcase from '@/components/ProjectShowcase'
 import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
 
 const AboutPage = () => {
@@ -27,28 +20,29 @@ const AboutPage = () => {
 								alt='Profile picture'
 								width={300}
 								height={300}
-								className='rounded-full'
+								className='rounded-full shadow-lg'
 							/>
 						</div>
 						<div className='md:w-2/3 text-center md:text-left'>
 							<h1 className='text-4xl font-bold mb-4'>
-								Hi, I&apos;m Bienvenu Mwenzagu Faraja
+								Technical Co-Founder for East African Startups
 							</h1>
 							<p className='text-xl text-muted-foreground mb-6'>
-								Technical Co-Founder | Full-Stack Developer | Startup Specialist
+								Helping non-technical founders build market-ready products in 4
+								weeks or less
 							</p>
 							<div className='flex gap-4 justify-center md:justify-start'>
-								<Button variant='outline' size='icon'>
+								<Button variant='outline' size='icon' asChild>
 									<Link href='https://github.com/farajabien'>
 										<Github className='h-5 w-5' />
 									</Link>
 								</Button>
-								<Button variant='outline' size='icon'>
+								<Button variant='outline' size='icon' asChild>
 									<Link href='https://twitter.com/farajabien'>
 										<Twitter className='h-5 w-5' />
 									</Link>
 								</Button>
-								<Button variant='outline' size='icon'>
+								<Button variant='outline' size='icon' asChild>
 									<Link href='https://linkedin.com/in/farajabien'>
 										<LinkedinIcon className='h-5 w-5' />
 									</Link>
@@ -59,46 +53,116 @@ const AboutPage = () => {
 				</div>
 			</section>
 
-			{/* Featured Project Video Section */}
+			{/* Featured Project Section - Updated */}
 			<section className='py-16 bg-secondary/30'>
-				<ProjectShowcase />
+				<div className='container mx-auto px-4'>
+					<h2 className='text-4xl font-bold text-center mb-4'>
+						From Idea to Success: RentFlow Case Study
+					</h2>
+					<p className='text-xl text-muted-foreground text-center mb-12 max-w-2xl mx-auto'>
+						How we built and launched a property management platform that
+						achieved 95% collection rates
+					</p>
+
+					<div className='grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto'>
+						<div>
+							<Card className='h-full'>
+								<CardContent className='p-6'>
+									<h3 className='text-xl font-semibold mb-4'>The Challenge</h3>
+									<p className='text-muted-foreground mb-4'>
+										Property managers struggled with manual rent collection,
+										leading to:
+									</p>
+									<ul className='space-y-2'>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-primary' />
+											<span>70% collection rates</span>
+										</li>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-primary' />
+											<span>20+ hours spent on manual follow-ups</span>
+										</li>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-primary' />
+											<span>Difficult payment reconciliation</span>
+										</li>
+									</ul>
+								</CardContent>
+							</Card>
+						</div>
+
+						<div>
+							<Card className='h-full'>
+								<CardContent className='p-6'>
+									<h3 className='text-xl font-semibold mb-4'>The Solution</h3>
+									<p className='text-muted-foreground mb-4'>
+										We built an automated platform that delivers:
+									</p>
+									<ul className='space-y-2'>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-green-500' />
+											<span>95% collection rates</span>
+										</li>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-green-500' />
+											<span>20 hours saved monthly</span>
+										</li>
+										<li className='flex items-center gap-2'>
+											<div className='h-2 w-2 rounded-full bg-green-500' />
+											<span>Real-time payment tracking</span>
+										</li>
+									</ul>
+								</CardContent>
+							</Card>
+						</div>
+					</div>
+				</div>
 			</section>
 
+			{/* Story Section - Updated */}
 			<section className='py-16 bg-secondary/10'>
 				<div className='container mx-auto px-4'>
 					<div className='max-w-4xl mx-auto'>
 						<h2 className='text-4xl font-bold text-center mb-8 text-primary'>
-							My Story
+							Why Work With Me
 						</h2>
 						<Card className='p-8 shadow-lg'>
-							<div className='space-y-4 text-lg'>
-								<p className='text-muted-foreground'>
-									<b>Starting out in 2018</b>, I joined a web agency, turning
-									client visions into reality and building a foundation in
-									development.
-								</p>
-								<p className='text-muted-foreground'>
-									<b>My journey evolved</b> through roles in early-stage
-									startups, like Sarami Score as a frontend developer and King
-									Rafiki, an e-commerce startup. I then had the opportunity to
-									contribute to projects for the World Food Programme, focusing
-									on tools that make an impact.
-								</p>
-								<blockquote className='text-primary italic'>
-									&quot;I&apos;m passionate about creating tech solutions that
-									empower non-technical founders.&quot;
-								</blockquote>
-								<p className='text-muted-foreground'>
-									Today, I help founders bring software to life with scalable
-									architecture, intuitive UX, and a relentless focus on user
-									needs.
-								</p>
+							<div className='space-y-6'>
+								<div>
+									<h3 className='text-xl font-semibold mb-2'>
+										Full-Stack Expertise
+									</h3>
+									<p className='text-muted-foreground'>
+										5+ years building scalable applications with modern tech
+										stacks like Next.js, React, and Node.js
+									</p>
+								</div>
+								<div>
+									<h3 className='text-xl font-semibold mb-2'>
+										Local Market Knowledge
+									</h3>
+									<p className='text-muted-foreground'>
+										Deep understanding of East African market needs and
+										integration expertise with local payment systems
+									</p>
+								</div>
+								<div>
+									<h3 className='text-xl font-semibold mb-2'>
+										Proven Track Record
+									</h3>
+									<p className='text-muted-foreground'>
+										Successfully launched multiple startups from concept to
+										market-ready products
+									</p>
+								</div>
+								<Button className='w-full' asChild>
+									<Link href='/services'>View Service Packages</Link>
+								</Button>
 							</div>
 						</Card>
 					</div>
 				</div>
 			</section>
-
 			{/* TikTok Content Section */}
 			<section className='py-16 bg-secondary/30'>
 				<div className='container mx-auto px-4'>
