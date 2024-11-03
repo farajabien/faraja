@@ -8,8 +8,8 @@ const Navigation = () => {
 	const links = [
 		{ href: '/about', label: 'About' },
 		{ href: '/projects', label: 'Projects' },
+		{ href: '/services', label: 'Services' },
 		{ href: '/resources', label: 'Resources' },
-		{ href: 'https://medium.com/@faraja.bien', label: 'Blog' },
 	]
 
 	return (
