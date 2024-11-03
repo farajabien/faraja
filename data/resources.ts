@@ -82,58 +82,58 @@ export const resources: Category[] = [
 			},
 		],
 	},
-	{
-		category: 'Validation Tools',
-		icon: FileCheck,
-		items: [
-			{
-				title: 'Startup Validation Framework',
-				description:
-					'Step-by-step framework to validate your startup idea before building. Based on real experience with East African startups.',
-				link: '/resources/validation-framework',
-				price: 'Free',
-				category: 'tool',
-				action: {
-					icon: Book,
-					label: 'Access Framework',
-				},
-				features: [
-					'Problem validation guide',
-					'Market size calculator',
-					'Customer interview templates',
-					'MVP scope planner',
-				],
-				tags: ['validation', 'startup', 'framework'],
-			},
-		],
-	},
-	{
-		category: 'Technical Guides',
-		icon: Book,
-		items: [
-			{
-				title: 'Local Payment Integration Guide',
-				description:
-					'Comprehensive guide for integrating M-PESA and other local payment solutions in East African startups.',
-				link: '/resources/payment-guide',
-				price: 'Free',
-				category: 'guide',
-				action: {
-					icon: Coins,
-					label: 'View Guide',
-				},
-				features: [
-					'M-PESA integration steps',
-					'Paystack implementation',
-					'Security best practices',
-					'Code examples',
-				],
-				techStack: [
-					{ name: 'Node.js', icon: Code },
-					{ name: 'Next.js', icon: Code },
-				],
-				tags: ['payments', 'integration', 'fintech'],
-			},
-		],
-	},
+	// {
+	// 	category: 'Validation Tools',
+	// 	icon: FileCheck,
+	// 	items: [
+	// 		{
+	// 			title: 'Startup Validation Framework',
+	// 			description:
+	// 				'Step-by-step framework to validate your startup idea before building. Based on real experience with East African startups.',
+	// 			link: '/resources/validation-framework',
+	// 			price: 'Free',
+	// 			category: 'tool',
+	// 			action: {
+	// 				icon: Book,
+	// 				label: 'Access Framework',
+	// 			},
+	// 			features: [
+	// 				'Problem validation guide',
+	// 				'Market size calculator',
+	// 				'Customer interview templates',
+	// 				'MVP scope planner',
+	// 			],
+	// 			tags: ['validation', 'startup', 'framework'],
+	// 		},
+	// 	],
+	// },
+	// {
+	// 	category: 'Technical Guides',
+	// 	icon: Book,
+	// 	items: [
+	// 		{
+	// 			title: 'Local Payment Integration Guide',
+	// 			description:
+	// 				'Comprehensive guide for integrating M-PESA and other local payment solutions in East African startups.',
+	// 			link: '/resources/payment-guide',
+	// 			price: 'Free',
+	// 			category: 'guide',
+	// 			action: {
+	// 				icon: Coins,
+	// 				label: 'View Guide',
+	// 			},
+	// 			features: [
+	// 				'M-PESA integration steps',
+	// 				'Paystack implementation',
+	// 				'Security best practices',
+	// 				'Code examples',
+	// 			],
+	// 			techStack: [
+	// 				{ name: 'Node.js', icon: Code },
+	// 				{ name: 'Next.js', icon: Code },
+	// 			],
+	// 			tags: ['payments', 'integration', 'fintech'],
+	// 		},
+	// 	],
+	// },
 ]

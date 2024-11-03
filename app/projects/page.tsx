@@ -1,11 +1,16 @@
-import { ArrowRight, Star } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { MyBreadcrumb } from '@/components/MyBreadcrumb'
-import ProjectCard from '@/components/ProjectCard'
 import { Metadata } from 'next'
 import { ProjectGrid } from '@/components/app-projects-project-grid'
 
-export type Project = {
+export const metadata: Metadata = {
+	title: 'Farajabien - Project Portfolio',
+	description:
+		'Showcasing a diverse portfolio of projects across industries, including real estate, e-commerce, and gaming. Discover how Farajabien leverages Next.js and modern technologies to deliver impactful solutions.',
+}
+
+// lib/portfolio-data.ts
+
+export interface Project {
 	title: string
 	industry: string
 	category?: string
@@ -16,12 +21,11 @@ export type Project = {
 	features?: string[]
 	servicesDelivered?: string[]
 	lessons?: string
-}
-
-export const metadata: Metadata = {
-	title: 'Farajabien - Project Portfolio',
-	description:
-		'Showcasing a diverse portfolio of projects across industries, including real estate, e-commerce, and gaming. Discover how Farajabien leverages Next.js and modern technologies to deliver impactful solutions.',
+	metrics?: {
+		label: string
+		value: string
+	}[]
+	status: 'live' | 'completed' | 'in-progress'
 }
 
 const projects: Project[] = [
@@ -29,200 +33,95 @@ const projects: Project[] = [
 		title: 'RentFlow',
 		industry: 'Real Estate',
 		category: 'Property Management',
-		subtitle: 'Comprehensive Property Management Platform',
+		subtitle: 'Property Management Platform',
 		description:
-			'A comprehensive property management platform designed to optimize interactions between property owners, tenants, and service providers, enhancing efficiency and communication. RentFlow aims to streamline property management tasks and improve user experiences.',
-		link: 'https://RentFlow.fbien.com',
-		technologies: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL'],
+			'Transforming rent collection for property managers through automation and smart technology',
+		link: 'https://rentflow.fbien.com',
+		technologies: ['Next.js', 'Supabase', 'WhatsApp API', 'Paystack'],
 		features: [
-			'Robust tenant management system for seamless interactions',
-			'Maintenance request tracking to ensure timely responses',
-			'Automated billing features for hassle-free transactions',
-			'Intuitive property listing portal to attract potential tenants',
-			'Real-time financial reporting for property owners',
-			'Customizable dashboard for a personalized user experience',
+			'Automated WhatsApp & SMS reminders',
+			'M-PESA and card payment integration',
+			'Real-time payment reconciliation',
+			'Property manager dashboard',
+			'Tenant portal with payment history',
 		],
 		servicesDelivered: [
-			'Technical Feasibility Analysis to assess project viability',
-			'Architecture Blueprint outlining system structure',
-			'Technology Stack Recommendation tailored for project needs',
-			'MVP Feature Scope & Budget estimation for initial launch',
-			'Landing Page Overview + Copy development for effective marketing',
+			'End-to-end platform development',
+			'Payment gateway integration',
+			'Automated notification system',
+			'User research and testing',
+			'Performance optimization',
+		],
+		metrics: [
+			{ label: 'Collection Rate', value: '95%' },
+			{ label: 'Properties Served', value: '20+' },
+			{ label: 'Monthly Transactions', value: '500K+ KES' },
+			{ label: 'Time Saved', value: '20hrs/month' },
 		],
 		lessons:
-			'This project underscored the necessity of thorough planning and adaptable architecture to accommodate complex business workflows. Engaging stakeholders early in the process proved crucial for aligning expectations and ensuring the project met real user needs.',
+			'The project demonstrated the power of automation in solving real business problems. Key learnings included the importance of local payment integration and user-friendly interfaces for non-technical users.',
+		status: 'live',
 	},
-
 	{
-		title: 'BingBang',
+		title: 'BingBang.bet',
 		industry: 'Gaming',
+		category: 'Betting Platform',
 		subtitle: 'Social Gaming Platform',
 		description:
-			'A vibrant social gaming platform that connects gamers from around the globe. It features integration with Random.ORG for unbiased game outcomes and Supabase for secure user authentication and data management.',
+			'Fair-play betting platform with unique game mechanics and secure payment processing',
 		link: 'https://bingbang.bet',
-		technologies: ['Next.js', 'Random.ORG', 'Supabase'],
+		technologies: ['Next.js', 'Supabase', 'Random.org API', 'Paystack'],
 		features: [
-			'Seamless user registration and login using Supabase',
-			'Real-time game outcomes powered by Random.ORG',
-			'Interactive user interface for engaging gameplay',
-			'Community features to foster social interactions among players',
-			'Analytics dashboard for tracking user engagement and game performance',
+			'Custom duel betting system',
+			'Secure random number generation',
+			'Integrated wallet system',
+			'Real-time transaction processing',
+			'Comprehensive admin dashboard',
 		],
 		servicesDelivered: [
-			'Prototype Development to validate game concepts',
-			'Technical Feasibility Analysis for project viability',
-			'User Testing to refine gameplay and user experience',
+			'Platform architecture design',
+			'Core betting engine development',
+			'Payment system integration',
+			'Security implementation',
+			'Performance optimization',
+		],
+		metrics: [
+			{ label: 'Daily Bets', value: '1000+' },
+			{ label: 'Transaction Success', value: '99.9%' },
+			{ label: 'User Growth', value: '40% MoM' },
 		],
 		lessons:
-			'This project demonstrated the importance of integrating reliable technologies for game fairness and user security. Early prototype development allowed us to gather player feedback, ensuring the platform met user expectations before launch.',
-	},
-	{
-		title: 'BiditWinit',
-		industry: 'E-commerce',
-		category: 'E-commerce',
-		description:
-			'A gamified online auction platform that utilizes user behavior insights to innovate auction formats and enhance user engagement. The platform is designed to create a fun and competitive bidding environment.',
-		link: '#',
-		technologies: ['React', 'Node.js', 'MongoDB'],
-		features: [
-			'Diverse auction formats that adapt based on user preferences',
-			'In-depth user behavior analytics for informed decision-making',
-			'Engaging TikTok integration to boost user interaction',
-			'Feedback-driven development for continuous improvement',
-			'Dynamic notifications to keep users updated on auction activity',
-		],
-		servicesDelivered: [
-			'In-depth Market Research to identify user needs and preferences',
-			'Comprehensive Platform Development for robust functionality',
-			'User Testing to refine the user experience and auction formats',
-		],
-		lessons:
-			"This venture highlighted the significance of leveraging social media for user insights. The initial focus on TikTok provided valuable data on user engagement, informing the platform's development and marketing strategy.",
+			'Building a betting platform highlighted the critical nature of transaction security and fair play mechanisms. The integration with Random.org proved essential for maintaining user trust.',
+		status: 'live',
 	},
 	{
 		title: 'ESG Score Visualization',
 		industry: 'Finance',
-		subtitle: 'Frontend Development at Minklist Digital',
+		category: 'Data Visualization',
+		subtitle: 'ESG Data Platform at Minklist Digital',
 		description:
-			'Developed user-friendly charts and graphs to visualize complex ESG data using Next.js and React, facilitating better decision-making in sustainability practices.',
-		link: 'https://in-house.com',
-		technologies: ['Next.js', 'React'],
+			'Interactive visualization platform for complex ESG (Environmental, Social, Governance) metrics',
+		technologies: ['React', 'Next.js', 'D3.js'],
 		features: [
-			'Interactive visualizations for complex ESG metrics',
-			'Customizable dashboards for user preferences',
-			'Real-time data updates for accurate insights',
+			'Real-time data visualization',
+			'Interactive dashboards',
+			'Custom reporting tools',
+			'Performance optimization',
 		],
 		servicesDelivered: [
-			'UI/UX Design for intuitive user navigation',
-			'Frontend Development to implement interactive charts',
-			'User Testing to enhance usability and functionality',
+			'Frontend architecture design',
+			'Chart component development',
+			'API integration',
+			'Performance optimization',
+		],
+		metrics: [
+			{ label: 'Load Time', value: '-40%' },
+			{ label: 'User Engagement', value: '+60%' },
+			{ label: 'Data Points', value: '1000+' },
 		],
 		lessons:
-			'This project reinforced the importance of clear data visualization in decision-making processes. Feedback from users helped refine the visualizations, ensuring they effectively communicated complex information.',
-	},
-	{
-		title: 'Linha Verde Project',
-		industry: 'Non-profit',
-		subtitle: 'World Food Programme',
-		description:
-			'Created tailored project management tools to enhance operational efficiency for the World Food Programme. This internal tool is vital for critical mission operations.',
-		technologies: ['React', 'Node.js'],
-		features: [
-			'Customizable project tracking for various initiatives',
-			'Collaboration tools for team communication',
-			'Real-time reporting for transparency and accountability',
-		],
-		servicesDelivered: [
-			'Needs Assessment to identify operational requirements',
-			'Platform Development for improved project management',
-			'Training and Support for end-users to maximize tool utilization',
-		],
-		lessons:
-			'This project highlighted the necessity of understanding user needs in a non-profit context. Engaging with end-users during development ensured the tool effectively supported their operational workflows.',
-	},
-	{
-		title: 'Academic Now',
-		industry: 'Education',
-		subtitle: 'Educational Platform',
-		description:
-			'Provided mentorship to intern Fathi Hassan in the development of this educational platform, offering project planning, code reviews, and oversight throughout the development process.',
-		link: 'https://academic-now.vercel.app/',
-		technologies: ['React', 'Firebase', 'Tailwind CSS'],
-		features: [
-			'Course management system for easy content organization',
-			'Student performance tracking for personalized learning',
-			'Interactive quizzes and assessments for knowledge retention',
-		],
-		servicesDelivered: [
-			'Mentorship and Guidance to foster intern development',
-			'Code Reviews to ensure best practices',
-			'User Testing to validate educational effectiveness',
-		],
-		lessons:
-			'Mentoring provided valuable insights into fostering a collaborative learning environment. The experience emphasized the importance of constructive feedback in skill development.',
-	},
-	{
-		title: 'SugarDaddy',
-		industry: 'Food & Beverage',
-		subtitle: 'Sugar Cane Juice Parlour in Nairobi',
-		description:
-			'Supervised intern Fathi Hassan in creating a website for this local Nairobi business, providing guidance on design and implementation best practices.',
-		// link: '#',
-		technologies: ['HTML', 'CSS', 'JavaScript'],
-		features: [
-			'Responsive design for mobile and desktop users',
-			'Online menu showcasing available products',
-			'Contact form for customer inquiries and feedback',
-		],
-		servicesDelivered: [
-			'Web Design and Development for user-friendly navigation',
-			'Branding Consultation to create a cohesive online presence',
-			'Training for the business owner to manage content updates',
-		],
-		lessons:
-			'Working with local businesses reinforced the significance of understanding their unique needs. The project highlighted the impact of a well-designed website on customer engagement.',
-	},
-	{
-		title: 'VR Space',
-		industry: 'Technology',
-		subtitle: 'Virtual Reality Solutions',
-		description:
-			'Led the development of the VR Space website, delivering immersive virtual reality experiences across sectors like real estate and education. Oversaw the team, resolved critical bugs, and optimized SEO, achieving a #1 Google ranking for "VR gaming Nairobi".',
-		link: 'http://vrspace.co.ke/',
-		technologies: ['Vue.js', 'CSS', 'JavaScript'],
-		features: [
-			'Immersive VR experiences tailored for various sectors',
-			'User-friendly interface for easy navigation',
-			'SEO optimization for increased visibility',
-		],
-		servicesDelivered: [
-			'Team Leadership to ensure project alignment and quality',
-			'Technical Support to resolve issues during development',
-			'SEO Strategy Implementation for improved online presence',
-		],
-		lessons:
-			'This project emphasized the need for strong team collaboration in delivering complex solutions. Achieving a high Google ranking underscored the importance of effective SEO strategies in driving traffic.',
-	},
-	{
-		title: 'Kwetunova',
-		industry: 'Technology',
-		subtitle: 'Web Agency Website',
-		description:
-			'The official website for Kwetunova web agency, showcasing their services and portfolio.',
-		link: 'https://kwetunova-3.vercel.app',
-		technologies: ['Next.js', 'Tailwind CSS', 'Shadcn/ui'],
-		features: [
-			'Portfolio showcase to highlight previous work',
-			'Service descriptions for clear understanding of offerings',
-			'Contact forms for potential client inquiries',
-		],
-		servicesDelivered: [
-			'Web Design and Development to enhance online visibility',
-			'Content Strategy for effective messaging',
-			'Training for agency staff to manage updates',
-		],
-		lessons:
-			'Building this website reinforced the importance of showcasing work effectively. Clear communication of services and an intuitive design are crucial for attracting clients in a competitive market.',
+			'This project reinforced the importance of performance optimization when dealing with large datasets and complex visualizations.',
+		status: 'completed',
 	},
 ]
 

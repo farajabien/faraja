@@ -1,0 +1,39 @@
+{
+  "downloads": [
+    {
+      "id": "b683540f-b586-4937-82cc-cf9f2e19757e",
+      "resource": "pitch-deck",
+      "timestamp": "2024-11-03T11:25:13.977Z",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+      "ipAddress": "::1"
+    },
+    {
+      "id": "c154b404-d849-4fa5-a4b5-93e9d54ddcd6",
+      "resource": "pitch-deck",
+      "timestamp": "2024-11-03T11:27:05.477Z",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+      "ipAddress": "::1"
+    },
+    {
+      "id": "02663412-97fe-4376-b9fc-41e38cb4606f",
+      "resource": "pitch-deck",
+      "timestamp": "2024-11-03T11:30:19.329Z",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+      "ipAddress": "::1"
+    },
+    {
+      "id": "6232833e-9204-4595-9ca0-03f9c2d70862",
+      "resource": "pitch-deck",
+      "timestamp": "2024-11-03T11:31:31.535Z",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+      "ipAddress": "::1"
+    },
+    {
+      "id": "07e285d0-731e-4ae7-a6e7-22f24e3f4348",
+      "resource": "pitch-deck",
+      "timestamp": "2024-11-03T11:32:54.822Z",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1",
+      "ipAddress": "::1"
+    }
+  ]
+}

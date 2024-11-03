@@ -1,23 +1,27 @@
-import React from 'react'
+import { LucideIcon } from 'lucide-react'
 
 export type Resource = {
+	id: string
 	title: string
 	description: string
-	link: string
 	price: string
-	action?: {
-		icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
-		label: string
-	}
-	features?: string[]
+	features: string[]
+	tags: string[]
+	previewUrl?: string
+	downloadUrl: string
+	category?: string
 	techStack?: {
 		name: string
-		icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+		icon: LucideIcon
 	}[]
 }
 
-export type Category = {
+export type ResourceCategory = {
 	category: string
-	icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+	items: Resource[]
+}
+
+export type CategorySection = {
+	category: string
 	items: Resource[]
 }
