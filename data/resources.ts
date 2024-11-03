@@ -82,31 +82,31 @@ export const resources: Category[] = [
 			},
 		],
 	},
-	// {
-	// 	category: 'Validation Tools',
-	// 	icon: FileCheck,
-	// 	items: [
-	// 		{
-	// 			title: 'Startup Validation Framework',
-	// 			description:
-	// 				'Step-by-step framework to validate your startup idea before building. Based on real experience with East African startups.',
-	// 			link: '/resources/validation-framework',
-	// 			price: 'Free',
-	// 			category: 'tool',
-	// 			action: {
-	// 				icon: Book,
-	// 				label: 'Access Framework',
-	// 			},
-	// 			features: [
-	// 				'Problem validation guide',
-	// 				'Market size calculator',
-	// 				'Customer interview templates',
-	// 				'MVP scope planner',
-	// 			],
-	// 			tags: ['validation', 'startup', 'framework'],
-	// 		},
-	// 	],
-	// },
+	{
+		category: 'Validation Tools',
+		icon: FileCheck,
+		items: [
+			{
+				title: 'Startup Validation Framework',
+				description:
+					'Step-by-step framework to validate your startup idea before building. Based on real experience with East African startups.',
+				link: '/resources/validation-framework',
+				price: 'Free',
+				category: 'tool',
+				action: {
+					icon: Book,
+					label: 'Access Framework',
+				},
+				features: [
+					'Problem validation guide',
+					'Market size calculator',
+					'Customer interview templates',
+					'MVP scope planner',
+				],
+				tags: ['validation', 'startup', 'framework'],
+			},
+		],
+	},
 	// {
 	// 	category: 'Technical Guides',
 	// 	icon: Book,

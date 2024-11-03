@@ -9,9 +9,6 @@ import {
 	CheckCircle,
 	Eye,
 	ExternalLink,
-	Target,
-	Code,
-	FileText,
 	ExternalLink as LinkIcon,
 } from 'lucide-react'
 import { Metadata } from 'next'
@@ -40,7 +37,7 @@ const resources = [
 					'Investment ask structure',
 				],
 				tags: ['pitch deck', 'startup', 'fundraising'],
-				previewUrl: 'https://docs.google.com/presentation/d/preview',
+				previewUrl: '#',
 				downloadUrl: '/resources/pitch-deck',
 			},
 		],
@@ -61,8 +58,9 @@ const resources = [
 					'Assumption testing tools',
 				],
 				tags: ['validation', 'startup', 'framework'],
-				previewUrl: 'https://www.notion.so/preview',
-				downloadUrl: '/resources/validation-framework',
+				previewUrl: '#',
+				downloadUrl:
+					'https://warm-pantry-ee2.notion.site/Validate-Before-You-Build-c0ba51f38a8c4c78b6ba0650b44d0ca5',
 			},
 		],
 	},
@@ -104,7 +102,7 @@ const ResourceCard = ({ resource }: { resource: Resource }) => (
 		</CardContent>
 
 		<CardFooter className='flex gap-2'>
-			{resource.previewUrl && (
+			{resource.previewUrl && resource.previewUrl !== '#' && (
 				<Button variant='outline' className='flex-1' asChild>
 					<a
 						href={resource.previewUrl}
