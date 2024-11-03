@@ -19,9 +19,19 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-	title: 'Farajabien - Transform Your Startup Ideas into Reality',
+	title: {
+		default: 'Technical Co-Founder Services | Farajabien',
+		template: '%s | Farajabien',
+	},
 	description:
-		"Unlock your startup's potential with expert guidance from Farajabien. Specializing in prototype strategy consulting, technical architecture, and tailored support for tech startups.",
+		'Transform your startup ideas into reality with expert technical co-founder services. Specializing in MVP development, technical architecture, and startup validation for East African founders.',
+	keywords: [
+		'technical co-founder',
+		'startup development',
+		'MVP development',
+		'East Africa',
+		'startup validation',
+	],
 }
 
 export default function RootLayout({

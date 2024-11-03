@@ -27,6 +27,19 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { PackageType, services } from '@/lib/utils'
 import BookCalendly from '@/components/BookCalendly'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+	title: 'Startup Development Services & Packages',
+	description:
+		'Structured service packages for startup development. From 25K KSH idea validation sprints to full MVP development. Clear deliverables and proven process.',
+	openGraph: {
+		title: 'Technical Services for Startups | Idea to MVP',
+		description:
+			'Transform your startup idea into reality with our structured development packages.',
+		images: ['/images/og-services.png'],
+	},
+}
 
 const ServicesPage = () => {
 	return (

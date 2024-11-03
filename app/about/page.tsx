@@ -6,6 +6,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import TikTokEmbed from '@/components/TikTokEmbed'
 import FeaturedBlogPosts from '@/components/FeaturedBlogPosts'
+import { Metadata } from 'next'
+
+// app/about/page.tsx - About page metadata
+export const metadata: Metadata = {
+	title: 'About Bienvenu Faraja - Technical Co-Founder',
+	description:
+		'5+ years experience building successful startups in East Africa. Expertise in Next.js, React, and local payment integrations. Featured projects include RentFlow with 95% collection rates.',
+	openGraph: {
+		title: 'Bienvenu Faraja - Technical Co-Founder & Full Stack Developer',
+		description:
+			'Building successful startups in East Africa with modern tech stack and local market expertise.',
+		images: ['/images/og-about.png'],
+	},
+}
 
 const AboutPage = () => {
 	return (
