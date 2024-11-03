@@ -57,7 +57,7 @@
 - **Process-Driven Design**: Tailored content and UX to align with a clear startup validation and MVP development framework.
 - **Conversion-Focused Copywriting**: Developed landing page copy to effectively communicate value and drive conversions.
 
-#### Sample Code (if applicable)
+#### Sample Code
 
 _Example of JSON file structure used to manage service data_:
 
