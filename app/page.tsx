@@ -93,7 +93,7 @@ export default function Home() {
 					{/* Profile Section */}
 					<div className='flex items-center justify-center gap-6 pt-8'>
 						<Image
-							src='/images/profile.jpg'
+							src='https://media.licdn.com/dms/image/v2/D4D03AQH_C3vhrK9h8Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1686893823252?e=1736380800&v=beta&t=1Pl3cgGnmE_30VyWJ02C879heOEa7pL2pp1OtX4Gt-E'
 							alt='Bienvenu Faraja'
 							width={80}
 							height={80}
