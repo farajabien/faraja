@@ -6,6 +6,7 @@ import ThemeToggle from '@/components/ThemeToggle'
 import { Providers } from './providers'
 import Footer from '@/components/Footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Navigation from '@/components/Navigation'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -44,6 +45,7 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground px-8 sm:px-20`}>
 				<Providers>
+					<Navigation />
 					<ThemeToggle />
 					<NextTopLoader />
 					{children}

@@ -28,6 +28,7 @@ import { Progress } from '@/components/ui/progress'
 import { PackageType, services } from '@/lib/utils'
 import BookCalendly from '@/components/BookCalendly'
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
 	title: 'Startup Development Services & Packages',
@@ -109,63 +110,69 @@ const ServiceCard = ({ service }: { service: PackageType }) => {
 				</div>
 			)}
 
-			<CardHeader>
-				<CardTitle className='text-xl font-semibold flex items-center gap-2'>
-					{service.name}
-					{service.savings && (
-						<Badge variant='secondary' className='ml-2'>
-							Save {service.savings}
-						</Badge>
-					)}
-				</CardTitle>
-				<CardDescription>{service.description}</CardDescription>
-			</CardHeader>
+			<Link href={`/services/${service.slug}`} className='flex-grow'>
+				<CardHeader>
+					<CardTitle className='text-xl font-semibold flex items-center gap-2'>
+						{service.name}
+						{service.savings && (
+							<Badge variant='secondary' className='ml-2'>
+								Save {service.savings}
+							</Badge>
+						)}
+					</CardTitle>
+					<CardDescription>{service.description}</CardDescription>
+				</CardHeader>
 
-			<CardContent className='flex-grow space-y-6'>
-				<div className='flex justify-between items-center'>
-					<div className='text-2xl font-bold text-primary'>{service.price}</div>
-					<div className='flex items-center gap-2 text-sm text-muted-foreground'>
-						<Clock className='w-4 h-4' />
-						{service.deliveryTime}
-					</div>
-				</div>
-
-				<div className='space-y-4'>
-					{service.deliverables && (
-						<div className='space-y-2'>
-							<h4 className='font-medium'>What&apos;s Included:</h4>
-							<ul className='space-y-2'>
-								{service.deliverables.map((item) => (
-									<li key={item.name} className='flex items-start gap-2'>
-										<CheckCircle className='w-4 h-4 text-primary mt-1' />
-										<span className='text-sm'>{item.name}</span>
-									</li>
-								))}
-							</ul>
+				<CardContent className='flex-grow space-y-6'>
+					<div className='flex justify-between items-center'>
+						<div className='text-2xl font-bold text-primary'>
+							{service.price}
 						</div>
-					)}
+						<div className='flex items-center gap-2 text-sm text-muted-foreground'>
+							<Clock className='w-4 h-4' />
+							{service.deliveryTime}
+						</div>
+					</div>
 
-					{service.details && (
-						<div className='space-y-2'>
-							<h4 className='font-medium'>Process:</h4>
-							{
-								// @ts-ignore
-								service.details.map((detail, index: number) => (
+					<div className='space-y-4'>
+						{service.deliverables && (
+							<div className='space-y-2'>
+								<h4 className='font-medium'>What&apos;s Included:</h4>
+								<ul className='space-y-2'>
+									{service.deliverables.map((item) => (
+										<li key={item.name} className='flex items-start gap-2'>
+											<CheckCircle className='w-4 h-4 text-primary mt-1' />
+											<span className='text-sm'>{item.name}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
+
+						{service.details && (
+							<div className='space-y-2'>
+								<h4 className='font-medium'>Process:</h4>
+								{service.details.map((detail, index) => (
 									<div key={index} className='bg-secondary/10 p-3 rounded-lg'>
 										<h5 className='font-medium text-sm'>{detail.subtitle}</h5>
 										<p className='text-sm text-muted-foreground whitespace-pre-line'>
 											{detail.content}
 										</p>
 									</div>
-								))
-							}
-						</div>
-					)}
-				</div>
-			</CardContent>
+								))}
+							</div>
+						)}
+					</div>
+				</CardContent>
+			</Link>
 
 			<CardFooter className='border-t pt-4'>
-				<Button className='w-full'>Schedule Consultation</Button>
+				<div className='w-full space-y-3'>
+					<Button asChild className='w-full'>
+						<Link href={`/services/${service.slug}`}>View Details</Link>
+					</Button>
+					<BookCalendly className='w-full' text='Schedule Discovery Call' />
+				</div>
 			</CardFooter>
 		</Card>
 	)

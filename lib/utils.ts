@@ -140,23 +140,27 @@ export type PackageType = {
 	deliveryTime: string
 	addOns?: AddOn[] // Optional addOns field
 	details: PackageDetailType[] // New field for package details
+	slug: string
 }
 
-export type ServiceType = {
+export interface ServiceType {
 	title: string
 	description: string
+	type: string
+	slug: string
 	packages: PackageType[]
-	type?: string
 }
 export const services: ServiceType[] = [
 	{
 		title: 'Technical Co-Founder Services',
+		slug: 'technical-co-founder-services',
 		description:
 			'Transform your startup vision into reality with proven technical expertise and strategic guidance.',
 		type: 'technical',
 		packages: [
 			{
 				name: 'Startup Validation Sprint',
+				slug: 'startup-validation-sprint',
 				description:
 					'Validate your idea and get market-ready in 2 weeks with our proven framework',
 				price: '25,000 KSH',
@@ -192,6 +196,7 @@ export const services: ServiceType[] = [
 			},
 			{
 				name: 'MVP Development Sprint',
+				slug: 'mvp-development-sprint',
 				description:
 					'Get your first working product in front of users within 4 weeks',
 				price: 'Starting at 150,000 KSH',
@@ -238,12 +243,14 @@ export const services: ServiceType[] = [
 	},
 	{
 		title: 'Growth & Scale Services',
+		slug: 'growth-scale-services',
 		description:
 			'Technical solutions to help your startup grow and scale efficiently',
 		type: 'growth',
 		packages: [
 			{
 				name: 'Technical Growth Package',
+				slug: 'technical-growth-package',
 				description:
 					'Optimize your product for scale and implement growth features',
 				price: '100,000 KSH',
@@ -277,6 +284,7 @@ export const services: ServiceType[] = [
 			},
 			{
 				name: 'Startup CTO Support',
+				slug: 'startup-cto-support',
 				description: 'Ongoing technical leadership and development support',
 				price: '75,000 KSH/month',
 				deliveryTime: 'Monthly',
