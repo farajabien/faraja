@@ -24,6 +24,13 @@ const blogPosts = [
 			'Discover how SaaS can transform startup scalability in Africa...',
 		link: 'https://medium.com/@faraja.bien/how-saas-can-help-you-build-scalable-startups-in-africa-346532fbdd3c',
 	},
+
+	{
+		title: '✅ Problem & Solution Validation: A Simple Practical Guide 🎯',
+		description:
+			'A straightforward approach to validating problem-solution fit in startup development...',
+		link: 'https://medium.com/@faraja.bien/problem-solution-validation-a-simple-practicalguide-376a38d0ab8e',
+	},
 	{
 		title:
 			'Why Investors are Betting on SaaS in Africa: Building Startups That Scale',
