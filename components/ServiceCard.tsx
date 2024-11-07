@@ -10,6 +10,7 @@ import {
 	CheckCircle,
 	Info,
 	ChevronDown,
+	Code,
 } from 'lucide-react'
 import {
 	Card,
@@ -32,6 +33,7 @@ import {
 } from '@/components/ui/popover'
 import { Button } from '@/components/ui/button'
 import { PackageType, DeliverableType, AddOn } from '@/lib/utils'
+import Link from 'next/link'
 
 const getFileIcon = (type: DeliverableType['type']) => {
 	switch (type) {
@@ -107,105 +109,122 @@ export default function ServiceCardCompact({
 	}
 
 	return (
-		<Card
-			className={`
+		<Link href={`/services/${pkg.slug}`}>
+			<Card
+				className={`
         flex flex-col transform transition-all duration-300 hover:scale-[1.02]
         ${isFeatured ? 'border-primary shadow-lg relative' : 'hover:shadow-md'}
       `}>
-			{isFeatured && (
-				<div className='absolute -top-4 left-1/2 -translate-x-1/2'>
-					<Badge className='bg-primary text-primary-foreground px-4 py-1 text-sm'>
-						Most Popular
-					</Badge>
-				</div>
-			)}
-
-			<CardHeader
-				className={`
-          ${isFeatured ? 'bg-primary/5 border-b border-primary/20' : ''}
-          pb-6
-        `}>
-				<div className='space-y-2'>
-					<div className='flex justify-between items-start'>
-						<CardTitle className='text-2xl font-bold'>{pkg.name}</CardTitle>
-					</div>
-					<div className='flex items-baseline'>
-						<span className='text-3xl font-bold'>{pkg.price}</span>
-						{pkg.savings && (
-							<Badge variant='secondary' className='ml-2 bg-green-100'>
-								{pkg.savings}
-							</Badge>
-						)}
-					</div>
-				</div>
-			</CardHeader>
-
-			<CardContent className='flex-grow space-y-6'>
-				<div className='flex items-center justify-between'>
-					<div className='flex items-center text-muted-foreground'>
-						<Calendar className='w-4 h-4 mr-2' />
-						<span className='text-sm'>Delivery in {pkg.turnaround}</span>
-					</div>
-					{pkg.deliverables && pkg.deliverables.length > 0 && (
-						<DeliverablesSummary deliverables={pkg.deliverables} />
-					)}
-				</div>
-
-				{pkg.bestFor && (
-					<div className='bg-secondary/30 p-3 rounded-lg'>
-						<p className='text-sm font-medium mb-2'>Best For:</p>
-						<ul className='space-y-1'>
-							{pkg.bestFor.map((item) => (
-								<li key={item} className='text-sm text-muted-foreground'>
-									• {item}
-								</li>
-							))}
-						</ul>
+				{isFeatured && (
+					<div className='absolute -top-4 left-1/2 -translate-x-1/2'>
+						<Badge className='bg-primary text-primary-foreground px-4 py-1 text-sm'>
+							Most Popular
+						</Badge>
 					</div>
 				)}
 
-				<div>
-					<div className='flex items-center mb-3'>
-						<span className='text-sm font-medium'>What&apos;s Included:</span>
-						<TooltipProvider>
-							<Tooltip>
-								<TooltipTrigger asChild>
-									<Info className='w-4 h-4 ml-2 text-muted-foreground cursor-help' />
-								</TooltipTrigger>
-								<TooltipContent>
-									<p className='text-sm'>
-										All features included in this package
-									</p>
-								</TooltipContent>
-							</Tooltip>
-						</TooltipProvider>
+				<CardHeader
+					className={`
+          ${isFeatured ? 'bg-primary/5 border-b border-primary/20' : ''}
+          pb-6
+        `}>
+					<div className='space-y-2'>
+						<div className='flex justify-between items-start'>
+							<CardTitle className='text-2xl font-bold'>{pkg.name}</CardTitle>
+						</div>
+						<div className='flex items-baseline'>
+							<span className='text-3xl font-bold'>{pkg.price}</span>
+							{pkg.savings && (
+								<Badge variant='secondary' className='ml-2 bg-green-100'>
+									{pkg.savings}
+								</Badge>
+							)}
+						</div>
 					</div>
-					<ul className='space-y-3'>
-						{pkg.details.map((item, index) => {
-							const { title, description } = splitIncludedItem(item.subtitle)
-							return (
-								<li key={index} className='flex items-start'>
-									<CheckCircle className='w-4 h-4 text-primary mr-2 mt-1 flex-shrink-0' />
-									<div className='flex flex-col'>
-										<span className='text-sm font-semibold leading-tight'>
-											{title}
-										</span>
-										{description && (
-											<span className='text-sm text-muted-foreground leading-tight'>
-												{description}
-											</span>
-										)}
-									</div>
-								</li>
-							)
-						})}
-					</ul>
-				</div>
-			</CardContent>
+				</CardHeader>
 
-			<CardFooter className='pt-6'>
-				<Button className='w-full'>Book Call for {pkg.name}</Button>
-			</CardFooter>
-		</Card>
+				<CardContent className='flex-grow space-y-6'>
+					<div className='flex items-center justify-between'>
+						<div className='flex items-center text-muted-foreground'>
+							<Calendar className='w-4 h-4 mr-2' />
+							<span className='text-sm'>Delivery in {pkg.turnaround}</span>
+						</div>
+						{pkg.deliverables && pkg.deliverables.length > 0 && (
+							<DeliverablesSummary deliverables={pkg.deliverables} />
+						)}
+					</div>
+
+					{pkg.bestFor && (
+						<div className='bg-secondary/30 p-3 rounded-lg'>
+							<p className='text-sm font-medium mb-2'>Best For:</p>
+							<ul className='space-y-1'>
+								{pkg.bestFor.map((item) => (
+									<li key={item} className='text-sm text-muted-foreground'>
+										• {item}
+									</li>
+								))}
+							</ul>
+						</div>
+					)}
+
+					<div>
+						<div className='flex items-center mb-3'>
+							<span className='text-sm font-medium'>What&apos;s Included:</span>
+							<TooltipProvider>
+								<Tooltip>
+									<TooltipTrigger asChild>
+										<Info className='w-4 h-4 ml-2 text-muted-foreground cursor-help' />
+									</TooltipTrigger>
+									<TooltipContent>
+										<p className='text-sm'>
+											All features included in this package
+										</p>
+									</TooltipContent>
+								</Tooltip>
+							</TooltipProvider>
+						</div>
+						<ul className='space-y-3'>
+							{pkg.details.map((item, index) => {
+								const { title, description } = splitIncludedItem(item.subtitle)
+								return (
+									<li key={index} className='flex items-start'>
+										<CheckCircle className='w-4 h-4 text-primary mr-2 mt-1 flex-shrink-0' />
+										<div className='flex flex-col'>
+											<span className='text-sm font-semibold leading-tight'>
+												{title}
+											</span>
+											{description && (
+												<span className='text-sm text-muted-foreground leading-tight'>
+													{description}
+												</span>
+											)}
+										</div>
+									</li>
+								)
+							})}
+						</ul>
+					</div>
+
+					{pkg.techStack && pkg.techStack.length > 0 && (
+						<div className='space-y-2'>
+							<div className='flex items-center gap-2'>
+								<Code className='w-4 h-4 text-muted-foreground' />
+								<span className='text-sm font-medium'>Tech Stack</span>
+							</div>
+							<div className='flex flex-wrap gap-2'>
+								{pkg.techStack.map((tech) => (
+									<Badge key={tech} variant='secondary' className='text-xs'>
+										{tech}
+									</Badge>
+								))}
+							</div>
+						</div>
+					)}
+				</CardContent>
+				<CardFooter className='pt-6'>
+					<Button className='w-full'>Book Call for {pkg.name}</Button>
+				</CardFooter>
+			</Card>
+		</Link>
 	)
 }

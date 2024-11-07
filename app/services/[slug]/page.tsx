@@ -98,6 +98,23 @@ export default async function ServicePage({ params }: { params: Params }) {
 								</div>
 							</CardContent>
 						</Card>
+						{pkg.techStack && (
+							<Card className='mb-12'>
+								<CardContent className='pt-6'>
+									<h2 className='text-xl font-semibold mb-4'>Tech Stack</h2>
+									<div className='flex flex-wrap gap-3'>
+										{pkg.techStack.map((tech, index) => (
+											<Badge
+												key={index}
+												variant='secondary'
+												className='flex items-center gap-2 px-3 py-1'>
+												<span>{tech}</span>
+											</Badge>
+										))}
+									</div>
+								</CardContent>
+							</Card>
+						)}
 					</div>
 
 					{pkg.addOns && (
@@ -112,8 +129,15 @@ export default async function ServicePage({ params }: { params: Params }) {
 											key={index}
 											className='flex items-start gap-2 p-4 bg-secondary/10 rounded-lg'>
 											<Plus className='h-5 w-5 text-primary mt-0.5' />
-											<div>
-												<div className='font-medium'>{addon.name}</div>
+											<div className='flex-grow'>
+												<div className='flex items-center justify-between'>
+													<div className='font-medium'>{addon.name}</div>
+													{addon.availability && (
+														<Badge variant='outline' className='text-xs'>
+															{addon.availability}
+														</Badge>
+													)}
+												</div>
 												<p className='text-sm text-muted-foreground'>
 													{addon.description}
 												</p>

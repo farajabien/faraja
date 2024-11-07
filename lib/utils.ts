@@ -114,12 +114,14 @@ export type AddOn = {
 	name: string
 	price: string
 	description: string
+	availability?: string // Optional availability field
 }
 
 export type DeliverableType = {
 	name: string
-	type: 'pdf' | 'doc' | 'design' | 'code' | 'consultation'
+	type: 'pdf' | 'doc' | 'design' | 'code' | 'consultation' | 'multiple'
 	icon?: string
+	details?: string // Optional details field
 }
 
 export type PackageDetailType = {
@@ -141,6 +143,7 @@ export type PackageType = {
 	addOns?: AddOn[] // Optional addOns field
 	details: PackageDetailType[] // New field for package details
 	slug: string
+	techStack?: string[] // Optional techStack field
 }
 
 export interface ServiceType {
@@ -162,36 +165,66 @@ export const services: ServiceType[] = [
 				name: 'Startup Validation Sprint',
 				slug: 'startup-validation-sprint',
 				description:
-					'Validate your idea and get market-ready in 2 weeks with our proven framework',
+					'Validate your startup idea with professional research tools and get an actionable analysis report in 2 weeks',
 				price: '25,000 KSH',
 				deliveryTime: '2 weeks',
 				overview:
-					'Complete validation package with landing page and initial market testing',
+					'Complete validation package including initial analysis report, custom survey creation, and research strategy',
 				isPopular: true,
 				deliverables: [
-					{ name: 'Market Validation Report', type: 'pdf' },
-					{ name: 'Tech Stack Analysis', type: 'pdf' },
-					{ name: 'Landing Page', type: 'code' },
-					{ name: 'Analytics Setup', type: 'code' },
+					{
+						name: 'Initial Analysis Report',
+						type: 'pdf',
+						details:
+							'Detailed review of your current business plan with specific areas to validate',
+					},
+					{
+						name: 'Custom Survey Package',
+						type: 'multiple',
+						details:
+							'Google Form (digital) and PDF (printable) versions with target questions',
+					},
+					{
+						name: 'Research Strategy Guide',
+						type: 'pdf',
+						details:
+							'Distribution plan, outreach templates, and data collection guide',
+					},
+					{
+						name: 'Competitor Analysis',
+						type: 'pdf',
+						details: 'Review compilation and feature comparison',
+					},
 				],
 				details: [
 					{
-						subtitle: 'Week 1: Strategy & Planning',
+						subtitle: 'Week 1: Analysis & Setup',
 						content:
-							'• Market research & competitor analysis\n• Tech stack recommendations\n• Feature prioritization\n• Cost & timeline estimations',
+							'• Initial business plan analysis\n' +
+							'• Custom survey design (Google Form + PDF)\n' +
+							'• Competitor research framework\n' +
+							'• Distribution strategy planning',
 					},
 					{
-						subtitle: 'Week 2: Implementation',
+						subtitle: 'Week 2: Implementation Support',
 						content:
-							'• Landing page development\n• Analytics integration\n• Lead capture setup\n• A/B testing framework',
+							'• Data collection methodology\n' +
+							'• Response analysis templates\n' +
+							'• Social media outreach templates\n' +
+							'• Recommendations for next steps',
 					},
 				],
 				addOns: [
 					{
-						name: 'Social Media Kit',
-						price: '15,000 KSH',
-						description: 'Custom social assets and content strategy',
+						name: 'Social Media Promotion',
+						price: '5,000 KSH',
+						description: 'Recommended ad budget for survey distribution',
 					},
+				],
+				bestFor: [
+					'Startups validating their idea',
+					'Founders doing market research',
+					'Teams needing data-driven decisions',
 				],
 			},
 			{
@@ -207,6 +240,12 @@ export const services: ServiceType[] = [
 					'Founders ready to build their first product',
 					'Startups seeking product-market fit',
 					'Companies needing technical validation',
+				],
+				techStack: [
+					'Next.js & React',
+					'Node.js backend',
+					'PostgreSQL database',
+					'AWS/Vercel deployment',
 				],
 				deliverables: [
 					{ name: 'Working MVP', type: 'code' },
@@ -236,6 +275,7 @@ export const services: ServiceType[] = [
 						name: 'Extended Support',
 						price: '30,000 KSH/month',
 						description: 'Ongoing technical support and maintenance',
+						availability: 'Up to 20 hours/month of technical consultation', // Optional field
 					},
 				],
 			},
