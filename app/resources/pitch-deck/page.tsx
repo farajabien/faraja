@@ -11,6 +11,24 @@ export const metadata: Metadata = {
 	title: 'Startup Pitch Deck Template | Faraja Bien',
 	description:
 		'Free pitch deck template based on successful East African startups. Includes complete structure and common mistakes to avoid.',
+	openGraph: {
+		type: 'website',
+		title: 'Startup Pitch Deck Template | Faraja Bien',
+		siteName: 'Faraja Bien',
+		locale: 'en_US',
+		images: [
+			{
+				url: '/images/resources/pitch-deck.png',
+				width: 1200,
+				height: 630,
+				alt: 'Startup Pitch Deck Template | Faraja Bien',
+				type: 'image/png',
+			},
+		],
+		description:
+			'Free pitch deck template based on successful East African startups. Includes complete structure and common mistakes to avoid.',
+		url: 'https://fbien.com/resources/pitch-deck',
+	},
 }
 
 export default function PitchDeckPage() {
