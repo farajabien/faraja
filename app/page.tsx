@@ -23,20 +23,9 @@ const achievements = [
 	{
 		title: 'RentFlow Development',
 		stats: '95% Collection Rate',
-		description: 'Property management SaaS across 20+ properties',
+		description:
+			'Efficient property management SaaS with automation across 20+ properties',
 		icon: Building,
-	},
-	{
-		title: 'BingBang Platform',
-		stats: '1000+ Daily Txns',
-		description: 'Scalable gaming platform with real-time processing',
-		icon: Trophy,
-	},
-	{
-		title: 'Investment Milestone',
-		stats: '$20K Raised',
-		description: 'Top 3 spot in SeedAFounder pitch competition',
-		icon: Target,
 	},
 ]
 
