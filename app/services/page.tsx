@@ -43,8 +43,8 @@ const services = [
 					'Responsive Design with Tailwind CSS',
 					'Documentation & Setup Guide',
 				],
-				cta: 'Clone Repository',
-				ctaLink: 'https://github.com/farajabien/next-saas-starter',
+				cta: 'View Demo',
+				ctaLink: 'https://saas-template.fbien.com',
 			},
 			{
 				name: 'Enhanced Template (With Paystack)',
