@@ -1,77 +1,57 @@
-// lib/resources.ts
-import {
-	Brush,
-	Code,
-	Star,
-	Triangle,
-	FileDown,
-	FileCheck,
-	Book,
-	Coins,
-} from 'lucide-react'
-
-export interface ResourceItem {
+// types/resources.ts
+export interface Resource {
+	id: string
 	title: string
 	description: string
-	link: string
 	price: string
-	action: {
-		icon: any
-		label: string
-	}
 	features: string[]
-	techStack?: { name: string; icon: any }[]
-	category: 'template' | 'guide' | 'tool'
-	tags?: string[]
+	tags: string[]
+	previewUrl?: string
+	detailsUrl?: string
+	downloadUrl?: string
+	isPremium: boolean
 }
 
-export interface Category {
+export interface ResourceCategory {
 	category: string
-	icon: any
-	items: ResourceItem[]
+	items: Resource[]
 }
 
-export const resources: Category[] = [
+// data/resources.ts
+export const resources: ResourceCategory[] = [
 	{
-		category: 'Templates',
-		icon: Code,
+		category: 'Premium Templates',
 		items: [
 			{
-				title: 'Enhanced Portfolio Template',
+				id: 'saas-template',
+				title: 'SaaS Starter Template',
 				description:
-					'Modern, responsive portfolio template built with Next.js and Tailwind CSS. Perfect for developers and technical founders.',
-				link: 'https://github.com/farajabien/faraja',
-				price: 'Free',
-				category: 'template',
-				action: {
-					icon: Star,
-					label: 'Star on GitHub',
-				},
+					'Production-ready template with Paystack integration for building subscription-based platforms.',
+				price: '45,000 KSH',
 				features: [
-					'Advanced responsive design',
-					'Dark and light mode support',
-					'Highly customizable sections',
-					'Advanced SEO features',
+					'Next.js 14 & TypeScript',
+					'Supabase Backend',
+					'Paystack Integration',
+					'Multi-Currency Support',
+					'Team Management',
+					'Usage-Based Billing',
 				],
-				techStack: [
-					{ name: 'Next.js', icon: Code },
-					{ name: 'Tailwind CSS', icon: Code },
-					{ name: 'Shadcn UI', icon: Brush },
-					{ name: 'Vercel', icon: Triangle },
-				],
-				tags: ['portfolio', 'next.js', 'template'],
+				tags: ['saas', 'template', 'paystack', 'subscription'],
+				previewUrl: 'https://demo.template.com',
+				detailsUrl: '/resources/saas-template',
+				isPremium: true,
 			},
+		],
+	},
+	{
+		category: 'Free Templates',
+		items: [
 			{
-				title: 'Startup Pitch Deck Template',
+				id: 'pitch-deck',
+				title: 'Startup Pitch Deck',
 				description:
-					"Professional pitch deck template based on 54 Collective's proven framework for East African startups.",
-				link: '/resources/pitch-deck',
+					'Professional pitch deck template based on proven frameworks for East African startups.',
 				price: 'Free',
-				category: 'template',
-				action: {
-					icon: FileDown,
-					label: 'Download Template',
-				},
 				features: [
 					'12 essential slides',
 					'Market sizing guide',
@@ -79,61 +59,31 @@ export const resources: Category[] = [
 					'Investment ask structure',
 				],
 				tags: ['pitch deck', 'startup', 'fundraising'],
+				downloadUrl: '/resources/pitch-deck',
+				isPremium: false,
 			},
 		],
 	},
 	{
-		category: 'Validation Tools',
-		icon: FileCheck,
+		category: 'Guides & Frameworks',
 		items: [
 			{
+				id: 'validation-framework',
 				title: 'Startup Validation Framework',
 				description:
-					'Step-by-step framework to validate your startup idea before building. Based on real experience with East African startups.',
-				link: '/resources/validation-framework',
+					'Step-by-step framework to validate your startup idea before building.',
 				price: 'Free',
-				category: 'tool',
-				action: {
-					icon: Book,
-					label: 'Access Framework',
-				},
 				features: [
 					'Problem validation guide',
-					'Market size calculator',
-					'Customer interview templates',
-					'MVP scope planner',
+					'Solution testing framework',
+					'Market sizing templates',
+					'Assumption testing tools',
 				],
 				tags: ['validation', 'startup', 'framework'],
+				downloadUrl:
+					'https://warm-pantry-ee2.notion.site/Validate-Before-You-Build-c0ba51f38a8c4c78b6ba0650b44d0ca5',
+				isPremium: false,
 			},
 		],
 	},
-	// {
-	// 	category: 'Technical Guides',
-	// 	icon: Book,
-	// 	items: [
-	// 		{
-	// 			title: 'Local Payment Integration Guide',
-	// 			description:
-	// 				'Comprehensive guide for integrating M-PESA and other local payment solutions in East African startups.',
-	// 			link: '/resources/payment-guide',
-	// 			price: 'Free',
-	// 			category: 'guide',
-	// 			action: {
-	// 				icon: Coins,
-	// 				label: 'View Guide',
-	// 			},
-	// 			features: [
-	// 				'M-PESA integration steps',
-	// 				'Paystack implementation',
-	// 				'Security best practices',
-	// 				'Code examples',
-	// 			],
-	// 			techStack: [
-	// 				{ name: 'Node.js', icon: Code },
-	// 				{ name: 'Next.js', icon: Code },
-	// 			],
-	// 			tags: ['payments', 'integration', 'fintech'],
-	// 		},
-	// 	],
-	// },
 ]

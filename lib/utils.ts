@@ -2,7 +2,16 @@
 
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { Github, Twitter, Mail, ExternalLink } from 'lucide-react'
+import {
+	Github,
+	Twitter,
+	Mail,
+	ExternalLink,
+	Code,
+	Zap,
+	CreditCard,
+	Shield,
+} from 'lucide-react'
 
 // CSS Class Helper
 export function cn(...inputs: ClassValue[]) {
@@ -151,218 +160,197 @@ export interface ServiceType {
 	description: string
 	type: string
 	slug: string
+	price: string
 	packages: PackageType[]
+	features?: string[]
+	cta: string // Call to action text
+	highlight?: boolean // Optional highlight field
+	href: string // Add href field
 }
+export const templateFeatures = [
+	{
+		category: 'Authentication & Users',
+		features: [
+			'Email & social login authentication',
+			'Role-based access control',
+			'Team management',
+			'User profile management',
+		],
+	},
+	{
+		category: 'Subscription & Payments',
+		features: [
+			'Paystack integration',
+			'Multiple subscription plans',
+			'Usage-based billing',
+			'Payment history',
+			'Invoicing',
+			'Multi-currency support',
+		],
+	},
+	{
+		category: 'Developer Experience',
+		features: [
+			'TypeScript for type safety',
+			'API documentation',
+			'Database migrations',
+			'Environment management',
+			'Pre-configured testing setup',
+		],
+	},
+	{
+		category: 'UI/UX',
+		features: [
+			'Responsive dashboard',
+			'Dark/light mode support',
+			'Loading states',
+			'Error handling',
+			'Toast notifications',
+		],
+	},
+]
+
+// Using the services data for pricing
 export const services: ServiceType[] = [
 	{
-		title: 'Technical Co-Founder Services',
-		slug: 'technical-co-founder-services',
+		title: 'Basic Template License',
+		price: '45,000 KSH',
 		description:
-			'Transform your startup vision into reality with proven technical expertise and strategic guidance.',
-		type: 'technical',
+			'Ideal for developers looking to quickly launch a SaaS platform',
+		features: [
+			'Full source code',
+			'Technical documentation',
+			'Video walkthrough',
+			'30 days email support',
+		],
+		cta: 'Get Started',
+		highlight: true,
+		href: 'https://github.com/farajabien/next-saas-starter',
+		type: 'basic',
+		slug: 'basic-template-license',
 		packages: [
 			{
-				name: 'Startup Validation Sprint',
-				slug: 'startup-validation-sprint',
-				description:
-					'Validate your startup idea with professional research tools and get an actionable analysis report in 2 weeks',
-				price: '25,000 KSH',
-				deliveryTime: '2 weeks',
-				overview:
-					'Complete validation package including initial analysis report, custom survey creation, and research strategy',
-				isPopular: true,
+				name: 'Basic Package',
+				price: '45,000 KSH',
+				overview: 'Basic package overview',
 				deliverables: [
-					{
-						name: 'Initial Analysis Report',
-						type: 'pdf',
-						details:
-							'Detailed review of your current business plan with specific areas to validate',
-					},
-					{
-						name: 'Custom Survey Package',
-						type: 'multiple',
-						details:
-							'Google Form (digital) and PDF (printable) versions with target questions',
-					},
-					{
-						name: 'Research Strategy Guide',
-						type: 'pdf',
-						details:
-							'Distribution plan, outreach templates, and data collection guide',
-					},
-					{
-						name: 'Competitor Analysis',
-						type: 'pdf',
-						details: 'Review compilation and feature comparison',
-					},
+					{ name: 'Source Code', type: 'code' },
+					{ name: 'Documentation', type: 'pdf' },
 				],
+				deliveryTime: '30 days',
 				details: [
-					{
-						subtitle: 'Week 1: Analysis & Setup',
-						content:
-							'• Initial business plan analysis\n' +
-							'• Custom survey design (Google Form + PDF)\n' +
-							'• Competitor research framework\n' +
-							'• Distribution strategy planning',
-					},
-					{
-						subtitle: 'Week 2: Implementation Support',
-						content:
-							'• Data collection methodology\n' +
-							'• Response analysis templates\n' +
-							'• Social media outreach templates\n' +
-							'• Recommendations for next steps',
-					},
+					{ subtitle: 'Source Code', content: 'Full source code' },
+					{ subtitle: 'Documentation', content: 'Technical documentation' },
 				],
-				addOns: [
-					{
-						name: 'Social Media Promotion',
-						price: '5,000 KSH',
-						description: 'Recommended ad budget for survey distribution',
-					},
-				],
-				bestFor: [
-					'Startups validating their idea',
-					'Founders doing market research',
-					'Teams needing data-driven decisions',
-				],
-			},
-			{
-				name: 'MVP Development Sprint',
-				slug: 'mvp-development-sprint',
-				description:
-					'Get your first working product in front of users within 4 weeks',
-				price: 'Starting at 150,000 KSH',
-				deliveryTime: '4 weeks',
-				isPopular: true,
-				overview: 'End-to-end MVP development with user testing and iterations',
-				bestFor: [
-					'Founders ready to build their first product',
-					'Startups seeking product-market fit',
-					'Companies needing technical validation',
-				],
-				techStack: [
-					'Next.js & React',
-					'Node.js backend',
-					'PostgreSQL database',
-					'AWS/Vercel deployment',
-				],
-				deliverables: [
-					{ name: 'Working MVP', type: 'code' },
-					{ name: 'Technical Documentation', type: 'pdf' },
-					{ name: 'User Testing Results', type: 'pdf' },
-					{ name: 'Deployment Guide', type: 'pdf' },
-				],
-				details: [
-					{
-						subtitle: 'Technical Architecture',
-						content:
-							'• System design & architecture\n• Database schema design\n• API documentation\n• Security implementation',
-					},
-					{
-						subtitle: 'Development Process',
-						content:
-							'• Agile development methodology\n• Weekly progress updates\n• Regular demo sessions\n• Iterative improvements',
-					},
-					{
-						subtitle: 'Launch Preparation',
-						content:
-							'• Deployment setup\n• Performance optimization\n• Security hardening\n• Analytics integration',
-					},
-				],
-				addOns: [
-					{
-						name: 'Extended Support',
-						price: '30,000 KSH/month',
-						description: 'Ongoing technical support and maintenance',
-						availability: 'Up to 20 hours/month of technical consultation', // Optional field
-					},
-				],
+				slug: 'basic-package',
 			},
 		],
 	},
 	{
-		title: 'Growth & Scale Services',
-		slug: 'growth-scale-services',
-		description:
-			'Technical solutions to help your startup grow and scale efficiently',
-		type: 'growth',
+		title: 'Template + Implementation',
+		price: '150,000 KSH',
+		description: 'Template with custom implementation and training',
+		features: [
+			'Everything in Basic License',
+			'Custom modifications',
+			'Deployment setup',
+			'Team training',
+		],
+		cta: 'Contact Us',
+		highlight: false,
+		href: 'https://wa.me/254793643308',
+		type: 'implementation',
+		slug: 'template-implementation',
 		packages: [
 			{
-				name: 'Technical Growth Package',
-				slug: 'technical-growth-package',
-				description:
-					'Optimize your product for scale and implement growth features',
-				price: '100,000 KSH',
-				deliveryTime: '3 weeks',
-				overview: 'Performance optimization and growth feature implementation',
+				name: 'Implementation Package',
+				price: '150,000 KSH',
+				overview: 'Implementation package overview',
 				deliverables: [
-					{ name: 'Performance Audit', type: 'pdf' },
-					{ name: 'Optimization Implementation', type: 'code' },
-					{ name: 'Growth Features', type: 'code' },
-					{ name: 'Analytics Dashboard', type: 'code' },
+					{ name: 'Custom Modifications', type: 'code' },
+					{ name: 'Deployment Setup', type: 'consultation' },
 				],
+				deliveryTime: '60 days',
 				details: [
-					{
-						subtitle: 'Performance Optimization',
-						content:
-							'• Load time optimization\n• Database optimization\n• Caching implementation\n• CDN setup',
-					},
-					{
-						subtitle: 'Growth Features',
-						content:
-							'• User onboarding flow\n• Referral system\n• Email integration\n• Analytics dashboard',
-					},
+					{ subtitle: 'Custom Modifications', content: 'Custom modifications' },
+					{ subtitle: 'Deployment Setup', content: 'Deployment setup' },
 				],
-				addOns: [
-					{
-						name: 'Custom Analytics',
-						price: '25,000 KSH',
-						description: 'Custom analytics setup and reporting',
-					},
-				],
+				slug: 'implementation-package',
 			},
+		],
+	},
+	{
+		title: 'Custom Development',
+		price: '75,000 KSH',
+		description: 'Add custom features to your SaaS application',
+		features: [
+			'New functionality development',
+			'Third-party integrations',
+			'Performance optimization',
+			'Custom features',
+		],
+		cta: 'Learn More',
+		highlight: false,
+		href: 'https://wa.me/254793643308',
+		type: 'custom',
+		slug: 'custom-development',
+		packages: [
 			{
-				name: 'Startup CTO Support',
-				slug: 'startup-cto-support',
-				description: 'Ongoing technical leadership and development support',
-				price: '75,000 KSH/month',
-				deliveryTime: 'Monthly',
-				overview: 'Technical strategy and hands-on development support',
+				name: 'Custom Package',
+				price: '75,000 KSH',
+				overview: 'Custom package overview',
 				deliverables: [
-					{ name: 'Technical Strategy', type: 'pdf' },
-					{ name: 'Code Reviews', type: 'code' },
-					{ name: 'Architecture Review', type: 'consultation' },
-					{ name: 'Sprint Planning', type: 'consultation' },
+					{ name: 'New Functionality', type: 'code' },
+					{ name: 'Third-party Integrations', type: 'code' },
 				],
+				deliveryTime: '45 days',
 				details: [
 					{
-						subtitle: 'Technical Leadership',
-						content:
-							'• Architecture planning\n• Tech stack decisions\n• Team guidance\n• Code review',
+						subtitle: 'New Functionality',
+						content: 'New functionality development',
 					},
 					{
-						subtitle: 'Development Support',
-						content:
-							'• Feature development\n• Bug fixes\n• Performance optimization\n• Security updates',
+						subtitle: 'Third-party Integrations',
+						content: 'Third-party integrations',
 					},
 				],
-				addOns: [
-					{
-						name: 'Emergency Support',
-						price: '15,000 KSH',
-						description: '24/7 emergency technical support',
-					},
-				],
+				slug: 'custom-package',
 			},
 		],
 	},
 ]
 
-// Function to extract packages
-const extractPackages = (services: ServiceType[]): PackageType[] => {
+export const valueProps = [
+	{
+		title: 'Built for Developers',
+		description:
+			'Clean, maintainable code using modern technologies, ready to be customized for your SaaS needs.',
+		icon: Code,
+	},
+	{
+		title: 'Speed Up Development',
+		description:
+			'Start with a working SaaS platform and avoid the hassle of building from scratch.',
+		icon: Zap,
+	},
+	{
+		title: 'African Market Focus',
+		description:
+			'With Paystack integration and multi-currency support, our templates are designed for startups targeting the African market.',
+		icon: CreditCard,
+	},
+	{
+		title: 'Expert Support',
+		description:
+			'Ongoing support and customization services ensure your SaaS platform evolves as you grow.',
+		icon: Shield,
+	},
+]
+
+// Function to extract all packages
+export const extractPackages = (services: ServiceType[]): PackageType[] => {
 	return services.flatMap((service) => service.packages)
 }
 
-// Usage
+// Export all packages
 export const allPackages = extractPackages(services)
