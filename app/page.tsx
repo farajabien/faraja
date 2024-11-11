@@ -12,6 +12,7 @@ import {
 	Target,
 	Terminal,
 	Boxes,
+	ExternalLink,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -98,6 +99,44 @@ export default function Component() {
 						I help startups and businesses build scalable SaaS platforms with
 						seamless payment integrations and modern tech stack
 					</p>
+
+					{/* Template Preview Section */}
+					<div className='mt-12 relative'>
+						<div className='relative rounded-xl overflow-hidden shadow-2xl border border-gray-200'>
+							<Image
+								width={1200}
+								height={600}
+								src='/images/next-saas-template.png'
+								alt='SaaS Template Preview'
+								className='w-full h-auto'
+							/>
+							<div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center p-8'>
+								<div className='text-white space-y-4'>
+									<h3 className='text-2xl font-bold'>SaaS Template Demo</h3>
+									<div className='flex gap-4 justify-center'>
+										<Button size='lg' variant='default' asChild>
+											<Link
+												href='https://saas-template.fbien.com'
+												className='flex items-center gap-2'>
+												<ExternalLink className='h-5 w-5' />
+												View Live Demo
+											</Link>
+										</Button>
+										<Button
+											size='lg'
+											variant='outline'
+											className='bg-white/10 backdrop-blur-sm'
+											asChild>
+											<Link href='/resources/saas-template'>
+												Learn More
+												<ArrowRight className='h-4 w-4 ml-2' />
+											</Link>
+										</Button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 					{/* Profile Section */}
 					<div className='flex items-center justify-center gap-6 pt-8'>
@@ -235,18 +274,23 @@ export default function Component() {
 			{/* CTA Section */}
 			<section className='py-16'>
 				<div className='container mx-auto px-4 text-center'>
-					<h2 className='text-3xl font-bold mb-4'>Need a SaaS Developer?</h2>
+					<h2 className='text-3xl font-bold mb-4'>Ready to Get Started?</h2>
 					<p className='text-xl text-muted-foreground mb-8 max-w-2xl mx-auto'>
-						Let&apos;s discuss your project and find the best approach for your
-						needs
+						Check out the live demo or get in touch to discuss your project
 					</p>
 					<div className='flex flex-col sm:flex-row gap-4 justify-center'>
-						<Button size='lg' asChild>
+						<Button size='lg' variant='default' asChild>
 							<Link
-								href='/resources/saas-template'
+								href='https://saas-template.fbien.com'
 								className='flex items-center gap-2'>
-								<Code className='h-5 w-5' />
-								View Services
+								<ExternalLink className='h-5 w-5' />
+								View Live Demo
+							</Link>
+						</Button>
+						<Button size='lg' variant='outline' asChild>
+							<Link href='/resources/saas-template'>
+								Learn More
+								<ArrowRight className='h-4 w-4 ml-2' />
 							</Link>
 						</Button>
 						<Button variant='outline' size='lg' asChild>
