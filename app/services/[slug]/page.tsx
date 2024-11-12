@@ -1,6 +1,6 @@
 import React from 'react'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, Clock, CheckCircle, Plus } from 'lucide-react'
+import { ArrowLeft, Clock, CheckCircle, Plus, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -15,7 +15,9 @@ export async function generateStaticParams() {
 		}))
 	)
 }
+
 type Params = Promise<{ slug: string }>
+
 export async function generateMetadata({ params }: { params: Params }) {
 	const { slug } = await params
 	const pkg = services
@@ -25,8 +27,8 @@ export async function generateMetadata({ params }: { params: Params }) {
 	if (!pkg) return {}
 
 	return {
-		title: `${pkg.name} - Technical Co-Founder Services`,
-		description: pkg.description,
+		title: `${pkg.name} - Product Development Services`,
+		description: pkg.overview,
 	}
 }
 
@@ -51,22 +53,50 @@ export default async function ServicePage({ params }: { params: Params }) {
 						</Button>
 					</Link>
 
+					{/* Header Section */}
 					<div className='mb-12'>
-						{pkg.isPopular && <Badge className='mb-4'>Most Popular</Badge>}
+						{pkg.isPopular && (
+							<Badge className='mb-4 bg-primary/10 text-primary'>
+								Most Popular
+							</Badge>
+						)}
+						{pkg.savings && (
+							<Badge variant='secondary' className='ml-2 mb-4'>
+								Save {pkg.savings}
+							</Badge>
+						)}
 						<h1 className='text-4xl font-bold mb-4'>{pkg.name}</h1>
-						<p className='text-xl text-muted-foreground mb-6'>
-							{pkg.description}
-						</p>
-						<div className='flex items-center gap-4'>
+						<p className='text-xl text-muted-foreground mb-6'>{pkg.overview}</p>
+						<div className='flex flex-wrap items-center gap-4'>
 							<div className='text-3xl font-bold'>{pkg.price}</div>
 							<div className='flex items-center text-muted-foreground'>
 								<Clock className='mr-2 h-4 w-4' />
 								{pkg.deliveryTime}
 							</div>
 						</div>
+
+						{/* Best For Section */}
+						{pkg.bestFor && (
+							<div className='mt-4'>
+								<h3 className='text-sm font-medium text-muted-foreground mb-2'>
+									Best For:
+								</h3>
+								<ul className='flex flex-wrap gap-2'>
+									{pkg.bestFor.map((item, index) => (
+										<li key={index}>
+											<Badge variant='secondary' className='text-xs'>
+												{item}
+											</Badge>
+										</li>
+									))}
+								</ul>
+							</div>
+						)}
 					</div>
 
+					{/* Main Content Grid */}
 					<div className='grid md:grid-cols-2 gap-8 mb-12'>
+						{/* Deliverables Card */}
 						<Card>
 							<CardContent className='pt-6'>
 								<h2 className='text-xl font-semibold mb-4'>
@@ -75,17 +105,27 @@ export default async function ServicePage({ params }: { params: Params }) {
 								<ul className='space-y-3'>
 									{pkg.deliverables.map((deliverable, index) => (
 										<li key={index} className='flex items-start gap-2'>
-											<CheckCircle className='h-5 w-5 text-primary mt-0.5' />
-											<span>{deliverable.name}</span>
+											<CheckCircle className='h-5 w-5 text-primary mt-0.5 shrink-0' />
+											<div>
+												<div className='font-medium'>{deliverable.name}</div>
+												{deliverable.details && (
+													<p className='text-sm text-muted-foreground'>
+														{deliverable.details}
+													</p>
+												)}
+											</div>
 										</li>
 									))}
 								</ul>
 							</CardContent>
 						</Card>
 
+						{/* Process Card */}
 						<Card>
 							<CardContent className='pt-6'>
-								<h2 className='text-xl font-semibold mb-4'>Process</h2>
+								<h2 className='text-xl font-semibold mb-4'>
+									Development Process
+								</h2>
 								<div className='space-y-4'>
 									{pkg.details.map((detail, index) => (
 										<div key={index}>
@@ -98,26 +138,30 @@ export default async function ServicePage({ params }: { params: Params }) {
 								</div>
 							</CardContent>
 						</Card>
-						{pkg.techStack && (
-							<Card className='mb-12'>
-								<CardContent className='pt-6'>
-									<h2 className='text-xl font-semibold mb-4'>Tech Stack</h2>
-									<div className='flex flex-wrap gap-3'>
-										{pkg.techStack.map((tech, index) => (
-											<Badge
-												key={index}
-												variant='secondary'
-												className='flex items-center gap-2 px-3 py-1'>
-												<span>{tech}</span>
-											</Badge>
-										))}
-									</div>
-								</CardContent>
-							</Card>
-						)}
 					</div>
 
-					{pkg.addOns && (
+					{/* Tech Stack Section */}
+					{pkg.techStack && (
+						<Card className='mb-12'>
+							<CardContent className='pt-6'>
+								<h2 className='text-xl font-semibold mb-4'>Tech Stack</h2>
+								<div className='flex flex-wrap gap-3'>
+									{pkg.techStack.map((tech, index) => (
+										<Badge
+											key={index}
+											variant='secondary'
+											className='flex items-center gap-2 px-3 py-1'>
+											<Zap className='h-3 w-3' />
+											<span>{tech}</span>
+										</Badge>
+									))}
+								</div>
+							</CardContent>
+						</Card>
+					)}
+
+					{/* Add-ons Section */}
+					{pkg.addOns && pkg.addOns.length > 0 && (
 						<Card className='mb-12'>
 							<CardContent className='pt-6'>
 								<h2 className='text-xl font-semibold mb-4'>
@@ -152,8 +196,12 @@ export default async function ServicePage({ params }: { params: Params }) {
 						</Card>
 					)}
 
-					<div className='text-center'>
+					{/* CTA Section */}
+					<div className='text-center space-y-4'>
 						<BookCalendly text='Schedule Consultation' />
+						<p className='text-sm text-muted-foreground'>
+							Free 30-minute consultation to discuss your project needs
+						</p>
 					</div>
 				</div>
 			</div>

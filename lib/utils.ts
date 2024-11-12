@@ -1,5 +1,3 @@
-// lib/utils.ts
-
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import {
@@ -11,44 +9,15 @@ import {
 	Zap,
 	CreditCard,
 	Shield,
+	Rocket,
+	Target,
+	Layout,
 } from 'lucide-react'
 
-// CSS Class Helper
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
 
-// Project Interface
-export interface Project {
-	title: string
-	subtitle: string
-	description: string
-	link?: string // Optional link
-	technologies: string[] // Array of tech stack used in the project
-}
-
-// SocialLink Interface
-export interface SocialLinkData {
-	href: string
-	icon: React.ComponentType<{ className?: string }>
-	label: string
-}
-
-// Tech Stack Interface
-export interface TechStackItem {
-	name: string
-}
-
-// Achievement Interface
-export interface Achievement {
-	title: string
-	description: string
-	link: string
-}
-
-// Sample Projects
-
-// Technology Stack
 export const techStack: TechStackItem[] = [
 	{ name: 'Next.js' },
 	{ name: 'Supabase' },
@@ -56,10 +25,10 @@ export const techStack: TechStackItem[] = [
 	{ name: 'shadcn/ui' },
 	{ name: 'Resend' },
 	{ name: 'PayStack' },
+	{ name: 'Prisma ORM' },
 	{ name: 'Vercel' },
 ]
 
-// Social Links
 export const socialLinks: SocialLinkData[] = [
 	{
 		href: 'https://github.com/farajabien',
@@ -83,25 +52,282 @@ export const socialLinks: SocialLinkData[] = [
 	},
 ]
 
-// Achievements
-export const achievements: Achievement[] = [
+export const services: ServiceType[] = [
 	{
-		title: 'Certified Digital Innovator',
-		description:
-			'Awarded to Bienvenu Faraja for successfully completing the Entrepreneur Academy Explore Course. Gained valuable knowledge in business modeling, customer research, and entrepreneurial experimentation. Explore Course Cohort 4, Certificate ID: jk683ezjjm.',
-		link: 'https://54collective.thinkific.com/certificates/jk683ezjjm',
+		title: 'Startup Validation Sprint',
+		price: '45,000 KSH',
+		description: 'Transform your idea into a validated market concept',
+		features: [
+			'Market Validation Report',
+			'Tech Stack Recommendations',
+			'Custom Landing Page',
+			'Analytics & Lead Capture Setup',
+			'A/B Testing Framework',
+		],
+		cta: 'Start Validation',
+		highlight: true,
+		href: '/services/startup-validation',
+		type: 'validation',
+		slug: 'startup-validation',
+		packages: [
+			{
+				name: 'Validation Package',
+				price: '45,000 KSH',
+				overview: '2-week sprint to validate your startup idea',
+				deliveryTime: '2 weeks',
+				deliverables: [
+					{ name: 'Market Research Report', type: 'pdf' },
+					{ name: 'Landing Page', type: 'code' },
+					{ name: 'Analytics Setup', type: 'code' },
+				],
+				details: [
+					{
+						subtitle: 'Week 1',
+						content:
+							'Strategy & Planning - market research, competitor analysis',
+					},
+					{
+						subtitle: 'Week 2',
+						content: 'Implementation - landing page, analytics, lead capture',
+					},
+				],
+				slug: 'startup-validation',
+				bestFor: [
+					'Early-stage startups',
+					'New product ideas',
+					'Market testing',
+				],
+			},
+		],
 	},
-	// Add more achievements as needed
+	{
+		title: 'MVP Development',
+		price: '250,000 KSH',
+		description: 'Launch your first working product in 4 weeks',
+		features: [
+			'Working MVP with core features',
+			'Technical Documentation',
+			'User Testing Setup',
+			'Deployment Guide',
+			'Weekly Updates',
+		],
+		cta: 'Build MVP',
+		highlight: true,
+		href: '/services/mvp-development',
+		type: 'mvp',
+		slug: 'mvp-development',
+		packages: [
+			{
+				name: 'MVP Development',
+				price: '250,000 KSH',
+				overview: 'Core features to validate your product',
+				deliveryTime: '4 weeks',
+				deliverables: [
+					{ name: 'Working Product', type: 'code' },
+					{ name: 'Documentation', type: 'pdf' },
+					{ name: 'Deployment Setup', type: 'consultation' },
+				],
+				details: [
+					{ subtitle: 'Week 1', content: 'Technical Architecture & Design' },
+					{
+						subtitle: 'Week 2-4',
+						content: 'Development Process with weekly updates',
+					},
+				],
+				slug: 'mvp-development',
+				bestFor: ['Validated ideas', 'First version launch', 'User testing'],
+				techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Paystack'],
+			},
+		],
+	},
+	{
+		title: 'SaaS Template',
+		price: '150,000 KSH',
+		description: 'Production-ready SaaS foundation with custom implementation',
+		features: [
+			'Full Source Code',
+			'Custom Modifications',
+			'Deployment Setup',
+			'Team Training',
+			'Documentation',
+		],
+		cta: 'Get Started',
+		highlight: false,
+		href: '/services/saas-template',
+		type: 'saas',
+		slug: 'saas-template',
+		packages: [
+			{
+				name: 'SaaS Implementation',
+				price: '150,000 KSH',
+				overview: 'Customized SaaS platform with local payment integration',
+				deliveryTime: '4 weeks',
+				deliverables: [
+					{ name: 'Source Code', type: 'code' },
+					{ name: 'Documentation', type: 'pdf' },
+					{ name: 'Training', type: 'consultation' },
+				],
+				details: [
+					{
+						subtitle: 'Setup',
+						content: 'Template customization and deployment',
+					},
+					{
+						subtitle: 'Training',
+						content: 'Team onboarding and platform management',
+					},
+				],
+				slug: 'saas-template',
+				bestFor: [
+					'Subscription businesses',
+					'Local payment needs',
+					'Team collaboration',
+				],
+				techStack: ['Next.js', 'Supabase', 'Paystack', 'Tailwind CSS'],
+				addOns: [
+					{
+						name: 'Custom Integration',
+						price: '45,000 KSH',
+						description: 'Integrate with your existing tools and services',
+					},
+					{
+						name: 'Extended Support',
+						price: '25,000 KSH/month',
+						description: 'Ongoing maintenance and support',
+					},
+				],
+			},
+		],
+	},
 ]
 
+export const resources = [
+	{
+		title: 'Next.js SaaS Starter',
+		description:
+			'Production-ready SaaS template with authentication, payments, and team management',
+		type: 'template',
+		slug: 'next-saas-starter',
+		href: '/resources/next-saas-starter',
+		features: [
+			'Next.js App Router',
+			'Supabase Auth & Database',
+			'Stripe Integration',
+			'Team Management',
+			'Email Notifications',
+			'Documentation',
+		],
+		price: 'Free',
+		demoUrl: 'https://saas-template.fbien.com',
+		githubUrl: 'https://github.com/farajabien/next-saas-starter',
+	},
+	{
+		title: 'Validation Framework',
+		description: 'Systematic approach to validate your startup idea',
+		type: 'framework',
+		slug: 'validation-framework',
+		href: '/resources/validation-framework',
+		features: [
+			'Problem Validation Guide',
+			'Solution Testing Framework',
+			'Market Analysis Template',
+			'Assumption Testing Tools',
+			'Pivot Strategy Guide',
+		],
+		price: 'Free',
+		notionUrl:
+			'https://warm-pantry-ee2.notion.site/Validate-Before-You-Build-c0ba51f38a8c4c78b6ba0650b44d0ca5',
+	},
+	{
+		title: 'MVP Playbook',
+		description: 'Guide to building and launching your MVP in 4 weeks',
+		type: 'guide',
+		slug: 'mvp-playbook',
+		href: '/resources/mvp-playbook',
+		features: [
+			'Feature Prioritization',
+			'Technical Planning',
+			'Development Timeline',
+			'Launch Checklist',
+			'Testing Framework',
+		],
+		price: 'Free',
+		notionUrl: '/resources/mvp-playbook',
+	},
+]
+
+export const valueProps = [
+	{
+		title: 'Market Validation First',
+		description:
+			'Test and validate your ideas before investing in full development.',
+		icon: Target,
+	},
+	{
+		title: 'Rapid MVP Development',
+		description:
+			'Get your product to market quickly with core features and real user feedback.',
+		icon: Rocket,
+	},
+	{
+		title: 'African Market Focus',
+		description:
+			'Built-in support for local payment systems and market requirements.',
+		icon: CreditCard,
+	},
+	{
+		title: 'Full-Stack Solutions',
+		description:
+			'End-to-end development from validation to deployment and maintenance.',
+		icon: Layout,
+	},
+]
+
+export const templateFeatures = [
+	{
+		category: 'Authentication & Users',
+		features: [
+			'Email & social login',
+			'Role-based access control',
+			'Team management',
+			'User profiles',
+		],
+	},
+	{
+		category: 'Payments & Billing',
+		features: [
+			'Paystack integration',
+			'Subscription management',
+			'Usage-based billing',
+			'Multi-currency support',
+		],
+	},
+	{
+		category: 'Developer Experience',
+		features: [
+			'TypeScript configuration',
+			'API documentation',
+			'Database migrations',
+			'Testing setup',
+		],
+	},
+	{
+		category: 'UI/UX',
+		features: [
+			'Responsive dashboard',
+			'Dark/light mode',
+			'Loading states',
+			'Toast notifications',
+		],
+	},
+]
+
+// Helper functions remain the same
 export function getPriceInKSH(priceString: string): number {
-	// Extract the numeric value from the price string
 	const match = priceString.match(/(\d{1,3}(,\d{3})*|\d+)(?=\s*KSH)/)
-	// Return the numeric value as a number, or null if not found
 	return match ? parseInt(match[0].replace(/,/g, ''), 10) : 0
 }
 
-// Get file extension based on type
 export const getFileExtension = (type: DeliverableType['type']): string => {
 	switch (type) {
 		case 'pdf':
@@ -119,18 +345,30 @@ export const getFileExtension = (type: DeliverableType['type']): string => {
 	}
 }
 
-export type AddOn = {
-	name: string
-	price: string
+// Type definitions
+export interface Project {
+	title: string
+	subtitle: string
 	description: string
-	availability?: string // Optional availability field
+	link?: string
+	technologies: string[]
+}
+
+export interface SocialLinkData {
+	href: string
+	icon: React.ComponentType<{ className?: string }>
+	label: string
+}
+
+export interface TechStackItem {
+	name: string
 }
 
 export type DeliverableType = {
 	name: string
 	type: 'pdf' | 'doc' | 'design' | 'code' | 'consultation' | 'multiple'
 	icon?: string
-	details?: string // Optional details field
+	details?: string
 }
 
 export type PackageDetailType = {
@@ -142,17 +380,17 @@ export type PackageType = {
 	name: string
 	description?: string
 	price: string
-	turnaround?: string // Optional for simplicity
-	isPopular?: boolean // Optional for simplicity
-	savings?: string // Optional savings field
-	bestFor?: string[] // Optional bestFor field
+	turnaround?: string
+	isPopular?: boolean
+	savings?: string
+	bestFor?: string[]
 	overview: string
 	deliverables: DeliverableType[]
 	deliveryTime: string
-	addOns?: AddOn[] // Optional addOns field
-	details: PackageDetailType[] // New field for package details
+	addOns?: AddOn[]
+	details: PackageDetailType[]
 	slug: string
-	techStack?: string[] // Optional techStack field
+	techStack?: string[]
 }
 
 export interface ServiceType {
@@ -163,194 +401,21 @@ export interface ServiceType {
 	price: string
 	packages: PackageType[]
 	features?: string[]
-	cta: string // Call to action text
-	highlight?: boolean // Optional highlight field
-	href: string // Add href field
+	cta: string
+	highlight?: boolean
+	href: string
 }
-export const templateFeatures = [
-	{
-		category: 'Authentication & Users',
-		features: [
-			'Email & social login authentication',
-			'Role-based access control',
-			'Team management',
-			'User profile management',
-		],
-	},
-	{
-		category: 'Subscription & Payments',
-		features: [
-			'Paystack integration',
-			'Multiple subscription plans',
-			'Usage-based billing',
-			'Payment history',
-			'Invoicing',
-			'Multi-currency support',
-		],
-	},
-	{
-		category: 'Developer Experience',
-		features: [
-			'TypeScript for type safety',
-			'API documentation',
-			'Database migrations',
-			'Environment management',
-			'Pre-configured testing setup',
-		],
-	},
-	{
-		category: 'UI/UX',
-		features: [
-			'Responsive dashboard',
-			'Dark/light mode support',
-			'Loading states',
-			'Error handling',
-			'Toast notifications',
-		],
-	},
-]
 
-// Using the services data for pricing
-export const services: ServiceType[] = [
-	{
-		title: 'Basic Template License',
-		price: '45,000 KSH',
-		description:
-			'Ideal for developers looking to quickly launch a SaaS platform',
-		features: [
-			'Full source code',
-			'Technical documentation',
-			'Video walkthrough',
-			'30 days email support',
-		],
-		cta: 'Get Started',
-		highlight: true,
-		href: 'https://github.com/farajabien/next-saas-starter',
-		type: 'basic',
-		slug: 'basic-template-license',
-		packages: [
-			{
-				name: 'Basic Package',
-				price: '45,000 KSH',
-				overview: 'Basic package overview',
-				deliverables: [
-					{ name: 'Source Code', type: 'code' },
-					{ name: 'Documentation', type: 'pdf' },
-				],
-				deliveryTime: '30 days',
-				details: [
-					{ subtitle: 'Source Code', content: 'Full source code' },
-					{ subtitle: 'Documentation', content: 'Technical documentation' },
-				],
-				slug: 'basic-package',
-			},
-		],
-	},
-	{
-		title: 'Template + Implementation',
-		price: '150,000 KSH',
-		description: 'Template with custom implementation and training',
-		features: [
-			'Everything in Basic License',
-			'Custom modifications',
-			'Deployment setup',
-			'Team training',
-		],
-		cta: 'Contact Us',
-		highlight: false,
-		href: 'https://wa.me/254793643308',
-		type: 'implementation',
-		slug: 'template-implementation',
-		packages: [
-			{
-				name: 'Implementation Package',
-				price: '150,000 KSH',
-				overview: 'Implementation package overview',
-				deliverables: [
-					{ name: 'Custom Modifications', type: 'code' },
-					{ name: 'Deployment Setup', type: 'consultation' },
-				],
-				deliveryTime: '60 days',
-				details: [
-					{ subtitle: 'Custom Modifications', content: 'Custom modifications' },
-					{ subtitle: 'Deployment Setup', content: 'Deployment setup' },
-				],
-				slug: 'implementation-package',
-			},
-		],
-	},
-	{
-		title: 'Custom Development',
-		price: '75,000 KSH',
-		description: 'Add custom features to your SaaS application',
-		features: [
-			'New functionality development',
-			'Third-party integrations',
-			'Performance optimization',
-			'Custom features',
-		],
-		cta: 'Learn More',
-		highlight: false,
-		href: 'https://wa.me/254793643308',
-		type: 'custom',
-		slug: 'custom-development',
-		packages: [
-			{
-				name: 'Custom Package',
-				price: '75,000 KSH',
-				overview: 'Custom package overview',
-				deliverables: [
-					{ name: 'New Functionality', type: 'code' },
-					{ name: 'Third-party Integrations', type: 'code' },
-				],
-				deliveryTime: '45 days',
-				details: [
-					{
-						subtitle: 'New Functionality',
-						content: 'New functionality development',
-					},
-					{
-						subtitle: 'Third-party Integrations',
-						content: 'Third-party integrations',
-					},
-				],
-				slug: 'custom-package',
-			},
-		],
-	},
-]
+export type AddOn = {
+	name: string
+	price: string
+	description: string
+	availability?: string
+}
 
-export const valueProps = [
-	{
-		title: 'Built for Developers',
-		description:
-			'Clean, maintainable code using modern technologies, ready to be customized for your SaaS needs.',
-		icon: Code,
-	},
-	{
-		title: 'Speed Up Development',
-		description:
-			'Start with a working SaaS platform and avoid the hassle of building from scratch.',
-		icon: Zap,
-	},
-	{
-		title: 'African Market Focus',
-		description:
-			'With Paystack integration and multi-currency support, our templates are designed for startups targeting the African market.',
-		icon: CreditCard,
-	},
-	{
-		title: 'Expert Support',
-		description:
-			'Ongoing support and customization services ensure your SaaS platform evolves as you grow.',
-		icon: Shield,
-	},
-]
-
-// Function to extract all packages
+// Export all packages function
 export const extractPackages = (services: ServiceType[]): PackageType[] => {
 	return services.flatMap((service) => service.packages)
 }
 
-// Export all packages
 export const allPackages = extractPackages(services)
