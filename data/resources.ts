@@ -20,30 +20,6 @@ export interface ResourceCategory {
 // data/resources.ts
 export const resources: ResourceCategory[] = [
 	{
-		category: 'Premium Templates',
-		items: [
-			{
-				id: 'saas-template',
-				title: 'SaaS Starter Template',
-				description:
-					'Production-ready template with Paystack integration for building subscription-based platforms.',
-				price: '45,000 KSH',
-				features: [
-					'Next.js 14 & TypeScript',
-					'Supabase Backend',
-					'Paystack Integration',
-					'Multi-Currency Support',
-					'Team Management',
-					'Usage-Based Billing',
-				],
-				tags: ['saas', 'template', 'paystack', 'subscription'],
-				previewUrl: 'https://demo.template.com',
-				detailsUrl: '/resources/saas-template',
-				isPremium: true,
-			},
-		],
-	},
-	{
 		category: 'Free Templates',
 		items: [
 			{

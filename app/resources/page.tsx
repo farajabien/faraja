@@ -36,28 +36,7 @@ interface Resource {
 }
 
 const resources = [
-	{
-		category: 'Premium Templates',
-		items: [
-			{
-				id: 'saas-template',
-				title: 'SaaS Starter Template',
-				description:
-					'Production-ready template with Paystack integration for building subscription-based platforms.',
-				price: '45,000 KSH',
-				features: [
-					'Next.js 14 & TypeScript',
-					'Supabase Backend',
-					'Paystack Integration',
-					'Multi-Currency Support',
-				],
-				tags: ['saas', 'template', 'paystack'],
-				previewUrl: 'https://saas-template.fbien.com',
-				detailsUrl: 'https://saas-template.fbien.com',
-				isPremium: true,
-			},
-		],
-	},
+
 	{
 		category: 'Free Templates',
 		items: [
