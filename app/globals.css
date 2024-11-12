@@ -67,3 +67,10 @@
 		@apply bg-background text-foreground;
 	}
 }
+
+.tiktok-embed-container {
+	width: 100%;
+	max-width: 605px;
+	margin: 0 auto;
+	min-height: 750px;
+}

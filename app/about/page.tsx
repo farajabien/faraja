@@ -119,7 +119,6 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* Services Section */}
 			<section className='py-16 bg-secondary/5'>
 				<div className='container mx-auto px-4'>
@@ -156,7 +155,6 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* Achievements Section */}
 			<section className='py-16'>
 				<div className='container mx-auto px-4'>
@@ -179,7 +177,6 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* Featured Project Section */}
 			<section className='py-16 bg-secondary/5'>
 				<div className='container mx-auto px-4'>
@@ -244,7 +241,6 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* Tech Stack Section */}
 			<section className='py-16'>
 				<div className='container mx-auto px-4'>
@@ -269,7 +265,6 @@ const AboutPage = () => {
 					</div>
 				</div>
 			</section>
-
 			{/* TikTok Content Section */}
 			<section className='py-16 bg-secondary/5'>
 				<div className='container mx-auto px-4'>
@@ -277,7 +272,7 @@ const AboutPage = () => {
 						Follow My Journey
 					</h2>
 					<div className='max-w-2xl mx-auto'>
-						<TikTokEmbed />
+						<TikTokEmbed username='saasbuilder' videoId='7435981420960435511' />
 					</div>
 				</div>
 			</section>
