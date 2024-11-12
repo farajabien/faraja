@@ -207,8 +207,8 @@ export const resources = [
 		description:
 			'Production-ready SaaS template with authentication, payments, and team management',
 		type: 'template',
-		slug: 'next-saas-starter',
-		href: '/resources/next-saas-starter',
+		slug: 'supabase-saas-starter',
+		href: '/resources/supabase-saas-starter',
 		features: [
 			'Next.js App Router',
 			'Supabase Auth & Database',
@@ -219,7 +219,7 @@ export const resources = [
 		],
 		price: 'Free',
 		demoUrl: 'https://saas-template.fbien.com',
-		githubUrl: 'https://github.com/farajabien/next-saas-starter',
+		githubUrl: 'https://github.com/farajabien/supabase-saas-starter',
 	},
 	{
 		title: 'Validation Framework',

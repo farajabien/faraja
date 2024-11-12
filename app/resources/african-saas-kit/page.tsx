@@ -115,7 +115,7 @@ const pricing = [
 			'Documentation',
 		],
 		cta: 'Clone Repository',
-		ctaLink: 'https://github.com/farajabien/next-saas-starter',
+		ctaLink: 'https://github.com/farajabien/supabase-saas-starter',
 		popular: false,
 	},
 	{
@@ -162,7 +162,7 @@ export default function SaaSTemplatePage() {
 								</Link>
 							</Button>
 							<Button size='lg' variant='outline' className='gap-2' asChild>
-								<Link href='https://github.com/farajabien/next-saas-starter'>
+								<Link href='https://github.com/farajabien/supabase-saas-starter'>
 									<Github className='h-5 w-5' />
 									View on GitHub
 								</Link>
