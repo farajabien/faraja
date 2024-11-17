@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -58,30 +59,10 @@ const resources = [
 				],
 				tags: ['next.js', 'typescript', 'supabase', 'stripe'],
 				previewUrl: 'https://saas-template.fbien.com',
-				downloadUrl: 'https://github.com/farajabien/next-saas-starter',
+				downloadUrl: 'https://github.com/farajabien/supabase-saas-starter',
 				isPremium: false,
-				detailsUrl: '/resources/next-saas-starter',
+				detailsUrl: '/resources/supabase-saas-starter',
 				icon: Code,
-			},
-			{
-				id: 'saas-premium-template',
-				title: 'African SaaS Kit',
-				description:
-					'Enhanced SaaS template with Paystack integration, multi-currency support, and MPESA payments.',
-				price: '$100 USD',
-				features: [
-					'Everything in Basic Template',
-					'Paystack integration',
-					'MPESA payment support',
-					'Multi-currency billing',
-					'Advanced documentation',
-					'Setup assistance',
-				],
-				tags: ['paystack', 'mpesa', 'multi-currency', 'premium'],
-				previewUrl: 'https://saas-template.fbien.com',
-				detailsUrl: '/resources/african-saas-kit',
-				isPremium: true,
-				icon: Globe,
 			},
 		],
 	},

@@ -7,6 +7,7 @@ import { Providers } from './providers'
 import Footer from '@/components/Footer'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Navigation from '@/components/Navigation'
+import NamecheapBanner from '@/components/NamecheapBanner'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -49,6 +50,7 @@ export default function RootLayout({
 					<ThemeToggle />
 					<NextTopLoader />
 					{children}
+					<NamecheapBanner />
 					<Footer />
 				</Providers>
 				{/* Google Analytics Script */}
