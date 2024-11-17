@@ -14,6 +14,7 @@ import {
 	ExternalLink,
 	Github,
 	MessageCircle,
+	Clock,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
@@ -114,25 +115,27 @@ const pricing = [
 			'Starter Components',
 			'Documentation',
 		],
-		cta: 'Clone Repository',
-		ctaLink: 'https://github.com/farajabien/supabase-saas-starter',
+		cta: 'Coming Soon',
+		ctaLink: '#',
 		popular: false,
+		disabled: true, // New property to handle disabled state
 	},
 	{
-		title: 'Premium Template',
-		price: '$100',
-		description: 'Everything you need for a production SaaS',
+		title: 'SaaSBuilder Kit',
+		price: '$97',
+		description: 'Launch your SaaS with everything included',
 		features: [
 			'All Basic Features',
-			'Paystack Integration',
-			'Team Management',
+			'Namecheap Hosting Setup',
+			'Vercel Deployment',
 			'Email Templates',
-			'API Documentation',
+			'Payment Integration',
 			'Premium Support',
 		],
-		cta: 'Purchase Now',
-		ctaLink: 'https://wa.me/254793643308',
+		cta: 'Coming Soon',
+		ctaLink: '#',
 		popular: true,
+		disabled: true, // New property to handle disabled state
 	},
 ]
 
@@ -291,11 +294,21 @@ export default function SaaSTemplatePage() {
 											</li>
 										))}
 									</ul>
-									<Button className='w-full' asChild>
-										<Link href={plan.ctaLink}>
-											{plan.cta}
-											<ArrowRight className='h-4 w-4 ml-2' />
-										</Link>
+									<Button
+										className='w-full'
+										disabled={plan.disabled}
+										asChild={!plan.disabled}>
+										{!plan.disabled ? (
+											<Link href={plan.ctaLink}>
+												{plan.cta}
+												<ArrowRight className='h-4 w-4 ml-2' />
+											</Link>
+										) : (
+											<span className='flex items-center justify-center'>
+												{plan.cta}
+												<Clock className='h-4 w-4 ml-2' />
+											</span>
+										)}
 									</Button>
 								</CardContent>
 							</Card>
